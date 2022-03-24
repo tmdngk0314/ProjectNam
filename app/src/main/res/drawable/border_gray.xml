@@ -6,14 +6,14 @@
         android:top="2dp"
         android:bottom="2dp">
         <shape android:shape="rectangle">
-            <stroke android:width="10dp"
-                android:color="#A134383E"/>
+            <stroke android:width="3dp"
+                android:color="#d8d8d8"/>
             <solid android:color="#ffffff"/>
             <corners
-                android:topLeftRadius="8dp"
-                android:topRightRadius="8dp"
-                android:bottomLeftRadius="8dp"
-                android:bottomRightRadius="8dp"/>
+                android:topLeftRadius="2dp"
+                android:topRightRadius="2dp"
+                android:bottomLeftRadius="2dp"
+                android:bottomRightRadius="2dp"/>
         </shape>
     </item>
 </layer-list>
