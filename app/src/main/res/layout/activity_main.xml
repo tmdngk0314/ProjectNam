@@ -16,7 +16,7 @@
             android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/left_arrow" />
+            android:background="@drawable/left_arrow"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
         android:layout_below="@+id/textpass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/ok" />
+        android:background="@drawable/ok"/>
 
 
 
