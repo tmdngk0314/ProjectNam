@@ -180,7 +180,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:background="@drawable/select_notice"/>
+                android:background="@drawable/select_notice" />
 
             <LinearLayout
                 android:id="@+id/noticeLinear"
