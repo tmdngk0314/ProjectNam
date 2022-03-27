@@ -129,7 +129,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:background="@drawable/select_emp"/>
+                android:background="@drawable/select_emp" />
 
 
             <LinearLayout
@@ -161,7 +161,7 @@
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/searchLinear"
-                android:background="@drawable/select_right_arrow"/>
+                android:background="@drawable/select_right_arrow" />
 
         </RelativeLayout>
 

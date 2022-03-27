@@ -67,10 +67,11 @@
             </LinearLayout>
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="50dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/storeLinear" />
+                android:layout_toRightOf="@+id/storeLinear"
+                android:background="@drawable/select_right_arrow"/>
 
         </RelativeLayout>
 
@@ -116,10 +117,11 @@
             </LinearLayout>
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="50dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/searchLinear" />
+                android:layout_toRightOf="@+id/searchLinear"
+                android:background="@drawable/select_right_arrow"/>
 
         </RelativeLayout>
 
@@ -137,7 +139,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/select_notice"/>
 
             <LinearLayout
                 android:id="@+id/noticeLinear"
@@ -164,10 +167,11 @@
             </LinearLayout>
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="50dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/noticeLinear" />
+                android:layout_toRightOf="@+id/noticeLinear"
+                android:background="@drawable/select_right_arrow"/>
 
         </RelativeLayout>
 
