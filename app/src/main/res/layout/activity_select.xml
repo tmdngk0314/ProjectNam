@@ -81,14 +81,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="보관하기"
+                    android:text="예약하기"
                     android:textColor="#000000"
                     android:textSize="20dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="사물함에 물품을 보관합니다."
+                    android:text="원하는 사물함을 예약합니다."
                     android:textColor="#000000"
                     android:textSize="10dp" />
             </LinearLayout>
@@ -131,14 +131,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="찾기"
+                    android:text="OTP 확인하기"
                     android:textColor="#000000"
                     android:textSize="20dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="보관한 물품을 찾습니다."
+                    android:text="사물함 이용을 위한 OTP를 확인합니다."
                     android:textColor="#000000"
                     android:textSize="10dp" />
             </LinearLayout>
