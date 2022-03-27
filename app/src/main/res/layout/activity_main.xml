@@ -130,7 +130,8 @@
         android:layout_below="@+id/textpass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/ok"/>
+        android:background="@drawable/ok"
+        android:id="@+id/btnOk"/>
 
 
 
