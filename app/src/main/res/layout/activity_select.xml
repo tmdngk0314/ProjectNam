@@ -125,7 +125,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:background="@drawable/select_otp"/>
+                android:background="@drawable/select_otp" />
 
             <LinearLayout
                 android:id="@+id/searchLinear"
@@ -156,7 +156,7 @@
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/searchLinear"
-                android:background="@drawable/right_arrow"/>
+                android:background="@drawable/right_arrow" />
 
         </RelativeLayout>
 
@@ -175,7 +175,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:background="@drawable/select_notice"/>
+                android:background="@drawable/select_notice" />
 
             <LinearLayout
                 android:id="@+id/noticeLinear"
@@ -206,7 +206,7 @@
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/noticeLinear"
-                android:background="@drawable/right_arrow"/>
+                android:background="@drawable/right_arrow" />
 
         </RelativeLayout>
 
