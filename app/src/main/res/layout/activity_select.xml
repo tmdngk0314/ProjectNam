@@ -29,10 +29,12 @@
                 android:background="@drawable/select_intro_name">
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/imagebtn1"/>
+                    android:id="@+id/imagebtn1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/select_logout"/>
 
             </RelativeLayout>
 
@@ -67,7 +69,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:background="@drawable/select_store"/>
+                android:background="@drawable/select_reser" />
 
             <LinearLayout
                 android:id="@+id/storeLinear"
@@ -117,7 +119,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:background="@drawable/select_emp"/>
+                android:background="@drawable/select_otp"/>
 
             <LinearLayout
                 android:id="@+id/searchLinear"
