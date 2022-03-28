@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/font/font.xml" value="0.1859375" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_reservation.xml" value="0.15572916666666667" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_select.xml" value="0.264" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/activity_select.xml" value="0.142" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/border_black.xml" value="0.117" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/border_gray.xml" value="0.117" />
@@ -10,9 +14,7 @@
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/creative_account.xml" value="0.117" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_management.xml" value="0.11277173913043478" />
-        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_reserve.xml" value="0.1" />
-        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_select.xml" value="0.264" />
-        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_select_second.xml" value="0.1" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_select.xml" value="0.175" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/sign_up.xml" value="0.17753623188405798" />
       </map>
     </option>
