@@ -68,8 +68,8 @@
     <RelativeLayout
         android:layout_width="340dp"
         android:layout_height="240dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/firstRela"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="@drawable/border_gray">
 
@@ -98,6 +98,51 @@
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@+id/noticeBtn" />
 
+        <TextView
+            android:id="@+id/textloc1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chooselockertext"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:text="첫번째 사물함"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textloc2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chooselockertext"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/textloc1"
+            android:text="1시간 56분"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textloc3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textloc1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="두번째 사물함"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textloc4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textloc2"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/textloc3"
+            android:text="3시간 30분"
+            android:textColor="#000000"
+            android:textSize="20dp" />
 
     </RelativeLayout>
 
