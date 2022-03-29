@@ -28,6 +28,9 @@
         <activity
             android:name=".Reserve"
             android:exported="false" />
+        <activity
+            android:name=".NoticeInformationActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

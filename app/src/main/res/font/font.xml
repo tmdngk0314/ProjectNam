@@ -9,5 +9,11 @@
         <font android:fontStyle="normal"
             android:fontWeight="400"
             android:font="@font/gmarkme"/>
+        <font android:fontStyle="normal"
+            android:fontWeight="400"
+            android:font="@font/nanumsquareb"/>
+        <font android:fontStyle="normal"
+            android:fontWeight="400"
+            android:font="@font/nanumsquarel"/>
 </font-family>
 
