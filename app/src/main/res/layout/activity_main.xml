@@ -16,15 +16,16 @@
             android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/left_arrow"/>
+            android:background="@drawable/left_arrow" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="로그인"
+            android:textColor="#000000"
             android:textSize="15dp"
-            android:textColor="#000000"/>
+            android:fontFamily="@font/nanumsquareb"/>
     </RelativeLayout>
 
     <TextView
@@ -125,13 +126,13 @@
         android:textSize="12dp" />
 
     <ImageButton
+        android:id="@+id/btnOk"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:layout_below="@+id/textpass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/ok"
-        android:id="@+id/btnOk"/>
+        android:background="@drawable/ok" />
 
 
 

@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/font/font.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_notice.xml" value="0.2938871473354232" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_notice_information.xml" value="0.4" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_reservation.xml" value="0.16" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_reserve.xml" value="0.4" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_select.xml" value="0.536" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/sign_up.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/activity_select.xml" value="0.142" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/border_black.xml" value="0.117" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/border_gray.xml" value="0.117" />
