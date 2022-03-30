@@ -24,8 +24,8 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nanumsquareb"
             android:text="사물함 대여"
-            android:textSize="15dp"
-            android:textColor="#050505"/>
+            android:textColor="#050505"
+            android:textSize="15dp" />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="200dp"
