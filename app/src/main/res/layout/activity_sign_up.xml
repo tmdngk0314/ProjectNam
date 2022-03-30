@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivitySignUp"
-    android:background="#efefef">
+    android:background="#efefef"
+    tools:context=".ActivitySignUp">
+
     <RelativeLayout
         android:id="@+id/firstRela"
         android:layout_width="match_parent"
@@ -41,215 +42,231 @@
         android:textColor="#000000"
         android:textSize="14dp" />
 
-    <RelativeLayout
-        android:id="@+id/ReName"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+    <ScrollView
+        android:id="@+id/scroll1"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
         android:layout_below="@+id/text1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/border_gray">
+        android:layout_centerHorizontal="true">
 
-        <EditText
-            android:id="@+id/edt_name"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="1dp"
-            android:background="@android:color/transparent"
-            android:backgroundTint="#FF0000"
-            android:hint="이름"
-            android:textColor="#000000"
-            android:textColorHint="#999999"
-            android:textSize="16dp" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_warning_name"
-        android:layout_width="220dp"
-        android:layout_height="25dp"
-        android:layout_below="@id/ReName"
-        android:layout_alignStart="@id/ReName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:text="이름은 2~16글자의 영문/한글로 입력하세요."
-        android:textColor="#FF0000"
-        android:textSize="10dp"
-        android:visibility="invisible" />
+            <RelativeLayout
+                android:id="@+id/ReName"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_gray">
 
-    <RelativeLayout
-        android:id="@+id/ReEmail"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/ReName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/border_gray">
+                <EditText
+                    android:id="@+id/edt_name"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="#FF0000"
+                    android:hint="이름"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textSize="16dp" />
+            </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/emailImage"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/globalization" />
+            <TextView
+                android:id="@+id/tv_warning_name"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/ReName"
+                android:layout_alignStart="@id/ReName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="이름은 2~16글자의 영문/한글로 입력하세요."
+                android:textColor="#FF0000"
+                android:textSize="10dp"
+                android:visibility="invisible" />
 
-        <EditText
-            android:id="@+id/edt_email"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="1dp"
-            android:layout_toRightOf="@+id/emailImage"
-            android:background="@android:color/transparent"
-            android:hint="이메일"
-            android:textColor="#000000"
-            android:textColorHint="#999999"
-            android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ReEmail"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/ReName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_gray">
 
-    <TextView
-        android:id="@+id/tv_warning_email"
-        android:layout_width="220dp"
-        android:layout_height="25dp"
-        android:layout_below="@id/ReEmail"
-        android:layout_alignStart="@id/ReName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:text="올바르지 않은 이메일입니다."
-        android:textColor="#FF0000"
-        android:textSize="10dp"
-        android:visibility="invisible" />
+                <ImageView
+                    android:id="@+id/emailImage"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/globalization" />
 
-    <RelativeLayout
-        android:id="@+id/ReID"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/ReEmail"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/border_gray">
+                <EditText
+                    android:id="@+id/edt_email"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_toRightOf="@+id/emailImage"
+                    android:background="@android:color/transparent"
+                    android:hint="이메일"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
+            </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/IDImage"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/user" />
+            <TextView
+                android:id="@+id/tv_warning_email"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/ReEmail"
+                android:layout_alignStart="@id/ReName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="올바르지 않은 이메일입니다."
+                android:textColor="#FF0000"
+                android:textSize="10dp"
+                android:visibility="invisible" />
 
-        <EditText
-            android:id="@+id/edt_id"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="1dp"
-            android:layout_toRightOf="@+id/IDImage"
-            android:background="@android:color/transparent"
-            android:hint="아이디"
-            android:textColor="#000000"
-            android:textColorHint="#999999"
-            android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ReID"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/ReEmail"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_gray">
 
-    <TextView
-        android:id="@+id/tv_warning_id"
-        android:layout_width="220dp"
-        android:layout_height="25dp"
-        android:layout_below="@id/ReID"
-        android:layout_alignStart="@id/ReName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:text="아이디는 8~16자의 영문/숫자 조합으로 입력하세요."
-        android:textColor="#FF0000"
-        android:textSize="10dp"
-        android:visibility="invisible" />
-    <RelativeLayout
-        android:id="@+id/RePass"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/ReID"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/border_gray">
+                <ImageView
+                    android:id="@+id/IDImage"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/user" />
 
-        <ImageView
-            android:id="@+id/passwordImage"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/password" />
+                <EditText
+                    android:id="@+id/edt_id"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_toRightOf="@+id/IDImage"
+                    android:background="@android:color/transparent"
+                    android:hint="아이디"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
+            </RelativeLayout>
 
-        <EditText
-            android:id="@+id/edt_pw"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="1dp"
-            android:layout_toRightOf="@+id/passwordImage"
-            android:background="@android:color/transparent"
-            android:hint="비밀번호"
-            android:textColor="#000000"
-            android:textColorHint="#999999"
-            android:textSize="16dp"
-            android:inputType="textPassword"/>  <!--edittext 밑줄제거 background-->
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_warning_id"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/ReID"
+                android:layout_alignStart="@id/ReName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="아이디는 8~16자의 영문/숫자 조합으로 입력하세요."
+                android:textColor="#FF0000"
+                android:textSize="10dp"
+                android:visibility="invisible" />
 
-    <TextView
-        android:id="@+id/tv_warning_pw"
-        android:layout_width="220dp"
-        android:layout_height="25dp"
-        android:layout_below="@id/RePass"
-        android:layout_alignStart="@id/ReName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:text="비밀번호는 8~16자의 영문/숫자/특수문자(!@#$%^*,./?) 조합으로 입력하세요."
-        android:textColor="#FF0000"
-        android:textSize="10dp"
-        android:visibility="invisible" />
-    <RelativeLayout
-        android:id="@+id/RePassCheck"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/RePass"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/border_gray">
+            <RelativeLayout
+                android:id="@+id/RePass"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/ReID"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_gray">
 
-        <EditText
-            android:id="@+id/edt_pwchk"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="1dp"
-            android:background="@android:color/transparent"
-            android:hint="비밀번호 확인"
-            android:textColor="#000000"
-            android:textColorHint="#999999"
-            android:textSize="16dp"
-            android:inputType="textPassword"/>
-    </RelativeLayout>
+                <ImageView
+                    android:id="@+id/passwordImage"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/password" />
 
-    <TextView
-        android:id="@+id/tv_warning_pwchk"
-        android:layout_width="220dp"
-        android:layout_height="25dp"
-        android:layout_below="@id/RePassCheck"
-        android:layout_alignStart="@id/ReName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:text="비밀번호가 일치하지 않습니다."
-        android:textColor="#FF0000"
-        android:textSize="10dp"
-        android:visibility="invisible" />
+                <EditText
+                    android:id="@+id/edt_pw"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_toRightOf="@+id/passwordImage"
+                    android:background="@android:color/transparent"
+                    android:hint="비밀번호"
+                    android:inputType="textPassword"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_warning_pw"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/RePass"
+                android:layout_alignStart="@id/ReName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="비밀번호는 8~16자의 영문/숫자/특수문자(!@#$%^*,./?) 조합으로 입력하세요."
+                android:textColor="#FF0000"
+                android:textSize="10dp"
+                android:visibility="invisible" />
+
+            <RelativeLayout
+                android:id="@+id/RePassCheck"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/RePass"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/border_gray">
+
+                <EditText
+                    android:id="@+id/edt_pwchk"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@android:color/transparent"
+                    android:hint="비밀번호 확인"
+                    android:inputType="textPassword"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_warning_pwchk"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/RePassCheck"
+                android:layout_alignStart="@id/ReName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:text="비밀번호가 일치하지 않습니다."
+                android:textColor="#FF0000"
+                android:textSize="10dp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </ScrollView>
+
+
+
     <ImageButton
         android:id="@+id/btnMakeID"
         android:layout_width="280dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/RePassCheck"
+        android:layout_below="@+id/scroll1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/make_id" />
 
 
