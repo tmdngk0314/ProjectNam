@@ -54,7 +54,7 @@
             android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/globalization" />
+            android:background="@drawable/user" />
 
         <EditText
             android:layout_width="220dp"
@@ -115,7 +115,7 @@
         android:textColor="#000000"
         android:textSize="12dp" />
 
-    <Button
+    <TextView
         android:id="@+id/new_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -125,8 +125,7 @@
         android:layout_toRightOf="@+id/textpass"
         android:text="회원가입하기"
         android:textColor="#000000"
-        android:textSize="12dp"
-        />
+        android:textSize="12dp" />
 
     <ImageButton
         android:id="@+id/btnOk"
