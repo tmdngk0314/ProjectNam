@@ -51,14 +51,31 @@
         android:background="@drawable/border_gray">
 
         <EditText
+            android:id="@+id/edt_name"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="1dp"
             android:background="@android:color/transparent"
+            android:backgroundTint="#FF0000"
             android:hint="이름"
+            android:textColor="#000000"
+            android:textColorHint="#999999"
             android:textSize="16dp" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_warning_name"
+        android:layout_width="220dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/ReName"
+        android:layout_alignStart="@id/ReName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="이름은 2~16글자의 영문/한글로 입력하세요."
+        android:textColor="#FF0000"
+        android:textSize="10dp"
+        android:visibility="invisible" />
 
     <RelativeLayout
         android:id="@+id/ReEmail"
@@ -78,6 +95,7 @@
             android:background="@drawable/globalization" />
 
         <EditText
+            android:id="@+id/edt_email"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -85,8 +103,23 @@
             android:layout_toRightOf="@+id/emailImage"
             android:background="@android:color/transparent"
             android:hint="이메일"
+            android:textColor="#000000"
+            android:textColorHint="#999999"
             android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_warning_email"
+        android:layout_width="220dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/ReEmail"
+        android:layout_alignStart="@id/ReName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="올바르지 않은 이메일입니다."
+        android:textColor="#FF0000"
+        android:textSize="10dp"
+        android:visibility="invisible" />
 
     <RelativeLayout
         android:id="@+id/ReID"
@@ -106,6 +139,7 @@
             android:background="@drawable/user" />
 
         <EditText
+            android:id="@+id/edt_id"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -113,6 +147,8 @@
             android:layout_toRightOf="@+id/IDImage"
             android:background="@android:color/transparent"
             android:hint="아이디"
+            android:textColor="#000000"
+            android:textColorHint="#999999"
             android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
 
@@ -134,6 +170,7 @@
             android:background="@drawable/password" />
 
         <EditText
+            android:id="@+id/edt_pw"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -141,6 +178,8 @@
             android:layout_toRightOf="@+id/passwordImage"
             android:background="@android:color/transparent"
             android:hint="비밀번호"
+            android:textColor="#000000"
+            android:textColorHint="#999999"
             android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
 
@@ -154,22 +193,26 @@
         android:background="@drawable/border_gray">
 
         <EditText
+            android:id="@+id/edt_pwchk"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="1dp"
             android:background="@android:color/transparent"
             android:hint="비밀번호 확인"
+            android:textColor="#000000"
+            android:textColorHint="#999999"
             android:textSize="16dp" />
     </RelativeLayout>
+
     <ImageButton
-        android:id="@+id/btnOk"
+        android:id="@+id/btnMakeID"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:layout_below="@+id/RePassCheck"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/make_id"/>
+        android:background="@drawable/make_id" />
 
 
 </RelativeLayout>
