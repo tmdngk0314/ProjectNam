@@ -54,7 +54,7 @@
             android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/globalization" />
+            android:background="@drawable/user" />
 
         <EditText
             android:layout_width="220dp"
