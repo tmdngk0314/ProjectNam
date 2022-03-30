@@ -152,6 +152,18 @@
             android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/tv_warning_id"
+        android:layout_width="220dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/ReID"
+        android:layout_alignStart="@id/ReName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="아이디는 8~16자의 영문/숫자 조합으로 입력하세요."
+        android:textColor="#FF0000"
+        android:textSize="10dp"
+        android:visibility="invisible" />
     <RelativeLayout
         android:id="@+id/RePass"
         android:layout_width="280dp"
@@ -183,6 +195,18 @@
             android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/tv_warning_pw"
+        android:layout_width="220dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/RePass"
+        android:layout_alignStart="@id/ReName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="비밀번호는 8~16자의 영문/숫자/특수문자 조합으로 입력하세요."
+        android:textColor="#FF0000"
+        android:textSize="10dp"
+        android:visibility="invisible" />
     <RelativeLayout
         android:id="@+id/RePassCheck"
         android:layout_width="280dp"
@@ -205,6 +229,18 @@
             android:textSize="16dp" />
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/tv_warning_pwchk"
+        android:layout_width="220dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/RePassCheck"
+        android:layout_alignStart="@id/ReName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="비밀번호가 일치하지 않습니다."
+        android:textColor="#FF0000"
+        android:textSize="10dp"
+        android:visibility="invisible" />
     <ImageButton
         android:id="@+id/btnMakeID"
         android:layout_width="280dp"
