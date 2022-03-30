@@ -86,6 +86,31 @@ public class ActivitySignUp extends AppCompatActivity {
         return false;
     }
 
+    boolean isAvailable_id(String str){
+        if(str.length()>16 || str.length()<8){
+            return false;
+        }
+        if(str!=null  && str.matches("[a-z|A-Z|0-9]*")) {
+            if(str.matches(".*[a-z|A-Z].*"))
+                if(str.matches(".*[0-9].*"))
+                    return true;
+        }
+        return false;
+    }
+    boolean isAvailable_pw(String str){
+        if(str.length()>16 || str.length()<8){
+            return false;
+        }
+        if(str!=null  && str.matches("[a-z|A-Z|0-9|!|@|#|$|%|^|*|,|.|/|?]*")) {
+            if(str.matches(".*[0-9].*")) {
+                if (str.matches(".*[!|@|#|$|%|^|*|,|.|/|?].*"))
+                    if(str.matches(".*[a-z|A-Z].*"))
+                        return true;
+            }
+        }
+        return false;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +179,7 @@ public class ActivitySignUp extends AppCompatActivity {
             }
         });
 
+        // email EditText 텍스트 변경 시
         edt_email.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -189,6 +215,131 @@ public class ActivitySignUp extends AppCompatActivity {
                         make_id.setEnabled(true);
                 }
 
+            }
+        });
+
+        edt_id.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String txt = editable.toString();
+                int length = txt.length();
+                if(length==0){
+                    ReID.setBackgroundResource(R.drawable.border_gray);
+                    available_id=false;
+                    tv_warning_id.setVisibility(View.INVISIBLE);
+                    make_id.setEnabled(false);
+                }
+                else if(!isAvailable_id(txt)){
+                    ReID.setBackgroundResource(R.drawable.border_red);
+                    available_id=false;
+                    tv_warning_id.setVisibility(View.VISIBLE);
+                    make_id.setEnabled(false);
+                }
+                else{
+                    available_id=true;
+                    tv_warning_id.setVisibility(View.INVISIBLE);
+                    ReID.setBackgroundResource(R.drawable.border_gray);
+                    if(isAllAvailable()==true)
+                        make_id.setEnabled(true);
+                }
+            }
+        });
+
+        edt_pw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String txt = editable.toString();
+                int length = txt.length();
+                String pwchk=edt_pwchk.getText().toString();
+                if(pwchk.length()>0 ){ // 비밀번호가 수정되었을 때 비밀번호 확인과 일치하는지 확인 필요
+                    if(pwchk.compareTo(txt)!=0) {
+                        RePassCheck.setBackgroundResource(R.drawable.border_red);
+                        available_pwchk = false;
+                        tv_warning_pwchk.setVisibility(View.VISIBLE);
+                        make_id.setEnabled(false);
+                    }
+                    else{
+                        available_pwchk=true;
+                        tv_warning_pwchk.setVisibility(View.INVISIBLE);
+                        RePassCheck.setBackgroundResource(R.drawable.border_gray);
+                    }
+                }
+                if(length==0){
+                    RePass.setBackgroundResource(R.drawable.border_gray);
+                    available_pw=false;
+                    tv_warning_pw.setVisibility(View.INVISIBLE);
+                    make_id.setEnabled(false);
+                }
+                else if(!isAvailable_pw(txt)){
+                    RePass.setBackgroundResource(R.drawable.border_red);
+                    available_pw=false;
+                    tv_warning_pw.setVisibility(View.VISIBLE);
+                    make_id.setEnabled(false);
+                }
+                else{
+                    available_pw=true;
+                    tv_warning_pw.setVisibility(View.INVISIBLE);
+                    RePass.setBackgroundResource(R.drawable.border_gray);
+                    if(isAllAvailable()==true)
+                        make_id.setEnabled(true);
+                }
+            }
+        });
+
+        edt_pwchk.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String txt = editable.toString();
+                int length = txt.length();
+                if(length==0){
+                    RePassCheck.setBackgroundResource(R.drawable.border_gray);
+                    available_pwchk=false;
+                    tv_warning_pwchk.setVisibility(View.INVISIBLE);
+                    make_id.setEnabled(false);
+                }
+                else if(txt.compareTo(edt_pw.getText().toString())!=0){
+                    RePassCheck.setBackgroundResource(R.drawable.border_red);
+                    available_pwchk=false;
+                    tv_warning_pwchk.setVisibility(View.VISIBLE);
+                    make_id.setEnabled(false);
+                }
+                else{
+                    available_pwchk=true;
+                    tv_warning_pwchk.setVisibility(View.INVISIBLE);
+                    RePassCheck.setBackgroundResource(R.drawable.border_gray);
+                    if(isAllAvailable()==true)
+                        make_id.setEnabled(true);
+                }
             }
         });
 

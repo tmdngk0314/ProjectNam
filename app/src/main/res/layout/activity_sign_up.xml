@@ -192,7 +192,8 @@
             android:hint="비밀번호"
             android:textColor="#000000"
             android:textColorHint="#999999"
-            android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
+            android:textSize="16dp"
+            android:inputType="textPassword"/>  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
 
     <TextView
@@ -203,7 +204,7 @@
         android:layout_alignStart="@id/ReName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:text="비밀번호는 8~16자의 영문/숫자/특수문자 조합으로 입력하세요."
+        android:text="비밀번호는 8~16자의 영문/숫자/특수문자(!@#$%^*,./?) 조합으로 입력하세요."
         android:textColor="#FF0000"
         android:textSize="10dp"
         android:visibility="invisible" />
@@ -213,7 +214,7 @@
         android:layout_height="50dp"
         android:layout_below="@+id/RePass"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/border_gray">
 
         <EditText
@@ -226,7 +227,8 @@
             android:hint="비밀번호 확인"
             android:textColor="#000000"
             android:textColorHint="#999999"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:inputType="textPassword"/>
     </RelativeLayout>
 
     <TextView
