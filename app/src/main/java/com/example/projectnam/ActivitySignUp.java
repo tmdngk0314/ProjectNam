@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.io.Reader;
@@ -342,6 +345,24 @@ public class ActivitySignUp extends AppCompatActivity {
                 }
             }
         });
+
+        make_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int result; // result가 0이면 회원가입 성공, -1이면 회원가입 실패
+                result = CallRestApi.newAccount(edt_name.getText().toString(), edt_email.getText().toString(),
+                        edt_id.getText().toString(), edt_pw.getText().toString());
+                if(result==0) {
+                    Log.i("회원가입", "회원가입 성공");
+                    finish();
+                }
+                else{
+                    Log.i("회원가입", "회원가입 실패");
+                }
+
+            }
+        });
+
 
 
     }
