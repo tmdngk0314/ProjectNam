@@ -32,6 +32,9 @@ public class ActivitySignUp extends AppCompatActivity {
 
     private TextView tv_warning_name;
     private TextView tv_warning_email;
+    private TextView tv_warning_id;
+    private TextView tv_warning_pw;
+    private TextView tv_warning_pwchk;
 
     private boolean available_name=false;
     private boolean available_email=false;
@@ -104,6 +107,9 @@ public class ActivitySignUp extends AppCompatActivity {
 
         tv_warning_name=(TextView)findViewById(R.id.tv_warning_name);
         tv_warning_email=(TextView)findViewById(R.id.tv_warning_email);
+        tv_warning_id=(TextView)findViewById(R.id.tv_warning_id);
+        tv_warning_pw=(TextView)findViewById(R.id.tv_warning_pw);
+        tv_warning_pwchk=(TextView)findViewById(R.id.tv_warning_pwchk);
 
         make_id.setEnabled(false);
 
