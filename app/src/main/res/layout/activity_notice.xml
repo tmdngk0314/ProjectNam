@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#efefef">
+    android:background="#efefef"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/firstRela"
@@ -24,173 +24,407 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/nanumsquareb"
-            android:text="사물함 대여"
+            android:text="공지사항"
             android:textColor="#050505"
             android:textSize="15dp" />
     </RelativeLayout>
-    <RelativeLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
+        android:layout_height="600dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/notice_line2"
+        android:scrollbarThumbVertical="@color/black">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="50dp">
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <RelativeLayout
-                android:id="@+id/relative1"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_gray">
-
-
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative1">
                 <ImageView
-                    android:id="@+id/notice_next1"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
+                    android:id="@+id/notice1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@drawable/right_arrow" />
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/noticetext1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toLeftOf="@+id/notice_next1"
-                    android:fontFamily="@font/gmarkme"
-                    android:text="OTP 사용법"
+                    android:layout_toLeftOf="@id/right_arrow1"
+                    android:layout_toRightOf="@+id/notice1"
+                    android:text="Hello"
                     android:textColor="@color/black"
-                    android:textSize="23dp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/relative2"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/relative1"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_gray">
-
+                    android:textSize="20dp" />
                 <ImageView
-                    android:id="@+id/notice_next2"
+                    android:id="@+id/right_arrow1"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative2">
+                <ImageView
+                    android:id="@+id/notice2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@drawable/right_arrow" />
-
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/noticetext2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toLeftOf="@+id/notice_next2"
-                    android:fontFamily="@font/gmarkme"
-                    android:text="2022.4.1~4.3일 휴무"
+                    android:text="Hello"
                     android:textColor="@color/black"
-                    android:textSize="23dp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/relative3"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/relative2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_gray">
-
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice2"
+                    android:layout_toLeftOf="@id/right_arrow2"/>
                 <ImageView
-                    android:id="@+id/notice_next3"
+                    android:id="@+id/right_arrow2"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/right_arrow" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toLeftOf="@+id/notice_next3"
-                    android:fontFamily="@font/gmarkme"
-                    android:text="OTP 사용법"
-                    android:textSize="23dp" />
+                    android:layout_marginRight="20dp"/>
             </RelativeLayout>
-
             <RelativeLayout
-                android:id="@+id/relative4"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/relative3"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_gray">
-
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative3">
                 <ImageView
-                    android:id="@+id/notice_next4"
+                    android:id="@+id/notice3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/noticetext3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice3"
+                    android:layout_toLeftOf="@id/right_arrow3"/>
+                <ImageView
+                    android:id="@+id/right_arrow3"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/right_arrow" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toLeftOf="@+id/notice_next4"
-                    android:fontFamily="@font/gmarkme"
-                    android:text="OTP 사용법"
-                    android:textSize="23dp" />
+                    android:layout_marginRight="20dp"/>
             </RelativeLayout>
-
             <RelativeLayout
-                android:id="@+id/relative5"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/relative4"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_gray">
-
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative4">
                 <ImageView
-                    android:id="@+id/notice_next5"
+                    android:id="@+id/notice4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/noticetext4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice4"
+                    android:layout_toLeftOf="@id/right_arrow4"/>
+                <ImageView
+                    android:id="@+id/right_arrow4"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative5">
+                <ImageView
+                    android:id="@+id/notice5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@drawable/right_arrow" />
-
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/noticetext5"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toLeftOf="@+id/notice_next5"
-                    android:fontFamily="@font/gmarkme"
-                    android:text="OTP 사용법"
-                    android:textSize="23dp" />
+                    android:layout_toRightOf="@+id/notice5"
+                    android:layout_toLeftOf="@id/right_arrow5"/>
+                <ImageView
+                    android:id="@+id/right_arrow5"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative6">
+                <ImageView
+                    android:id="@+id/notice6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/noticetext6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice6"
+                    android:layout_toLeftOf="@id/right_arrow6"/>
+                <ImageView
+                    android:id="@+id/right_arrow6"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative7">
+                <ImageView
+                    android:id="@+id/notice7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/noticetext7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice7"
+                    android:layout_toLeftOf="@id/right_arrow7"/>
+                <ImageView
+                    android:id="@+id/right_arrow7"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative8">
+                <ImageView
+                    android:id="@+id/notice8"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/noticetext8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice8"
+                    android:layout_toLeftOf="@id/right_arrow8"/>
+                <ImageView
+                    android:id="@+id/right_arrow8"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative9">
+                <ImageView
+                    android:id="@+id/notice9"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/noticetext9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice9"
+                    android:layout_toLeftOf="@id/right_arrow9"/>
+                <ImageView
+                    android:id="@+id/right_arrow9"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative10">
+                <ImageView
+                    android:id="@+id/notice10"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/noticetext10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice10"
+                    android:layout_toLeftOf="@id/right_arrow10"/>
+                <ImageView
+                    android:id="@+id/right_arrow10"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative11">
+                <ImageView
+                    android:id="@+id/notice11"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/select_notice"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/noticetext11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice11"
+                    android:layout_toLeftOf="@id/right_arrow11"/>
+                <ImageView
+                    android:id="@+id/right_arrow11"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notice_line"
+                android:id="@+id/notice_relative12">
+                <ImageView
+                android:id="@+id/notice12"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/select_notice"
+                android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/noticetext12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/notice12"
+                    android:layout_toLeftOf="@id/right_arrow12"/>
+                <ImageView
+                    android:id="@+id/right_arrow12"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_arrow"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"/>
             </RelativeLayout>
 
-        </RelativeLayout>
-    </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
