@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/JW K/AndroidStudioProjects/Projectnam/ProjectNam/app/src/main/res/drawable/border_black.xml" value="0.1365" />
+        <entry key="..\:/Users/JW K/AndroidStudioProjects/Projectnam/ProjectNam/app/src/main/res/drawable/border_gray.xml" value="0.1" />
+        <entry key="..\:/Users/JW K/AndroidStudioProjects/Projectnam/ProjectNam/app/src/main/res/drawable/border_red.xml" value="0.1" />
+        <entry key="..\:/Users/JW K/AndroidStudioProjects/Projectnam/ProjectNam/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/JW K/AndroidStudioProjects/Projectnam/ProjectNam/app/src/main/res/layout/activity_select.xml" value="0.1" />
+        <entry key="..\:/Users/JW K/AndroidStudioProjects/Projectnam/ProjectNam/app/src/main/res/layout/activity_sign_up.xml" value="0.12903225806451613" />
+        <entry key="..\:/Users/JW K/AndroidStudioProjects/Projectnam/ProjectNam/app/src/main/res/layout/sign_up.xml" value="0.1" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/border_black.xml" value="0.185" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/border_gray.xml" value="0.185" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/border_grayhd.xml" value="0.536" />

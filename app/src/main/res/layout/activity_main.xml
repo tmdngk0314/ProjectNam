@@ -22,10 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/nanumsquareb"
             android:text="로그인"
             android:textColor="#000000"
-            android:textSize="15dp"
-            android:fontFamily="@font/nanumsquareb"/>
+            android:textSize="15dp" />
     </RelativeLayout>
 
     <TextView
@@ -36,8 +36,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="아이디와 비밀번호를 입력해주세요."
-        android:textSize="14dp"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:textSize="14dp" />
 
     <RelativeLayout
         android:id="@+id/ReEmail"
@@ -63,7 +63,7 @@
             android:layout_marginTop="1dp"
             android:layout_toRightOf="@+id/globalImage"
             android:background="@android:color/transparent"
-            android:hint="이메일 주소"
+            android:hint="아이디"
             android:textSize="16dp" />
     </RelativeLayout>
 
@@ -95,13 +95,13 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/Gubunsun"
         android:layout_width="280dp"
         android:layout_height="1dp"
         android:layout_below="@+id/RePass"
-        android:background="#d8d8d8"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:id="@+id/Gubunsun"
+        android:background="#d8d8d8"
         android:orientation="vertical"></LinearLayout>
 
     <TextView
@@ -109,22 +109,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Gubunsun"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="10dp"
-        android:text="비밀번호를 잊으셨나요?"
+        android:text="회원이 아니신가요?"
         android:textColor="#000000"
         android:textSize="12dp" />
 
-    <TextView
+    <Button
+        android:id="@+id/new_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Gubunsun"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/textpass"
-        android:text="비밀번호 재설정"
+        android:text="회원가입하기"
         android:textColor="#000000"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        />
 
     <ImageButton
         android:id="@+id/btnOk"
