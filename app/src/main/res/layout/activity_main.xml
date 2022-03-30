@@ -54,7 +54,7 @@
             android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/globalization" />
+            android:background="@drawable/user" />
 
         <EditText
             android:layout_width="220dp"
@@ -109,24 +109,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Gubunsun"
-        android:layout_marginLeft="70dp"
+        android:layout_alignStart="@+id/Gubunsun"
         android:layout_marginTop="10dp"
         android:text="회원이 아니신가요?"
         android:textColor="#000000"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        android:layout_marginLeft="3dp"/>
 
-    <Button
+    <TextView
         android:id="@+id/new_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Gubunsun"
-        android:layout_marginLeft="110dp"
+        android:layout_alignEnd="@+id/Gubunsun"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/textpass"
         android:text="회원가입하기"
         android:textColor="#000000"
         android:textSize="12dp"
-        />
+        android:layout_marginRight="3dp"/>
 
     <ImageButton
         android:id="@+id/btnOk"
