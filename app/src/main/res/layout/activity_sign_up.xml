@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".ActivitySignUp"
     android:background="#efefef">
-
     <RelativeLayout
         android:id="@+id/firstRela"
         android:layout_width="match_parent"
@@ -23,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/nanumsquareb"
-            android:text="로그인"
+            android:text="회원가입"
             android:textColor="#000000"
             android:textSize="15dp" />
     </RelativeLayout>
@@ -35,12 +37,12 @@
         android:layout_below="@+id/firstRela"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="아이디와 비밀번호를 입력해주세요."
+        android:text="회원가입에 필요한 정보를 입력해주세요."
         android:textColor="#000000"
         android:textSize="14dp" />
 
     <RelativeLayout
-        android:id="@+id/ReEmail"
+        android:id="@+id/ReName"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_below="@+id/text1"
@@ -48,8 +50,27 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/border_gray">
 
+        <EditText
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/transparent"
+            android:hint="이름"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ReEmail"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/ReName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_gray">
+
         <ImageView
-            android:id="@+id/globalImage"
+            android:id="@+id/emailImage"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_centerVertical="true"
@@ -61,27 +82,56 @@
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="1dp"
-            android:layout_toRightOf="@+id/globalImage"
+            android:layout_toRightOf="@+id/emailImage"
             android:background="@android:color/transparent"
-            android:hint="아이디"
-            android:textSize="16dp" />
+            android:hint="이메일"
+            android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/ReID"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:background="@drawable/border_gray"
         android:layout_below="@+id/ReEmail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/RePass">
+        android:background="@drawable/border_gray">
+
         <ImageView
+            android:id="@+id/IDImage"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/password"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:id="@+id/passwordImage"/>
+            android:background="@drawable/user" />
+
+        <EditText
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:layout_toRightOf="@+id/IDImage"
+            android:background="@android:color/transparent"
+            android:hint="아이디"
+            android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RePass"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/ReID"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_gray">
+
+        <ImageView
+            android:id="@+id/passwordImage"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/password" />
 
         <EditText
             android:layout_width="220dp"
@@ -94,48 +144,32 @@
             android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/Gubunsun"
+    <RelativeLayout
+        android:id="@+id/RePassCheck"
         android:layout_width="280dp"
-        android:layout_height="1dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/RePass"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:background="#d8d8d8"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_gray">
 
-    <TextView
-        android:id="@+id/textpass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Gubunsun"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="10dp"
-        android:text="회원이 아니신가요?"
-        android:textColor="#000000"
-        android:textSize="12dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Gubunsun"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/textpass"
-        android:text="회원가입하기"
-        android:textColor="#000000"
-        android:textSize="12dp" />
-
+        <EditText
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/transparent"
+            android:hint="비밀번호 확인"
+            android:textSize="16dp" />
+    </RelativeLayout>
     <ImageButton
         android:id="@+id/btnOk"
         android:layout_width="280dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/textpass"
+        android:layout_below="@+id/RePassCheck"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:background="@drawable/ok" />
-
-
 
 
 </RelativeLayout>
