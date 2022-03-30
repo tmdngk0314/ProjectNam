@@ -169,7 +169,7 @@
         android:layout_below="@+id/RePassCheck"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/ok" />
+        android:background="@drawable/make_id"/>
 
 
 </RelativeLayout>
