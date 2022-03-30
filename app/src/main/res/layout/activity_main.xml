@@ -40,20 +40,21 @@
         android:textColor="#000000"/>
 
     <RelativeLayout
+        android:id="@+id/ReEmail"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:background="@drawable/border_gray"
         android:layout_below="@+id/text1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/ReEmail">
+        android:background="@drawable/border_gray">
+
         <ImageView
+            android:id="@+id/globalImage"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/globalization"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:id="@+id/globalImage"/>
+            android:background="@drawable/globalization" />
 
         <EditText
             android:layout_width="220dp"
