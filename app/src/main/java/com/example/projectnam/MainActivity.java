@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.ProjectNam);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imgok = (ImageButton)findViewById(R.id.btnOk);
