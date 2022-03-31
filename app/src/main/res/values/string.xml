@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="StringValue">이미지가 열리지 않습니다.</string>
+    <string name="account">회원가입</string>
+    <string name="account_message">회원가입에 필요한 정보를 입력해주세요.</string>
+    <string name="name">이름</string>
+    <string name="name_message">이름은 2~16글자의 영문/한글로 입력하세요.</string>
+</resources>
