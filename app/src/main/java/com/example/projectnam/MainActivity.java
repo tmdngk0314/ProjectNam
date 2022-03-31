@@ -3,10 +3,12 @@ package com.example.projectnam;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -39,6 +41,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ActivitySignUp.class);
                 startActivity(intent);
+            }
+        });
+        new_account.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View view, MotionEvent event){
+                float curX = event.getX();
+                float curY = event.getY();
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:{
+                        new_account.setTextColor(Color.GRAY);
+                        return false;
+                    }
+                    case MotionEvent.ACTION_UP:{
+                        new_account.setTextColor(Color.BLACK);
+                        return false;
+                    }
+                    default: return false;
+                }
+
             }
         });
     }

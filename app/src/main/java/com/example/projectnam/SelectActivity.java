@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 
 public class SelectActivity extends AppCompatActivity {
     ImageButton imgBtnLogout, imgBtnreserve;
-    RelativeLayout thirdRela;
+    RelativeLayout thirdRela, firstRela;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,13 +18,13 @@ public class SelectActivity extends AppCompatActivity {
         imgBtnLogout = (ImageButton)findViewById(R.id.imgBtnLogout);
         imgBtnreserve =(ImageButton)findViewById(R.id.storeimg) ;
         thirdRela = (RelativeLayout)findViewById(R.id.thirdRela);
+        firstRela = (RelativeLayout)findViewById(R.id.firstRela);
 
-        imgBtnreserve.setOnClickListener(new View.OnClickListener() {
+        firstRela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectActivity.this, Reserve.class);
                 startActivity(intent);
-                finish();
             }
         });
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
