@@ -36,6 +36,24 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        imgok.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View view, MotionEvent event){
+                float curX = event.getX();
+                float curY = event.getY();
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:{
+                        imgok.setBackgroundResource(R.drawable.ok_touch);
+                        return false;
+                    }
+                    case MotionEvent.ACTION_UP:{
+                        imgok.setBackgroundResource(R.drawable.ok);
+                        return false;
+                    }
+                    default: return false;
+                }
+
+            }
+        });
         new_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
