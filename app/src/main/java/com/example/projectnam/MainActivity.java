@@ -41,14 +41,12 @@ public class MainActivity extends AppCompatActivity {
                 float curX = event.getX();
                 float curY = event.getY();
                 switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:{
+                    case MotionEvent.ACTION_DOWN:
                         imgok.setBackgroundResource(R.drawable.ok_touch);
                         return false;
-                    }
-                    case MotionEvent.ACTION_UP:{
+                    case MotionEvent.ACTION_UP:
                         imgok.setBackgroundResource(R.drawable.ok);
                         return false;
-                    }
                     default: return false;
                 }
 
@@ -66,14 +64,12 @@ public class MainActivity extends AppCompatActivity {
                 float curX = event.getX();
                 float curY = event.getY();
                 switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:{
+                    case MotionEvent.ACTION_DOWN:
                         new_account.setTextColor(Color.GRAY);
                         return false;
-                    }
-                    case MotionEvent.ACTION_UP:{
+                    case MotionEvent.ACTION_UP:
                         new_account.setTextColor(Color.BLACK);
                         return false;
-                    }
                     default: return false;
                 }
 
