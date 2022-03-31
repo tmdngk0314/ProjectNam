@@ -33,14 +33,12 @@ public class SelectActivity extends AppCompatActivity {
                 float curX = event.getX();
                 float curY = event.getY();
                 switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:{
+                    case MotionEvent.ACTION_DOWN:
                         firstRela.setBackgroundResource(R.drawable.select_box_touch);
                         return false;
-                    }
-                    case MotionEvent.ACTION_UP:{
+                    case MotionEvent.ACTION_UP:
                         firstRela.setBackgroundResource(R.drawable.select_box);
                         return false;
-                    }
                     default: return false;
                 }
 
@@ -58,14 +56,12 @@ public class SelectActivity extends AppCompatActivity {
                 float curX = event.getX();
                 float curY = event.getY();
                 switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:{
+                    case MotionEvent.ACTION_DOWN:
                         imgBtnLogout.setBackgroundResource(R.drawable.select_logout_touch);
                         return false;
-                    }
-                    case MotionEvent.ACTION_UP:{
+                    case MotionEvent.ACTION_UP:
                         imgBtnLogout.setBackgroundResource(R.drawable.select_logout);
                         return false;
-                    }
                     default: return false;
                 }
 
@@ -82,14 +78,12 @@ public class SelectActivity extends AppCompatActivity {
                 float curX = event.getX();
                 float curY = event.getY();
                 switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:{
+                    case MotionEvent.ACTION_DOWN:
                         thirdRela.setBackgroundResource(R.drawable.select_box_touch);
                         return false;
-                    }
-                    case MotionEvent.ACTION_UP:{
+                    case MotionEvent.ACTION_UP:
                         thirdRela.setBackgroundResource(R.drawable.select_box);
                         return false;
-                    }
                     default: return false;
                 }
 
