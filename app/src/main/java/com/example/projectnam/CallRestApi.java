@@ -13,7 +13,7 @@ public class CallRestApi {
     static int lastResponseCode=0;
     public static void postRestAPI(JSONObject sendJSON, String link){
 
-        new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -29,18 +29,21 @@ public class CallRestApi {
                     outputStream = conn.getOutputStream();
                     outputStream.write(sendJSON.toString().getBytes());
                     int response = conn.getResponseCode();
-                    Log.i("responseCode", Integer.toString(response));
+                    Log.i("responseCode???", Integer.toString(response));
+                    lastResponseCode=response;
                     String responseMessage = conn.getResponseMessage();
+                    System.out.println("----responseMessage----- : "+responseMessage);
                     conn.disconnect();
-                    lastResponseCode=lastResponseCode;
                 }
                 catch(Exception e){
                     Log.e("REST API", "POST method failed: " + e.getMessage());
                     e.printStackTrace();
-                    lastResponseCode=0;
+                    lastResponseCode=-1;
                 }
             }
-        }).start();
+        });
+        thread.start();
+        while(lastResponseCode==0);
     }
 
 
@@ -54,10 +57,14 @@ public class CallRestApi {
             info.put("pw", pw);
             postRestAPI(info, "newaccount");
             Log.i("회원가입 lastResponseCode", Integer.toString(lastResponseCode));
-            if(lastResponseCode==200) // 회원가입 성공
+            if(lastResponseCode==200) { // 회원가입 성공
+                lastResponseCode = 0;
                 return 0;
-            else                       // 회원가입 실패
+            }
+            else {// 회원가입 실패
+                lastResponseCode = 0;
                 return -1;
+            }
         } catch (JSONException e) {
             Log.i("JSONException", "failed to put json data:"+e.getMessage());
             e.printStackTrace();
