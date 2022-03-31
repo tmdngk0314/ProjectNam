@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,15 +17,16 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/left_arrow" />
+            android:layout_marginStart="10dp"
+            android:background="@drawable/left_arrow"
+            android:contentDescription="StringValue"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/nanumsquareb"
-            android:text="회원가입"
+            android:text="@string/account"
             android:textColor="#000000"
             android:textSize="15dp" />
     </RelativeLayout>
@@ -268,7 +268,7 @@
         android:layout_below="@+id/scroll1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:background="@drawable/make_id" />
+        android:background="@drawable/account_creation_fail" />
 
 
 </RelativeLayout>

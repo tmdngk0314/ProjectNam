@@ -24,7 +24,6 @@ public class SelectActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SelectActivity.this, Reserve.class);
                 startActivity(intent);
-                finish();
             }
         });
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){

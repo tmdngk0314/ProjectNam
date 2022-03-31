@@ -170,13 +170,16 @@ public class ActivitySignUp extends AppCompatActivity {
                     tv_warning_name.setVisibility(View.VISIBLE);
                     ReName.setBackgroundResource(R.drawable.border_red);
                     make_id.setEnabled(false);
+                    make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else{
                     available_name=true;
                     tv_warning_name.setVisibility(View.INVISIBLE);
                     ReName.setBackgroundResource(R.drawable.border_gray);
-                    if(isAllAvailable()==true)
+                    if(isAllAvailable()==true) {
                         make_id.setEnabled(true);
+                        make_id.setBackgroundResource(R.drawable.account_creation);
+                    }
                 }
 
             }
@@ -203,19 +206,23 @@ public class ActivitySignUp extends AppCompatActivity {
                     available_email=false;
                     tv_warning_email.setVisibility(View.INVISIBLE);
                     make_id.setEnabled(false);
+                    make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else if(!isAvailable_email(txt)){
                     ReEmail.setBackgroundResource(R.drawable.border_red);
                     available_email=false;
                     tv_warning_email.setVisibility(View.VISIBLE);
                     make_id.setEnabled(false);
+                    make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else{
                     available_email=true;
                     tv_warning_email.setVisibility(View.INVISIBLE);
                     ReEmail.setBackgroundResource(R.drawable.border_gray);
-                    if(isAllAvailable()==true)
+                    if(isAllAvailable()==true) {
                         make_id.setEnabled(true);
+                        make_id.setBackgroundResource(R.drawable.account_creation);
+                    }
                 }
 
             }
@@ -241,19 +248,23 @@ public class ActivitySignUp extends AppCompatActivity {
                     available_id=false;
                     tv_warning_id.setVisibility(View.INVISIBLE);
                     make_id.setEnabled(false);
+                    make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else if(!isAvailable_id(txt)){
                     ReID.setBackgroundResource(R.drawable.border_red);
                     available_id=false;
                     tv_warning_id.setVisibility(View.VISIBLE);
                     make_id.setEnabled(false);
+                    make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else{
                     available_id=true;
                     tv_warning_id.setVisibility(View.INVISIBLE);
                     ReID.setBackgroundResource(R.drawable.border_gray);
-                    if(isAllAvailable()==true)
+                    if(isAllAvailable()==true) {
                         make_id.setEnabled(true);
+                        make_id.setBackgroundResource(R.drawable.account_creation);
+                    }
                 }
             }
         });
@@ -280,6 +291,7 @@ public class ActivitySignUp extends AppCompatActivity {
                         available_pwchk = false;
                         tv_warning_pwchk.setVisibility(View.VISIBLE);
                         make_id.setEnabled(false);
+                        make_id.setBackgroundResource(R.drawable.account_creation_fail);
                     }
                     else{
                         available_pwchk=true;
@@ -292,19 +304,23 @@ public class ActivitySignUp extends AppCompatActivity {
                     available_pw=false;
                     tv_warning_pw.setVisibility(View.INVISIBLE);
                     make_id.setEnabled(false);
+                    make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else if(!isAvailable_pw(txt)){
                     RePass.setBackgroundResource(R.drawable.border_red);
                     available_pw=false;
                     tv_warning_pw.setVisibility(View.VISIBLE);
                     make_id.setEnabled(false);
+                    make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else{
                     available_pw=true;
                     tv_warning_pw.setVisibility(View.INVISIBLE);
                     RePass.setBackgroundResource(R.drawable.border_gray);
-                    if(isAllAvailable()==true)
+                    if(isAllAvailable()==true) {
                         make_id.setEnabled(true);
+                        make_id.setBackgroundResource(R.drawable.account_creation);
+                    }
                 }
             }
         });
@@ -329,19 +345,23 @@ public class ActivitySignUp extends AppCompatActivity {
                     available_pwchk=false;
                     tv_warning_pwchk.setVisibility(View.INVISIBLE);
                     make_id.setEnabled(false);
+                    make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else if(txt.compareTo(edt_pw.getText().toString())!=0){
                     RePassCheck.setBackgroundResource(R.drawable.border_red);
                     available_pwchk=false;
                     tv_warning_pwchk.setVisibility(View.VISIBLE);
                     make_id.setEnabled(false);
+                    make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else{
                     available_pwchk=true;
                     tv_warning_pwchk.setVisibility(View.INVISIBLE);
                     RePassCheck.setBackgroundResource(R.drawable.border_gray);
-                    if(isAllAvailable()==true)
+                    if(isAllAvailable()==true && isAvailable_pw(txt)) {
                         make_id.setEnabled(true);
+                        make_id.setBackgroundResource(R.drawable.account_creation);
+                    }
                 }
             }
         });
