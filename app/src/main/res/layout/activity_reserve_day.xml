@@ -41,16 +41,16 @@
             android:layout_height="360dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/border_gray" />
+            android:background="@drawable/border_gray"/>
 
         <ImageButton
+            android:id="@+id/nextBtn"
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_below="@id/calender"
             android:layout_centerHorizontal="true"
             android:background="@drawable/ok"
-            android:layout_marginTop="20dp"
-            />
+            android:layout_marginTop="20dp"/>
 
 
     </RelativeLayout>

@@ -30,6 +30,9 @@
             android:name=".NoticeActivity"
             android:exported="false" />
         <activity
+            android:name=".ReserveDayActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReserveActivity"
             android:exported="false" />
         <activity
