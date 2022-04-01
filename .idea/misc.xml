@@ -3,41 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ASUS/Desktop/ProjectNam/ProjectNam/app/src/main/res/layout/activity_notice.xml" value="0.23958333333333334" />
-        <entry key="..\:/Users/ASUS/Desktop/ProjectNam/ProjectNam/app/src/main/res/layout/activity_notice_information.xml" value="0.23958333333333334" />
-        <entry key="..\:/Users/ASUS/Desktop/ProjectNam/ProjectNam/app/src/main/res/layout/activity_reserve.xml" value="0.17708333333333334" />
-        <entry key="..\:/Users/ASUS/Desktop/ProjectNam/ProjectNam/app/src/main/res/layout/activity_sign_up.xml" value="0.23958333333333334" />
-        <entry key="..\:/Users/ASUS/Desktop/ProjectNam/ProjectNam/app/src/main/res/layout/test_reserve.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1205" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/border_black.xml" value="0.185" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/border_gray.xml" value="0.185" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/border_gray_touch.xml" value="0.1" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/border_grayhd.xml" value="0.536" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/cancel.xml" value="0.1205" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/creative_account.xml" value="0.1205" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/drawable/splash_screen.xml" value="0.165" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/font/font.xml" value="0.13958333333333334" />
-        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_main.xml" value="0.4913494809688581" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_notice.xml" value="0.264" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_noticeChange.xml" value="0.264" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_notice_change.xml" value="0.28225806451612906" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_notice_information.xml" value="0.176" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_reservation.xml" value="0.16" />
-        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_reserve.xml" value="0.176" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_reserve.xml" value="0.43771626297577854" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_select.xml" value="0.32679738562091504" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/sign_up.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/layout/test_reserve.xml" value="0.176" />
         <entry key="..\:/Users/rjk01/Desktop/ProjectJactNam/ProjectNam/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1205" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/activity_select.xml" value="0.142" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/border_black.xml" value="0.117" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/border_gray.xml" value="0.117" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/cancel.xml" value="0.117" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/creative_account.xml" value="0.117" />
-        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_management.xml" value="0.11277173913043478" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_notice.xml" value="0.1765625" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_reservation.xml" value="0.1203125" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_reserve.xml" value="0.264" />
-        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_select.xml" value="0.1" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_select.xml" value="0.264" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_select_second.xml" value="0.1" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/sign_up.xml" value="0.17753623188405798" />
       </map>
