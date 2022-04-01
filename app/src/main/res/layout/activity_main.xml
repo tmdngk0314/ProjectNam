@@ -57,6 +57,7 @@
             android:background="@drawable/user" />
 
         <EditText
+            android:id="@+id/edt_inputid"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -84,6 +85,7 @@
             android:id="@+id/passwordImage"/>
 
         <EditText
+            android:id="@+id/edt_inputpw"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"

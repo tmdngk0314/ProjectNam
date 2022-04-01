@@ -1,5 +1,6 @@
 package com.example.projectnam;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -71,7 +72,7 @@ public class CallRestApi {
 
 
 
-    public int newAccount(String name, String email, String id, String pw){
+    public String newAccount(SharedPreferences deviceInfo, String name, String email, String id, String pw){
         JSONObject info = new JSONObject();
         try {
             info.put("name", name);
@@ -79,26 +80,35 @@ public class CallRestApi {
             info.put("id", id);
             info.put("pw", pw);
             postRestAPI(info, "newaccount");
-            return lastResponseCode;
+            String result=receivedJSON.getString("result");
+            switch(result) {
+                case "success":
+                    SharedPreferences.Editor editor = deviceInfo.edit();
+                    editor.putString(id, receivedJSON.getString("otpkey"));
+            }
+            return result;
+
+
         } catch (JSONException e) {
             Log.i("JSONException", "failed to put json data:"+e.getMessage());
             e.printStackTrace();
-            return -2;
+            return "JSONException";
         }
     }
 
-    public int login(String id, String pw){
+    public String login(String id, String pw){
         JSONObject info = new JSONObject();
         try{
             info.put("id", id);
             info.put("pw", pw);
             postRestAPI(info, "login/client");
-            return lastResponseCode;
+            String result = receivedJSON.getString("result");
+            return result;
         }
         catch(JSONException e){
             Log.i("JSONException", "failed to put json data:"+e.getMessage());
             e.printStackTrace();
-            return -2;
+            return "unknown";
         }
     }
 
