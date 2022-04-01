@@ -135,6 +135,7 @@
             android:textColor="#000000"
             android:textSize="12dp" />
     </RelativeLayout>
+
     <ImageButton
         android:id="@+id/btnOk"
         android:layout_width="280dp"
@@ -142,6 +143,21 @@
         android:layout_below="@+id/textpass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
+        android:background="@drawable/ok" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/testOkText"
+        android:text="아래거 테스트용 확인버튼"
+        android:layout_below="@id/btnOk"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"/>
+    <ImageButton
+        android:id="@+id/UsingTestOkBtn"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/testOkText"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/ok" />
 
 

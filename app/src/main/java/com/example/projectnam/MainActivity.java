@@ -3,11 +3,13 @@ package com.example.projectnam;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +22,7 @@ import org.json.JSONObject;
 
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton imgok;
+    ImageButton imgok,UsingTestOkBtn;
     TextView new_account;
     EditText edt_inputid;
     EditText edt_inputpw;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imgok = (ImageButton)findViewById(R.id.btnOk);
+        UsingTestOkBtn = (ImageButton)findViewById(R.id.UsingTestOkBtn);
         new_account= (TextView)findViewById(R.id.new_account);
         edt_inputid =(EditText) findViewById(R.id.edt_inputid);
         edt_inputpw=(EditText)findViewById(R.id.edt_inputpw);
@@ -38,7 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
         deviceInfo = getSharedPreferences("accountOTP", 0);
 
-
+        UsingTestOkBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SelectActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         imgok.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String input_id=edt_inputid.getText().toString();
