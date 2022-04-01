@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         imgok.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                Toast toastA =  Toast.makeText(getApplicationContext(),"회원가입 성공",Toast.LENGTH_SHORT);
+                toastA.show();
                 Intent intent = new Intent(MainActivity.this, SelectActivity.class);
                 startActivity(intent);
                 finish();

@@ -30,7 +30,7 @@
             android:name=".NoticeActivity"
             android:exported="false" />
         <activity
-            android:name=".Reserve"
+            android:name=".ReserveActivity"
             android:exported="false" />
         <activity
             android:name=".NoticeInformationActivity"
