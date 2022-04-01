@@ -369,15 +369,16 @@ public class ActivitySignUp extends AppCompatActivity {
         make_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CallRestApi apiCaller = new CallRestApi();
                 int result; // result가 0이면 회원가입 성공, -1이면 회원가입 실패
-                result = CallRestApi.newAccount(edt_name.getText().toString(), edt_email.getText().toString(),
+                result = apiCaller.newAccount(edt_name.getText().toString(), edt_email.getText().toString(),
                         edt_id.getText().toString(), edt_pw.getText().toString());
-                if(result==0) {
-                    Log.i("회원가입", "회원가입 성공");
+                if(result==200) {
+                    Log.i("회원가입", Integer.toString(result)+"회원가입 성공");
                     finish();
                 }
-                else{
-                    Log.i("회원가입", "회원가입 실패");
+                else if(result==409){
+                    Log.i("회원가입", Integer.toString(result)+":중복 아이디 존재");
                 }
 
             }

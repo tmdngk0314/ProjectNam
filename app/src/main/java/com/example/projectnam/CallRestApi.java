@@ -5,14 +5,22 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class CallRestApi {
     static int lastResponseCode=0;
-    public static void postRestAPI(JSONObject sendJSON, String link){
+    JSONObject receivedJSON;
+    public void getRestAPI(String link){
 
+
+    }
+    public void postRestAPI(JSONObject sendJSON, String link){
+        JSONObject a;
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -33,7 +41,20 @@ public class CallRestApi {
                     lastResponseCode=response;
                     String responseMessage = conn.getResponseMessage();
                     System.out.println("----responseMessage----- : "+responseMessage);
+
+                    InputStream is = conn.getInputStream();
+                    StringBuilder builder = new StringBuilder();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                    String line;
+                    while((line=reader.readLine())!=null) {
+                        builder.append(line);
+                    }
+                    String result = builder.toString();
+                    Log.i("json 결과 ", result);
+                    receivedJSON = new JSONObject(result);
+
                     conn.disconnect();
+
                 }
                 catch(Exception e){
                     Log.e("REST API", "POST method failed: " + e.getMessage());
@@ -43,12 +64,12 @@ public class CallRestApi {
             }
         });
         thread.start();
-        while(lastResponseCode==0);
+        while(thread.isAlive());
     }
 
 
 
-    public static int newAccount(String name, String email, String id, String pw){
+    public int newAccount(String name, String email, String id, String pw){
         JSONObject info = new JSONObject();
         try {
             info.put("name", name);
@@ -56,15 +77,7 @@ public class CallRestApi {
             info.put("id", id);
             info.put("pw", pw);
             postRestAPI(info, "newaccount");
-            Log.i("회원가입 lastResponseCode", Integer.toString(lastResponseCode));
-            if(lastResponseCode==200) { // 회원가입 성공
-                lastResponseCode = 0;
-                return 0;
-            }
-            else {// 회원가입 실패
-                lastResponseCode = 0;
-                return -1;
-            }
+            return lastResponseCode;
         } catch (JSONException e) {
             Log.i("JSONException", "failed to put json data:"+e.getMessage());
             e.printStackTrace();
