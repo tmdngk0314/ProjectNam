@@ -1,5 +1,6 @@
 package com.example.projectnam;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -14,7 +15,7 @@ import java.net.URL;
 
 public class CallRestApi {
     static int lastResponseCode=0;
-    JSONObject receivedJSON;
+    public JSONObject receivedJSON;
     public void getRestAPI(String link){
 
 
@@ -25,6 +26,7 @@ public class CallRestApi {
             @Override
             public void run() {
                 try {
+                    lastResponseCode=0;
                     URL url = new URL("http://192.168.230.175:5000/"+link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
@@ -32,7 +34,8 @@ public class CallRestApi {
                     conn.setRequestProperty("Accept", "application/json");
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
-
+                    conn.setConnectTimeout(10000);
+                    conn.setReadTimeout(10000);
                     OutputStream outputStream;
                     outputStream = conn.getOutputStream();
                     outputStream.write(sendJSON.toString().getBytes());
@@ -52,14 +55,14 @@ public class CallRestApi {
                     String result = builder.toString();
                     Log.i("json 결과 ", result);
                     receivedJSON = new JSONObject(result);
-
+                    //receivedJSON.get("otpkey");
                     conn.disconnect();
 
                 }
                 catch(Exception e){
                     Log.e("REST API", "POST method failed: " + e.getMessage());
                     e.printStackTrace();
-                    lastResponseCode=-1;
+                    lastResponseCode=503;
                 }
             }
         });
@@ -69,7 +72,7 @@ public class CallRestApi {
 
 
 
-    public int newAccount(String name, String email, String id, String pw){
+    public String newAccount(SharedPreferences deviceInfo, String name, String email, String id, String pw){
         JSONObject info = new JSONObject();
         try {
             info.put("name", name);
@@ -77,11 +80,35 @@ public class CallRestApi {
             info.put("id", id);
             info.put("pw", pw);
             postRestAPI(info, "newaccount");
-            return lastResponseCode;
+            String result=receivedJSON.getString("result");
+            switch(result) {
+                case "success":
+                    SharedPreferences.Editor editor = deviceInfo.edit();
+                    editor.putString(id, receivedJSON.getString("otpkey"));
+            }
+            return result;
+
+
         } catch (JSONException e) {
             Log.i("JSONException", "failed to put json data:"+e.getMessage());
             e.printStackTrace();
-            return -1;
+            return "JSONException";
+        }
+    }
+
+    public String login(String id, String pw){
+        JSONObject info = new JSONObject();
+        try{
+            info.put("id", id);
+            info.put("pw", pw);
+            postRestAPI(info, "login/client");
+            String result = receivedJSON.getString("result");
+            return result;
+        }
+        catch(JSONException e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return "unknown";
         }
     }
 
