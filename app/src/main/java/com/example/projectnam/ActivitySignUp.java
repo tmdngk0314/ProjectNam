@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -253,6 +254,7 @@ public class ActivitySignUp extends AppCompatActivity {
                     make_id.setBackgroundResource(R.drawable.account_creation_fail);
                 }
                 else if(!isAvailable_id(txt)){
+                    tv_warning_id.setText("아이디는 8~16자의 영문/숫자 조합으로 입력하세요.");
                     ReID.setBackgroundResource(R.drawable.border_red);
                     available_id=false;
                     tv_warning_id.setVisibility(View.VISIBLE);
@@ -378,10 +380,18 @@ public class ActivitySignUp extends AppCompatActivity {
                 switch(result) {
                     case "success":
                         Log.i("회원가입", result + ":회원가입 성공");
+                        Toast toastA =  Toast.makeText(getApplicationContext(),"회원가입 성공",Toast.LENGTH_SHORT);
+                        toastA.show();
                         finish();
                         break;
                     case "duplicated":
                         Log.i("회원가입", result + ":중복 아이디 존재");
+                        tv_warning_id.setText("중복 아이디가 존재합니다.");
+                        ReID.setBackgroundResource(R.drawable.border_red);
+                        available_id=false;
+                        tv_warning_id.setVisibility(View.VISIBLE);
+                        make_id.setEnabled(false);
+                        make_id.setBackgroundResource(R.drawable.account_creation_fail);
                         break;
                     default:
                         Log.e("회원가입", result + ":알 수 없는 오류");

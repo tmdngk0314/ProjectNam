@@ -54,13 +54,13 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:padding="5dp">
+            android:padding="10dp">
 
             <ImageButton
                 android:id="@+id/locker1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="20dp" />
             <ImageButton
                 android:id="@+id/locker2"
                 android:layout_width="80dp"

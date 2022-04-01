@@ -68,7 +68,7 @@
                     android:layout_height="50dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="1dp"
-                    android:autofillHints="username"
+                    android:autofillHints="name"
                     android:background="@android:color/transparent"
                     android:backgroundTint="#FF0000"
                     android:hint="@string/name"
@@ -116,12 +116,12 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="1dp"
                     android:layout_toRightOf="@+id/emailImage"
+                    android:autofillHints="emailAddress"
                     android:background="@android:color/transparent"
                     android:hint="이메일"
                     android:textColor="#000000"
                     android:textColorHint="#999999"
-                    android:textSize="16dp"
-                    android:autofillHints="emailAddress"/>  <!--edittext 밑줄제거 background-->
+                    android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
             </RelativeLayout>
 
             <TextView
@@ -161,7 +161,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="1dp"
                     android:layout_toRightOf="@+id/IDImage"
-                    android:autofillHints="name"
+                    android:autofillHints="username"
                     android:background="@android:color/transparent"
                     android:hint="아이디"
                     android:textColor="#000000"
