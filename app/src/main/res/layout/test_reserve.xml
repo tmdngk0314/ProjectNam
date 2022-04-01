@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef">
+
+    <RelativeLayout
+        android:id="@+id/firstRela"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="#ffffff">
+
+        <ImageButton
+            android:id="@+id/imgBtnLogout"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/left_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="사물함 예약"
+            android:textColor="#050505"
+            android:textSize="15dp"
+            android:id="@+id/LockerReserve"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@+id/firstRela"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:id="@+id/secondRela"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/enableBtn"
+            android:layout_width="150dp"
+            android:layout_height="35dp" />
+
+        <ImageButton
+            android:id="@+id/refreshBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="210dp"
+            android:layout_toEndOf="@+id/enableBtn" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp">
+
+            <ImageButton
+                android:id="@+id/locker1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="20dp"/>
+            <ImageButton
+                android:id="@+id/locker2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_toRightOf="@+id/locker1"
+                />
+
+            <ImageButton
+                android:id="@+id/locker3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/locker1"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"/>
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/locker4"
+                android:layout_toRightOf="@+id/locker3"
+                android:layout_below="@+id/locker2"
+                android:layout_marginTop="20dp"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
