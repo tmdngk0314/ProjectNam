@@ -7,9 +7,13 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class ReserveActivity extends AppCompatActivity {
     ImageView imgBtnLogout, locker1,refreshBtn;
+    RelativeLayout relativeLock1;
+    LinearLayout notice_reserve;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +21,8 @@ public class ReserveActivity extends AppCompatActivity {
         locker1 = findViewById(R.id.locker1);
         imgBtnLogout = (ImageView)findViewById(R.id.imgBtnLogout);
         refreshBtn = (ImageView)findViewById(R.id.refreshBtn);
-
+        relativeLock1 = (RelativeLayout) findViewById(R.id.relative_lock1);
+        notice_reserve = (LinearLayout)findViewById(R.id.notice_reserve);
 
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -27,7 +32,7 @@ public class ReserveActivity extends AppCompatActivity {
             }
         });
 
-        locker1.setOnTouchListener(new View.OnTouchListener(){
+        relativeLock1.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
                 float curX = event.getX();
                 float curY = event.getY();
@@ -41,6 +46,11 @@ public class ReserveActivity extends AppCompatActivity {
                     default: return false;
                 }
 
+            }
+        });
+        relativeLock1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                notice_reserve.setVisibility(View.VISIBLE);
             }
         });
 

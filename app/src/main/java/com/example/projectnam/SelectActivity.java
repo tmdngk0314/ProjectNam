@@ -18,7 +18,7 @@ public class SelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select);
         imgBtnLogout = (ImageButton)findViewById(R.id.imgBtnLogout);
         imgBtnreserve =(ImageButton)findViewById(R.id.storeimg) ;
-            thirdRela = (RelativeLayout)findViewById(R.id.thirdRela);
+        thirdRela = (RelativeLayout)findViewById(R.id.thirdRela);
         firstRela = (RelativeLayout)findViewById(R.id.firstRela);
 
         firstRela.setOnClickListener(new View.OnClickListener() {

@@ -148,6 +148,7 @@
         android:layout_centerHorizontal="true">
 
         <LinearLayout
+            android:id="@+id/notice_reserve"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
