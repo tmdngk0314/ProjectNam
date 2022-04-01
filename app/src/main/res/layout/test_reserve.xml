@@ -20,21 +20,22 @@
             android:background="@drawable/left_arrow" />
 
         <TextView
+            android:id="@+id/LockerReserve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/nanumsquareb"
             android:text="사물함 예약"
             android:textColor="#050505"
-            android:textSize="15dp"
-            android:id="@+id/LockerReserve"/>
+            android:textSize="15dp" />
     </RelativeLayout>
+
     <RelativeLayout
+        android:id="@+id/secondRela"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_below="@+id/firstRela"
         android:layout_marginTop="10dp"
-        android:id="@+id/secondRela"
         android:padding="10dp">
 
         <TextView
@@ -47,50 +48,148 @@
             android:id="@+id/refreshBtn"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="210dp"
-            android:layout_toEndOf="@+id/enableBtn"
-            android:background="@drawable/reservation_refresh"/>
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/reservation_refresh" />
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
             android:padding="10dp">
 
-            <ImageButton
-                android:id="@+id/locker1"
-                android:layout_width="100dp"
-                android:layout_height="125dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/locker_img"/>
 
-            <ImageButton
-                android:id="@+id/locker2"
-                android:layout_width="100dp"
-                android:layout_height="125dp"
-                android:layout_toRightOf="@+id/locker1"
-                android:background="@drawable/locker_led"/>
+            <RelativeLayout
+                android:id="@+id/relative_lock1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <ImageButton
-                android:id="@+id/locker3"
-                android:layout_width="100dp"
-                android:layout_height="125dp"
-                android:layout_below="@+id/locker1"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/locker_blue"/>
+                <ImageButton
+                    android:id="@+id/locker1"
+                    android:layout_width="100dp"
+                    android:layout_height="125dp"
+                    android:background="@drawable/lock1" />
 
-            <ImageButton
-                android:id="@+id/locker4"
-                android:layout_width="100dp"
-                android:layout_height="125dp"
-                android:layout_below="@+id/locker2"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@+id/locker3"
-                android:background="@drawable/locker_lled"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_lock2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/relative_lock1"
+                android:background="@color/white">
+
+                <ImageButton
+                    android:id="@+id/locker2"
+                    android:layout_width="100dp"
+                    android:layout_height="125dp"
+                    android:background="@drawable/lock2" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_lock3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relative_lock1"
+                android:background="@color/white">
+
+                <ImageButton
+                    android:id="@+id/locker3"
+                    android:layout_width="100dp"
+                    android:layout_height="125dp"
+                    android:background="@drawable/locker_img" />
+
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignBottom="@+id/locker3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/locker_num3" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_lock4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_lock2"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/relative_lock1"
+                android:background="@color/white">
+
+                <ImageButton
+                    android:id="@+id/locker4"
+                    android:layout_width="100dp"
+                    android:layout_height="125dp"
+                    android:background="@drawable/locker_img" />
+
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignBottom="@+id/locker4"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/locker_num4" />
+            </RelativeLayout>
         </RelativeLayout>
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/availedRelative"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondRela"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_centerInParent="true"
+            android:background="@drawable/border_gray"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/gmarkbo"
+                android:text="1번 사물함"
+                android:textSize="30dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/name_message"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginleft="5dp"
+                    android:text="@string/name_message"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>
