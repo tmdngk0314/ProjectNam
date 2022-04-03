@@ -85,6 +85,7 @@ public class CallRestApi {
                 case "success":
                     SharedPreferences.Editor editor = deviceInfo.edit();
                     editor.putString(id, receivedJSON.getString("otpkey"));
+                    editor.commit();
             }
             return result;
 
