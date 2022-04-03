@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#efefef">
 
     <RelativeLayout
@@ -65,7 +66,8 @@
             android:layout_toRightOf="@+id/globalImage"
             android:background="@android:color/transparent"
             android:hint="아이디"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textColor="@color/black"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -93,7 +95,10 @@
             android:layout_toRightOf="@+id/passwordImage"
             android:background="@android:color/transparent"
             android:hint="비밀번호"
-            android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:inputType="textPassword"
+            />  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
 
     <LinearLayout
