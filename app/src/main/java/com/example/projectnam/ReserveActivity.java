@@ -6,14 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.util.Log;
 
 public class ReserveActivity extends AppCompatActivity {
     ImageView imgBtnLogout, locker1,refreshBtn;
-    RelativeLayout relativeLock1;
-    LinearLayout notice_reserve;
+    RelativeLayout relativeLock1,notice_reserve;
+    TextView lockerNum, lockerText1, lockerText2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +25,13 @@ public class ReserveActivity extends AppCompatActivity {
         imgBtnLogout = (ImageView)findViewById(R.id.imgBtnLogout);
         refreshBtn = (ImageView)findViewById(R.id.refreshBtn);
         relativeLock1 = (RelativeLayout) findViewById(R.id.relative_lock1);
-        notice_reserve = (LinearLayout)findViewById(R.id.notice_reserve);
+        notice_reserve = (RelativeLayout) findViewById(R.id.notice_reserve);
+        lockerNum = (TextView)findViewById(R.id.lockerNum);
+        lockerText1 = (TextView)findViewById(R.id.lockerText1);
+        lockerText2 = (TextView)findViewById(R.id.lockerText2);
+
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.scaleupandtranslate);
+
 
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -51,7 +60,13 @@ public class ReserveActivity extends AppCompatActivity {
 
         locker1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                notice_reserve.setVisibility(View.VISIBLE);
+                {
+                    if(!lockerNum.getText().equals("1번 사물함")) {
+                        lockerNum.setText(R.string.locker1);
+                        notice_reserve.setVisibility(View.VISIBLE);
+                        notice_reserve.startAnimation(anim);
+                    }
+                }
             }
         });
 
