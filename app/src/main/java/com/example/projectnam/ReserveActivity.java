@@ -32,7 +32,7 @@ public class ReserveActivity extends AppCompatActivity {
             }
         });
 
-        relativeLock1.setOnTouchListener(new View.OnTouchListener(){
+        locker1.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
                 float curX = event.getX();
                 float curY = event.getY();
@@ -48,7 +48,8 @@ public class ReserveActivity extends AppCompatActivity {
 
             }
         });
-        relativeLock1.setOnClickListener(new View.OnClickListener(){
+
+        locker1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 notice_reserve.setVisibility(View.VISIBLE);
             }
