@@ -5,4 +5,8 @@
     <string name="account_message">회원가입에 필요한 정보를 입력해주세요.</string>
     <string name="name">이름</string>
     <string name="name_message">이름은 2~16글자의 영문/한글로 입력하세요.</string>
+    <string name="locker1">1번 사물함</string>
+    <string name="locker2">2번 사물함</string>
+    <string name="locker3">3번 사물함</string>
+    <string name="locker4">4번 사물함</string>
 </resources>
