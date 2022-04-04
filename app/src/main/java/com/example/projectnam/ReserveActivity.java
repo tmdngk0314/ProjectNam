@@ -2,21 +2,27 @@ package com.example.projectnam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.util.Log;
+import android.widget.TimePicker;
 
 public class ReserveActivity extends AppCompatActivity {
     ImageView imgBtnLogout, locker1,refreshBtn;
     RelativeLayout relativeLock1,notice_reserve;
-    TextView lockerNum, lockerText1, lockerText2;
+    TextView lockerNum, lockerText1, lockerText2, reserveDay;
+    Button startTimeBtn,finishTimeBtn;
+    int year,month,day, Hour, Minute;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +35,17 @@ public class ReserveActivity extends AppCompatActivity {
         lockerNum = (TextView)findViewById(R.id.lockerNum);
         lockerText1 = (TextView)findViewById(R.id.lockerText1);
         lockerText2 = (TextView)findViewById(R.id.lockerText2);
+        reserveDay = (TextView)findViewById(R.id.reserveDay);
+        startTimeBtn = (Button)findViewById(R.id.startTimeBtn);
+        finishTimeBtn = (Button)findViewById(R.id.finishTimeBtn);
+
+
+
+        Intent reserveActivity = getIntent();
+
+        year = reserveActivity.getExtras().getInt("년");
+        month = reserveActivity.getExtras().getInt("월");
+        day = reserveActivity.getExtras().getInt("일");
 
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.scaleupandtranslate);
 
@@ -61,6 +78,10 @@ public class ReserveActivity extends AppCompatActivity {
         locker1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 {
+                    reserveDay.setText(year+"년 "+month+"월 "+day+"일");
+
+
+                    //옮길 예정
                     if(!lockerNum.getText().equals("1번 사물함")) {
                         lockerNum.setText(R.string.locker1);
                         notice_reserve.setVisibility(View.VISIBLE);
@@ -84,6 +105,23 @@ public class ReserveActivity extends AppCompatActivity {
                     default: return false;
                 }
 
+            }
+        });
+
+        startTimeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePicker = new TimePickerDialog(ReserveActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        Hour = hourOfDay;
+                        Minute = minute;
+                    }
+                },Hour,Minute,false);
+
+                timePicker.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                timePicker.show();
             }
         });
     }

@@ -3,20 +3,22 @@ package com.example.projectnam;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class CallRestApi {
     static int lastResponseCode=0;
-    public JSONObject receivedJSON;
+    public JSONObject receivedJSONObject;
+    public JSONArray receivedJSONArray;
     public void getRestAPI(String link){
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -31,7 +33,6 @@ public class CallRestApi {
                     conn.setDoInput(true);
                     conn.setConnectTimeout(10000);
                     conn.setReadTimeout(10000);
-
                     InputStream is = conn.getInputStream();
 
                     // Get the stream
@@ -41,14 +42,12 @@ public class CallRestApi {
                     while ((line = reader.readLine()) != null) {
                         builder.append(line);
                     }
-
                     // Set the result
                     String result = builder.toString();
                     Log.i("json 결과", result);
                     JSONObject json = null;
                     json = new JSONObject(result);
-                    Log.i("추출", json.getString("name"));
-                    receivedJSON = json;
+                    receivedJSONObject = json;
                     conn.disconnect();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -94,8 +93,12 @@ public class CallRestApi {
                     }
                     String result = builder.toString();
                     Log.i("json 결과 ", result);
-                    receivedJSON = new JSONObject(result);
-                    //receivedJSON.get("otpkey");
+                    Object json= new JSONTokener(result).nextValue();
+                    if(json instanceof JSONObject)
+                        receivedJSONObject = new JSONObject(result);
+                    else if(json instanceof JSONArray)
+                        receivedJSONArray = new JSONArray(result);
+                        //receivedJSON.get("otpkey");
                     conn.disconnect();
 
                 }
@@ -109,7 +112,33 @@ public class CallRestApi {
         thread.start();
         while(thread.isAlive());
     }
+    public String loadNotice(int page){
+        JSONObject jsonPage=new JSONObject();
+        Integer[] index=new Integer[10];
+        String[] title=new String[10];
+        String[] date=new String[10];
+        String[] body=new String[10];
+        try{
+            jsonPage.put("page", 3);
+            postRestAPI(jsonPage,"notice/load");
 
+            for(int i=0; i<receivedJSONArray.length(); i++){
+                index[i]=(Integer)receivedJSONArray.getJSONArray(i).get(0);
+                title[i]=(String)receivedJSONArray.getJSONArray(i).get(1);
+                date[i]=(String)receivedJSONArray.getJSONArray(i).get(2);
+                body[i]=(String)receivedJSONArray.getJSONArray(i).get(3);
+                Log.e("JSONArray로그", Integer.toString(index[i])+title[i]+date[i]+body[i]);
+            }
+
+
+            return "finish";
+        }
+        catch(Exception e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return "JSONException";
+        }
+    }
 
 
     public String newAccount(SharedPreferences deviceInfo, String name, String email, String id, String pw){
@@ -120,11 +149,11 @@ public class CallRestApi {
             info.put("id", id);
             info.put("pw", pw);
             postRestAPI(info, "newaccount");
-            String result=receivedJSON.getString("result");
+            String result= receivedJSONObject.getString("result");
             switch(result) {
                 case "success":
                     SharedPreferences.Editor editor = deviceInfo.edit();
-                    editor.putString(id, receivedJSON.getString("otpkey"));
+                    editor.putString(id, receivedJSONObject.getString("otpkey"));
                     editor.commit();
             }
             return result;
@@ -143,7 +172,7 @@ public class CallRestApi {
             info.put("id", id);
             info.put("pw", pw);
             postRestAPI(info, "login/client");
-            String result = receivedJSON.getString("result");
+            String result = receivedJSONObject.getString("result");
             return result;
         }
         catch(JSONException e){

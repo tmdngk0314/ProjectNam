@@ -33,7 +33,7 @@
     <RelativeLayout
         android:id="@+id/secondRela"
         android:layout_width="match_parent"
-        android:layout_height="330dp"
+        android:layout_height="340dp"
         android:layout_below="@+id/firstRela"
         android:layout_marginTop="10dp"
         android:padding="10dp">
@@ -55,7 +55,8 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
             android:padding="10dp">
 
 
@@ -139,22 +140,52 @@
         </RelativeLayout>
 
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/timeRelay"
         android:layout_width="360dp"
-        android:layout_height="125dp"
+        android:layout_height="110dp"
         android:layout_below="@+id/secondRela"
         android:layout_centerHorizontal="true"
         android:background="@drawable/select_box_noround">
+
         <TextView
             android:id="@+id/reserveDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/nanumsquareb"
             android:text="예약한 날"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/startTimeBtn"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/reserveDay"
+            android:layout_alignRight="@+id/reserveDay"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/select_box"
+            android:gravity="center"
+            android:text="시작 시간"
+            android:textSize="12dp" />
+
+
+        <Button
+            android:id="@+id/finishTimeBtn"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/reserveDay"
+            android:layout_alignLeft="@id/reserveDay"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/select_box"
+            android:gravity="center"
+            android:text="종료 시간"
+            android:textSize="12dp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -177,7 +208,7 @@
             android:textSize="30dp" />
 
 
-        <TextView
+        <Button
             android:id="@+id/lockerText1"
             android:layout_width="150dp"
             android:layout_height="40dp"
@@ -191,7 +222,7 @@
             android:text="예약하기"
             android:textSize="12dp" />
 
-        <TextView
+        <Button
             android:id="@+id/lockerText2"
             android:layout_width="150dp"
             android:layout_height="40dp"
