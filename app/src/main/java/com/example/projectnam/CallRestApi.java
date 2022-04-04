@@ -11,13 +11,53 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class CallRestApi {
     static int lastResponseCode=0;
     public JSONObject receivedJSON;
     public void getRestAPI(String link){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                lastResponseCode = 0;
+                try {
+                    URL url = new URL("http://192.168.230.175:5000/"+link);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("GET");
+                    conn.setRequestProperty("Content-Type", "application/json");
+                    conn.setRequestProperty("Accept", "application/json");
+                    conn.setDoInput(true);
+                    conn.setConnectTimeout(10000);
+                    conn.setReadTimeout(10000);
 
+                    InputStream is = conn.getInputStream();
+
+                    // Get the stream
+                    StringBuilder builder = new StringBuilder();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        builder.append(line);
+                    }
+
+                    // Set the result
+                    String result = builder.toString();
+                    Log.i("json 결과", result);
+                    JSONObject json = null;
+                    json = new JSONObject(result);
+                    Log.i("추출", json.getString("name"));
+                    receivedJSON = json;
+                    conn.disconnect();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        thread.start();
+        while(thread.isAlive());
 
     }
     public void postRestAPI(JSONObject sendJSON, String link){
