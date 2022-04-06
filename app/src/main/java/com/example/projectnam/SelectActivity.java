@@ -46,9 +46,13 @@ public class SelectActivity extends AppCompatActivity {
         });
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(SelectActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                CallRestApi apiCaller = new CallRestApi();
+                String result = apiCaller.logout();
+                if(result.compareTo("success")==0) {
+                    Intent intent = new Intent(SelectActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
         imgBtnLogout.setOnTouchListener(new View.OnTouchListener(){
