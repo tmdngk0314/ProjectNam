@@ -38,8 +38,6 @@ public class ReserveDayActivity extends AppCompatActivity {
         });
         imgBtnLogout.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                float curX = event.getX();
-                float curY = event.getY();
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         imgBtnLogout.setBackgroundResource(R.drawable.select_logout_touch);
@@ -73,8 +71,6 @@ public class ReserveDayActivity extends AppCompatActivity {
 
         nextBtn.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                float curX = event.getX();
-                float curY = event.getY();
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         nextBtn.setBackgroundResource(R.drawable.ok_touch);
