@@ -46,5 +46,4 @@ public class NoticeListAdapter extends BaseAdapter {
         return v;
 
     }
-
 }
