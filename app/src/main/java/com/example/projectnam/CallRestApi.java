@@ -35,10 +35,12 @@ public class CallRestApi {
                     conn.setReadTimeout(10000);
                     InputStream is = conn.getInputStream();
 
-                    // Get the stream
+                    // Get the stream 넘어오는 결과 값들을 저장
                     StringBuilder builder = new StringBuilder();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                    // 해당 InputStream에 있는 내용들을 버퍼에 담아서 읽을 수 있도록 한다.
                     String line;
+                    //String형 line 변수를 만들고 하나씩 불러와서  문자열 형태로 저장.
                     while ((line = reader.readLine()) != null) {
                         builder.append(line);
                     }

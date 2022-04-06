@@ -52,40 +52,6 @@ public class NoticeActivity extends AppCompatActivity {
         //notice/load
 
 
-        /*
-        try {
-            notice.getRestAPI("notice/loadcount");
-            noticeCount = notice.receivedJSON.getInt("maxindex");
-            Log.i("loadCount ", Integer.toString(noticeCount));
-
-
-
-            String asd[][] = new String[noticeCount][4];
-            JSONObject page = new JSONObject();
-            //notice.postRestAPI(new JSONObject(Integer.toString(1)),"notice/load");
-            pageValue=1;
-
-            page.put("page", pageValue);
-
-            notice.postRestAPI(page,"notice/load");
-            for(int i=0;i<noticeCount;i++){
-                asd[i][0] = Integer.toString(noticeCount-i - (pageValue-1)*10);
-                asd[i][1] = notice.receivedJSON.getString("body");
-                asd[i][2] = notice.receivedJSON.getString("date");
-                asd[i][3] = notice.receivedJSON.getString("title");
-                Log.i("INDEX : ",asd[i][0]);
-                Log.i("BODY : ",asd[i][1]);
-                Log.i("DATE : ",asd[i][2]);
-                Log.i("TITLE : ",asd[i][3]);
-            }
-
-            // title body date index
-
-            Log.i("Heool","Hello22222222222222");
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
 
 
     }
