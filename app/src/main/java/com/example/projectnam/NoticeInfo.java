@@ -1,6 +1,6 @@
 package com.example.projectnam;
 
-public class NoticeInfo extends CallRestApi{
+public class NoticeInfo {
     public Integer[] index;
     public String[] title;
     public String[] date;
