@@ -1,5 +1,6 @@
 package com.example.projectnam;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -32,6 +33,13 @@ public class NoticeActivity extends AppCompatActivity {
 
         CallRestApi apiCaller = new CallRestApi();
         NoticeInfo noticeInfo = apiCaller.loadNotice(3);
+        if(noticeInfo.result.equals("diffIP")){
+            Log.e("Login Session", "다른 기기에서 로그인되었음" );
+            Intent intent = new Intent(NoticeActivity.this, MainActivity.class);
+            moveTaskToBack(true);
+            finishAndRemoveTask();
+            System.exit(0);
+        }
 
         for(int i=9;i>=0;i--){
             noticeList.add(new Notice(noticeInfo.title[i],noticeInfo.date[i]));
