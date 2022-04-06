@@ -35,10 +35,12 @@ public class CallRestApi {
                     conn.setReadTimeout(10000);
                     InputStream is = conn.getInputStream();
 
-                    // Get the stream
+                    // Get the stream 넘어오는 결과 값들을 저장
                     StringBuilder builder = new StringBuilder();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                    // 해당 InputStream에 있는 내용들을 버퍼에 담아서 읽을 수 있도록 한다.
                     String line;
+                    //String형 line 변수를 만들고 하나씩 불러와서  문자열 형태로 저장.
                     while ((line = reader.readLine()) != null) {
                         builder.append(line);
                     }
@@ -52,7 +54,6 @@ public class CallRestApi {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         });
         thread.start();
@@ -112,31 +113,35 @@ public class CallRestApi {
         thread.start();
         while(thread.isAlive());
     }
-    public String loadNotice(int page){
+    public NoticeInfo loadNotice(int page){
         JSONObject jsonPage=new JSONObject();
         Integer[] index=new Integer[10];
         String[] title=new String[10];
         String[] date=new String[10];
         String[] body=new String[10];
         try{
-            jsonPage.put("page", 3);
+            jsonPage.put("page", page);
             postRestAPI(jsonPage,"notice/load");
 
-            for(int i=0; i<receivedJSONArray.length(); i++){
-                index[i]=(Integer)receivedJSONArray.getJSONArray(i).get(0);
-                title[i]=(String)receivedJSONArray.getJSONArray(i).get(1);
-                date[i]=(String)receivedJSONArray.getJSONArray(i).get(2);
-                body[i]=(String)receivedJSONArray.getJSONArray(i).get(3);
-                Log.e("JSONArray로그", Integer.toString(index[i])+title[i]+date[i]+body[i]);
+            for(int i=0; i<receivedJSONArray.length(); i++) {
+                index[i] = (Integer) receivedJSONArray.getJSONArray(i).get(0);
+                title[i] = (String) receivedJSONArray.getJSONArray(i).get(1);
+                date[i] = (String) receivedJSONArray.getJSONArray(i).get(2);
+                body[i] = (String) receivedJSONArray.getJSONArray(i).get(3);
+                Log.e("JSONArray로그", Integer.toString(index[i]) + title[i] + date[i] + body[i]);
             }
+            NoticeInfo info = new NoticeInfo();
+            info.setIndex(index);
+            info.setTitle(title);
+            info.setDate(date);
+            info.setBody(body);
 
-
-            return "finish";
+            return info;
         }
         catch(Exception e){
             Log.i("JSONException", "failed to put json data:"+e.getMessage());
             e.printStackTrace();
-            return "JSONException";
+            return new NoticeInfo();
         }
     }
 
