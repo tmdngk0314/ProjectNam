@@ -17,7 +17,7 @@ import java.net.URL;
 
 public class CallRestApi {
     static int lastResponseCode=0;
-    public JSONObject receivedJSONObject;
+    public JSONObject receivedJSONObject=new JSONObject();
     public JSONArray receivedJSONArray;
     public void getRestAPI(String link){
         Thread thread = new Thread(new Runnable() {
@@ -61,7 +61,11 @@ public class CallRestApi {
 
     }
     public void postRestAPI(JSONObject sendJSON, String link){
-        JSONObject a;
+        try {
+            sendJSON.put("id", CurrentLoggedInID.ID);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -122,7 +126,16 @@ public class CallRestApi {
         try{
             jsonPage.put("page", page);
             postRestAPI(jsonPage,"notice/load");
-
+            try {
+                if (receivedJSONObject.getString("result").equals("diffIP")) {
+                    NoticeInfo info = new NoticeInfo();
+                    info.result = "diffIP";
+                    return info;
+                }
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
             for(int i=0; i<receivedJSONArray.length(); i++) {
                 index[i] = (Integer) receivedJSONArray.getJSONArray(i).get(0);
                 title[i] = (String) receivedJSONArray.getJSONArray(i).get(1);
@@ -131,6 +144,7 @@ public class CallRestApi {
                 Log.e("JSONArray로그", Integer.toString(index[i]) + title[i] + date[i] + body[i]);
             }
             NoticeInfo info = new NoticeInfo();
+            info.result="success";
             info.setIndex(index);
             info.setTitle(title);
             info.setDate(date);
@@ -151,7 +165,7 @@ public class CallRestApi {
         try {
             info.put("name", name);
             info.put("email", email);
-            info.put("id", id);
+            info.put("newId", id);
             info.put("pw", pw);
             postRestAPI(info, "newaccount");
             String result;
@@ -175,6 +189,7 @@ public class CallRestApi {
         try{
             info.put("id", id);
             info.put("pw", pw);
+            CurrentLoggedInID.ID=id;
             postRestAPI(info, "client/login");
             String result="None";
             if(lastResponseCode==200) {
