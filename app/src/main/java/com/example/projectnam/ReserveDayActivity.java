@@ -38,8 +38,6 @@ public class ReserveDayActivity extends AppCompatActivity {
         });
         imgBtnLogout.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                float curX = event.getX();
-                float curY = event.getY();
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         imgBtnLogout.setBackgroundResource(R.drawable.select_logout_touch);
@@ -62,19 +60,18 @@ public class ReserveDayActivity extends AppCompatActivity {
         });
         nextBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(ReserveDayActivity.this, ReserveActivity.class);
+                Intent intent1 = new Intent(ReserveDayActivity.this, ReserveTimeActivity.class);
+                Intent intent = new Intent(ReserveDayActivity.this, TestReserveDong.class);
                 intent.putExtra("년",Year);
                 intent.putExtra("월",Month+1);
                 intent.putExtra("일",Day);
-                startActivity(intent);
+                startActivity(intent1);
                 finish();
             }
         });
 
         nextBtn.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                float curX = event.getX();
-                float curY = event.getY();
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         nextBtn.setBackgroundResource(R.drawable.ok_touch);

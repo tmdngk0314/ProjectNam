@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.projectnam">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/ProjectNam">
+        android:theme="@style/ProjectNam"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".TestReserveDong"
+            android:exported="false" />
+        <activity
+            android:name=".ReserveTimeActivity"
+            android:exported="false" />
         <activity
             android:name=".ActivitySignUp"
             android:exported="false" />
@@ -38,8 +46,6 @@
         <activity
             android:name=".NoticeInformationActivity"
             android:exported="false" />
-
-
     </application>
 
 </manifest>

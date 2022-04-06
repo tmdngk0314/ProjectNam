@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#efefef">
+    android:background="#efefef"
+    >
 
     <RelativeLayout
         android:id="@+id/firstRela"
@@ -25,34 +26,28 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/nanumsquareb"
-            android:text="날짜 선택"
+            android:text="시간 설정"
             android:textColor="#050505"
             android:textSize="15dp" />
-
     </RelativeLayout>
-    <RelativeLayout
+
+    <TimePicker
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/firstRela"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="40dp"
+        android:timePickerMode="spinner"
+        android:id="@+id/timepicker"/>
 
-        <CalendarView
-            android:id="@+id/calender"
-            android:layout_width="match_parent"
-            android:layout_height="360dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/border_gray"/>
-
-        <ImageButton
-            android:id="@+id/nextBtn"
-            android:layout_width="280dp"
-            android:layout_height="40dp"
-            android:layout_below="@id/calender"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ok" />
+    <ImageButton
+        android:id="@+id/nextbtn"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/timepicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ok" />
 
 
-    </RelativeLayout>
+
 </RelativeLayout>
