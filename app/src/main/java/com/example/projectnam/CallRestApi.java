@@ -25,7 +25,7 @@ public class CallRestApi {
             public void run() {
                 lastResponseCode = 0;
                 try {
-                    URL url = new URL("http://192.168.230.175:5000/"+link);
+                    URL url = new URL("http://192.168.34.175:5000/"+link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("GET");
                     conn.setRequestProperty("Content-Type", "application/json");
@@ -66,7 +66,7 @@ public class CallRestApi {
             public void run() {
                 try {
                     lastResponseCode=0;
-                    URL url = new URL("http://192.168.230.175:5000/"+link);
+                    URL url = new URL("http://192.168.34.175:5000/"+link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json");
@@ -149,7 +149,8 @@ public class CallRestApi {
             info.put("id", id);
             info.put("pw", pw);
             postRestAPI(info, "newaccount");
-            String result= receivedJSONObject.getString("result");
+            String result;
+            result= receivedJSONObject.getString("result");
             switch(result) {
                 case "success":
                     SharedPreferences.Editor editor = deviceInfo.edit();
@@ -157,8 +158,6 @@ public class CallRestApi {
                     editor.commit();
             }
             return result;
-
-
         } catch (JSONException e) {
             Log.i("JSONException", "failed to put json data:"+e.getMessage());
             e.printStackTrace();
@@ -171,8 +170,34 @@ public class CallRestApi {
         try{
             info.put("id", id);
             info.put("pw", pw);
-            postRestAPI(info, "login/client");
-            String result = receivedJSONObject.getString("result");
+            postRestAPI(info, "client/login");
+            String result="None";
+            if(lastResponseCode==200) {
+                result = receivedJSONObject.getString("result");
+                if(result.compareTo("success")==0){
+                    CurrentLoggedInID.ID=id;
+                }
+            }
+            return result;
+        }
+        catch(JSONException e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return "unknown";
+        }
+    }
+    public String logout(){
+        JSONObject info = new JSONObject();
+        try{
+            info.put("id", CurrentLoggedInID.ID);
+            postRestAPI(info, "client/logout");
+            String result="None";
+            if(lastResponseCode==200) {
+                result = receivedJSONObject.getString("result");
+                if(result.compareTo("success")==0){
+                    CurrentLoggedInID.ID="";
+                }
+            }
             return result;
         }
         catch(JSONException e){
