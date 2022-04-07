@@ -36,7 +36,7 @@
         android:layout_below="@+id/firstRela"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:background="@drawable/shortrental"/>
+        android:background="@drawable/shortrental" />
 
     <ImageButton
         android:layout_width="200dp"

@@ -24,7 +24,7 @@ public class SelectActivity extends AppCompatActivity {
         firstRela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelectActivity.this, ReserveDayActivity.class);
+                Intent intent = new Intent(SelectActivity.this, ReserveActivity.class);
                 startActivity(intent);
             }
         });

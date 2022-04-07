@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
@@ -21,10 +22,9 @@ public class ReserveTimeActivity extends AppCompatActivity {
         nextbtn = (ImageButton)findViewById(R.id.nextbtn);
         timepicker = (TimePicker)findViewById(R.id.timepicker);
 
-        year = getIntent().getIntExtra("Year",1);
-        month = getIntent().getIntExtra("Month",1);
-        day = getIntent().getIntExtra("Day",1);
-
+        year = getIntent().getExtras().getInt("년");
+        month = getIntent().getExtras().getInt("달");
+        day = getIntent().getExtras().getInt("일");
         hour = timepicker.getCurrentHour();
         minute = timepicker.getCurrentMinute();
 

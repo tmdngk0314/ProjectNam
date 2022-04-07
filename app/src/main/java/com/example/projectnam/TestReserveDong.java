@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class TestReserveDong extends AppCompatActivity {
@@ -19,11 +20,11 @@ public class TestReserveDong extends AppCompatActivity {
         usetimetext = (TextView)findViewById(R.id.usetimetext);
         usedate = (TextView)findViewById(R.id.usedate);
 
-        year = getIntent().getIntExtra("year",1);
-        month = getIntent().getIntExtra("month",1);
-        day = getIntent().getIntExtra("day",1);
-        hour = getIntent().getIntExtra("hour",1);
-        minute = getIntent().getIntExtra("minute",1);
+        year = getIntent().getExtras().getInt("년");
+        month = getIntent().getExtras().getInt("달");
+        day = getIntent().getExtras().getInt("일");
+        hour = getIntent().getExtras().getInt("시간");
+        minute = getIntent().getExtras().getInt("분");
 
         usetimetext.setText(hour + ":" + minute + "PM");
         usedate.setText(year+"."+month+"."+day);

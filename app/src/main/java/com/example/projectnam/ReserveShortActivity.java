@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,7 @@ import java.time.Month;
 public class ReserveShortActivity extends AppCompatActivity {
     ImageButton imgBtnLogout,nextBtn;
     CalendarView calender;
-    int Year, Month , Day;
+    int Year = LocalDate.now().getYear(), Month = LocalDate.MAX.getMonthValue(), Day = LocalDate.now().getDayOfMonth();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +62,9 @@ public class ReserveShortActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(ReserveShortActivity.this, ReserveTimeActivity.class);
+                Log.e("Year",Integer.toString(Year));
                 intent.putExtra("년",Year);
-                intent.putExtra("월",Month);
+                intent.putExtra("달",Month);
                 intent.putExtra("일",Day);
                 startActivity(intent);
             }
