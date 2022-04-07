@@ -19,13 +19,11 @@ public class TestReserveDong extends AppCompatActivity {
         usetimetext = (TextView)findViewById(R.id.usetimetext);
         usedate = (TextView)findViewById(R.id.usedate);
 
-        Intent TestReserveDong = getIntent();
-
-        minute = TestReserveDong.getExtras().getInt("시간");
-        hour = TestReserveDong.getExtras().getInt("분");
-        year = TestReserveDong.getExtras().getInt("년");
-        month = TestReserveDong.getExtras().getInt("월");
-        day = TestReserveDong.getExtras().getInt("일");
+        year = getIntent().getIntExtra("year",1);
+        month = getIntent().getIntExtra("month",1);
+        day = getIntent().getIntExtra("day",1);
+        hour = getIntent().getIntExtra("hour",1);
+        minute = getIntent().getIntExtra("minute",1);
 
         usetimetext.setText(hour + ":" + minute + "PM");
         usedate.setText(year+"."+month+"."+day);

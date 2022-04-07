@@ -20,7 +20,7 @@ import java.time.Month;
 public class ReserveDayActivity extends AppCompatActivity {
     ImageButton imgBtnLogout,nextBtn;
     CalendarView calender;
-    int Year = LocalDate.now().getYear(), Month = LocalDate.now().getMonthValue()-1, Day = LocalDate.now().getDayOfMonth();
+    int Year, Month , Day;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,19 +54,17 @@ public class ReserveDayActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 Year = year;
-                Month = month;
+                Month = month + 1;
                 Day = dayOfMonth;
             }
         });
         nextBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent1 = new Intent(ReserveDayActivity.this, ReserveTimeActivity.class);
-                Intent intent = new Intent(ReserveDayActivity.this, TestReserveDong.class);
+                Intent intent = new Intent(ReserveDayActivity.this, ReserveTimeActivity.class);
                 intent.putExtra("년",Year);
-                intent.putExtra("월",Month+1);
+                intent.putExtra("월",Month);
                 intent.putExtra("일",Day);
-                startActivity(intent1);
-                finish();
+                startActivity(intent);
             }
         });
 

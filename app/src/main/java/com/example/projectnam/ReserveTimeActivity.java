@@ -11,6 +11,7 @@ import android.widget.TimePicker;
 public class ReserveTimeActivity extends AppCompatActivity {
     ImageButton nextbtn;
     TimePicker timepicker;
+    int year, month, day, hour, minute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +21,22 @@ public class ReserveTimeActivity extends AppCompatActivity {
         nextbtn = (ImageButton)findViewById(R.id.nextbtn);
         timepicker = (TimePicker)findViewById(R.id.timepicker);
 
-        int Hour = timepicker.getHour();
-        int Minute = timepicker.getMinute();
+        year = getIntent().getIntExtra("Year",1);
+        month = getIntent().getIntExtra("Month",1);
+        day = getIntent().getIntExtra("Day",1);
+
+        hour = timepicker.getCurrentHour();
+        minute = timepicker.getCurrentMinute();
 
 
         nextbtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(ReserveTimeActivity.this, TestReserveDong.class);
-                intent.putExtra("시간",Hour);
-                intent.putExtra("분",Minute);
+                intent.putExtra("시간",hour);
+                intent.putExtra("분",minute);
+                intent.putExtra("년",year);
+                intent.putExtra("달",month);
+                intent.putExtra("일",day);
                 startActivity(intent);
                 finish();
             }
