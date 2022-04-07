@@ -32,19 +32,19 @@
     <ImageButton
         android:id="@+id/shortrent"
         android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:layout_below="@+id/firstRela"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:background="@drawable/shortrental" />
 
     <ImageButton
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/shortrent"
-        android:layout_marginTop="100dp"
         android:id="@+id/longrent"
-        android:background="@drawable/longrental"/>
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/shortrent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/longrental" />
 
 </RelativeLayout>
