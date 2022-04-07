@@ -10,4 +10,6 @@
 
     <color name="white">#FFFFFFFF</color>
     <color name="colormint">#FF5BBFB5</color>
+
+    <color name="NOBACKGROUND">#00000000</color>
 </resources>
