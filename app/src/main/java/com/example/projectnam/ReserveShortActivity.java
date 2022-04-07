@@ -17,21 +17,21 @@ import java.time.LocalDate;
 
 import java.time.Month;
 
-public class ReserveDayActivity extends AppCompatActivity {
+public class ReserveShortActivity extends AppCompatActivity {
     ImageButton imgBtnLogout,nextBtn;
     CalendarView calender;
     int Year, Month , Day;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reserve_day);
+        setContentView(R.layout.activity_reserve_short);
         imgBtnLogout = (ImageButton)findViewById(R.id.imgBtnLogout);
         nextBtn = (ImageButton)findViewById(R.id.nextBtn);
         calender = (CalendarView)findViewById(R.id.calender);
 
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(ReserveDayActivity.this, SelectActivity.class);
+                Intent intent = new Intent(ReserveShortActivity.this, SelectActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -60,7 +60,7 @@ public class ReserveDayActivity extends AppCompatActivity {
         });
         nextBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(ReserveDayActivity.this, ReserveTimeActivity.class);
+                Intent intent = new Intent(ReserveShortActivity.this, ReserveTimeActivity.class);
                 intent.putExtra("년",Year);
                 intent.putExtra("월",Month);
                 intent.putExtra("일",Day);

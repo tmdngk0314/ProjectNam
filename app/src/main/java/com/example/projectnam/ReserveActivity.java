@@ -52,7 +52,7 @@ public class ReserveActivity extends AppCompatActivity {
 
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(ReserveActivity.this, ReserveDayActivity.class);
+                Intent intent = new Intent(ReserveActivity.this, ReserveShortActivity.class);
                 startActivity(intent);
                 finish();
             }

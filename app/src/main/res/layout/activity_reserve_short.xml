@@ -20,31 +20,38 @@
             android:background="@drawable/left_arrow" />
 
         <TextView
+            android:id="@+id/LockerReserve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/nanumsquareb"
-            android:text="대여 기간 선택"
+            android:text="날짜 선택"
             android:textColor="#050505"
             android:textSize="15dp" />
+
     </RelativeLayout>
-
-    <ImageButton
-        android:id="@+id/shortrent"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/firstRela"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/shortrental"/>
+        android:layout_marginTop="40dp">
 
-    <ImageButton
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/shortrent"
-        android:layout_marginTop="100dp"
-        android:id="@+id/longrent"
-        android:background="@drawable/longrental"/>
+        <CalendarView
+            android:id="@+id/calender"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/border_gray" />
 
+        <ImageButton
+            android:id="@+id/nextBtn"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/calender"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ok" />
+
+    </RelativeLayout>
 </RelativeLayout>
