@@ -209,7 +209,6 @@ public class CallRestApi {
     public String logout(){
         JSONObject info = new JSONObject();
         try{
-            info.put("id", CurrentLoggedInID.ID);
             postRestAPI(info, "client/logout");
             String result="None";
             if(lastResponseCode==200) {
