@@ -114,16 +114,15 @@ public class NoticeActivity extends AppCompatActivity {
                 if (pageValue % 5 == 0) pageValue += 1;
                 else pageValue = pageValue + 6 - (pageValue % 5);
 
-                Log.e("CLICK PAGE ", Integer.toString(pageValue));
-                    try {
+                try {
 
-                        apiCaller.getRestAPI("notice/loadcount");
-                        noticeMax = apiCaller.receivedJSONObject.getInt("max");
-                        noticeInfo = apiCaller.loadNotice(pageValue);
+                    apiCaller.getRestAPI("notice/loadcount");
+                    noticeMax = apiCaller.receivedJSONObject.getInt("max");
+                    noticeInfo = apiCaller.loadNotice(pageValue);
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 pageChange.setPage(pageValue, noticeMax);
                 noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
             }
@@ -134,16 +133,15 @@ public class NoticeActivity extends AppCompatActivity {
                 if (pageValue % 5 == 0) pageValue -= 5;
                 else pageValue = pageValue - (pageValue % 5);
 
-                Log.e("CLICK PAGE ", Integer.toString(pageValue));
-                    try {
+                try {
 
-                        apiCaller.getRestAPI("notice/loadcount");
-                        noticeMax = apiCaller.receivedJSONObject.getInt("max");
-                        noticeInfo = apiCaller.loadNotice(pageValue);
+                    apiCaller.getRestAPI("notice/loadcount");
+                    noticeMax = apiCaller.receivedJSONObject.getInt("max");
+                    noticeInfo = apiCaller.loadNotice(pageValue);
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 pageChange.setPage(pageValue, noticeMax);
                 noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
 
