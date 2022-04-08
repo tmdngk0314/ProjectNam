@@ -113,6 +113,7 @@ public class NoticeActivity extends AppCompatActivity {
                         noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
                         adapter.putInfo(noticeInfo, pageValue, pageOffset, noticeMax);
                         noticeListView.setAdapter(adapter);  //리스트 뷰에 해당 어뎁터 매칭
+                        noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
                     }
                 }
             });
@@ -140,6 +141,7 @@ public class NoticeActivity extends AppCompatActivity {
                 pageChange.setPage(pageValue, noticeMax);
                 adapter.putInfo(noticeInfo, pageValue, pageOffset, noticeMax);
                 noticeListView.setAdapter(adapter);  //리스트 뷰에 해당 어뎁터 매칭
+                noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
             }
         });
         pageBtn[0].setOnClickListener(new View.OnClickListener() {
