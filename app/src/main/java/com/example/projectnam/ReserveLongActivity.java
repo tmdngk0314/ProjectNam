@@ -55,11 +55,16 @@ public class ReserveLongActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 relativeCalendar.setVisibility(INVISIBLE);
-                if(setTextLoca==1) restartBtn1.setText(calendarDate.Year+"년" + calendarDate.Month+ "월" + calendarDate.Day + "일");
-                else restartBtn2.setText(calendarDate.Year+"년" + calendarDate.Month+ "월" + calendarDate.Day + "일");
+                if(setTextLoca==1) {
+                    restartBtn1.setText(calendarDate.Year+"년" + calendarDate.Month+ "월" + calendarDate.Day + "일");
+                    }
+                else {
+                    restartBtn2.setText(calendarDate.Year+"년" + calendarDate.Month+ "월" + calendarDate.Day + "일");
+                }
             }
         });
         calendar.setOnDateChangeListener(calendarDate);
         calendar.setMinDate(now);
+
     }
 }
