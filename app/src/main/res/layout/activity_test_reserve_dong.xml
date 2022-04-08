@@ -48,44 +48,13 @@
             android:textColor="#000000"
             android:textSize="45dp" />
 
-        <TextView
-            android:id="@+id/uttext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text2"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
-            android:text="이용시간  - "
-            android:textColor="#000000"
-            android:textSize="30dp" />
 
-        <TextView
-            android:id="@+id/usetimetext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text2"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
-            android:layout_toRightOf="@+id/uttext"
-            android:text="1 : 30 PM"
-            android:textColor="#000000"
-            android:textSize="30dp" />
-
-        <TextView
-            android:id="@+id/usetimetext2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/usetimetext"
-            android:layout_alignEnd="@+id/usetimetext"
-            android:text="~ 5 : 30 PM"
-            android:textColor="#000000"
-            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/usetimetext2"
+            android:layout_below="@+id/text2"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:text="이용날짜  - "
@@ -96,11 +65,22 @@
             android:id="@+id/usedate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/usetimetext2"
+            android:layout_below="@id/text2"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/text3"
             android:text="2022.04.06"
+            android:textColor="#000000"
+            android:textSize="30dp" />
+        <TextView
+            android:id="@+id/usedate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/usedate"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignRight="@+id/usedate"
+            android:text="~2022.04.12"
             android:textColor="#000000"
             android:textSize="30dp" />
 
@@ -108,7 +88,7 @@
             android:id="@+id/nextBtn"
             android:layout_width="280dp"
             android:layout_height="40dp"
-            android:layout_below="@id/usedate"
+            android:layout_below="@id/usedate2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:background="@drawable/ok" />
