@@ -1,6 +1,7 @@
 package com.example.projectnam;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -11,21 +12,33 @@ import java.util.List;
 public class NoticeListAdapter extends BaseAdapter {
 
     private Context context;
-    private List<Notice>  noticeList;
+    private NoticeInfo noticeInfo;
+    int pageValue, pageOffset, noticeMax;
 
-    public NoticeListAdapter(Context context, List<Notice> noticeList) {
+    public NoticeListAdapter(Context context, NoticeInfo noticeInfo, int pageValue, int pageOffset, int noticeMax) {
         this.context = context;
-        this.noticeList = noticeList;
+        this.noticeInfo = noticeInfo;
+        this.pageValue = pageValue;
+        this.pageOffset = pageOffset;
+        this.noticeMax = noticeMax;
+    }
+
+    public void putInfo(NoticeInfo noticeInfo, int pageValue, int pageOffset, int noticeMax) {
+        this.noticeInfo = noticeInfo;
+        this.pageValue = pageValue;
+        this.pageOffset = pageOffset;
+        this.noticeMax = noticeMax;
     }
 
     @Override
     public int getCount() {
-        return noticeList.size();
+        Log.e(Integer.toString(pageOffset),"HELOOOOOOOOOOOOOOO");
+        return pageOffset;
     }
 
     @Override
-    public Object getItem(int i) {   //해당 위치에 있는 공지사항 반환
-        return noticeList.get(i);
+    public Object getItem(int position) {
+        return noticeInfo.title[position]+"\n"+noticeInfo.date[position];
     }
 
     @Override
@@ -39,10 +52,10 @@ public class NoticeListAdapter extends BaseAdapter {
         TextView noticeText = (TextView) v.findViewById(R.id.noticetext);
         TextView dateText = (TextView) v.findViewById(R.id.dateText);
 
-        noticeText.setText(noticeList.get(i).getNotice());
-        dateText.setText(noticeList.get(i).getDate());
+        noticeText.setText(noticeInfo.title[i]);
+        dateText.setText(noticeInfo.date[i]);
 
-        v.setTag(noticeList.get(i).getNotice());    //태그를 붙여줌
+        v.setTag(noticeInfo.title[i]);    //태그를 붙여줌
         return v;
 
     }

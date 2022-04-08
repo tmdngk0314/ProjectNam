@@ -21,7 +21,9 @@ import java.time.Month;
 public class ReserveShortActivity extends AppCompatActivity {
     ImageButton imgBtnLogout,nextBtn;
     CalendarView calender;
-    int Year = LocalDate.now().getYear(), Month = LocalDate.MAX.getMonthValue(), Day = LocalDate.now().getDayOfMonth();
+    int Year, Month, Day ;
+    long now = System.currentTimeMillis();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class ReserveShortActivity extends AppCompatActivity {
         imgBtnLogout = (ImageButton)findViewById(R.id.imgBtnLogout);
         nextBtn = (ImageButton)findViewById(R.id.nextBtn);
         calender = (CalendarView)findViewById(R.id.calender);
+        CalendarDate calendarDate = new CalendarDate();
 
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -51,21 +54,15 @@ public class ReserveShortActivity extends AppCompatActivity {
 
             }
         });
-        calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                Year = year;
-                Month = month + 1;
-                Day = dayOfMonth;
-            }
-        });
+        calender.setOnDateChangeListener(calendarDate);
+        calender.setMinDate(now);
         nextBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(ReserveShortActivity.this, ReserveTimeActivity.class);
+                Intent intent = new Intent(ReserveShortActivity.this, TestReserveDong.class);
                 Log.e("Year",Integer.toString(Year));
-                intent.putExtra("년",Year);
-                intent.putExtra("달",Month);
-                intent.putExtra("일",Day);
+                intent.putExtra("년",calendarDate.Year);
+                intent.putExtra("달",calendarDate.Month);
+                intent.putExtra("일",calendarDate.Day);
                 startActivity(intent);
             }
         });
@@ -84,6 +81,7 @@ public class ReserveShortActivity extends AppCompatActivity {
 
             }
         });
+
 
 
     }

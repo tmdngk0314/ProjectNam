@@ -22,9 +22,6 @@
             android:name=".TestReserveDong"
             android:exported="false" />
         <activity
-            android:name=".ReserveTimeActivity"
-            android:exported="false" />
-        <activity
             android:name=".ActivitySignUp"
             android:exported="false" />
         <activity
@@ -45,9 +42,6 @@
             android:exported="false" />
         <activity
             android:name=".ReserveActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NoticeInformationActivity"
             android:exported="false" />
     </application>
 
