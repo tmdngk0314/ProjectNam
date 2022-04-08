@@ -9,12 +9,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.RelativeLayout;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class ReserveLongActivity extends AppCompatActivity {
     Button restartBtn1, restartBtn2, chooseDayBtn;
     CalendarView calendar;
     RelativeLayout relativeCalendar;
+    long now = System.currentTimeMillis();
+
     int setTextLoca=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +31,7 @@ public class ReserveLongActivity extends AppCompatActivity {
         restartBtn1 = (Button) findViewById(R.id.restartbtn1);
         restartBtn2 = (Button) findViewById(R.id.restartbtn2);
         chooseDayBtn = (Button)findViewById(R.id.chooseDayBtn);
-        calendar = (CalendarView)findViewById(R.id.calendar);
+        calendar = (CalendarView) findViewById(R.id.calendar);
         relativeCalendar = (RelativeLayout)findViewById(R.id.relativeCalendar);
 
         CalendarDate calendarDate = new CalendarDate();
@@ -43,6 +50,7 @@ public class ReserveLongActivity extends AppCompatActivity {
                 relativeCalendar.setVisibility(VISIBLE);
             }
         });
+
         chooseDayBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -52,5 +60,6 @@ public class ReserveLongActivity extends AppCompatActivity {
             }
         });
         calendar.setOnDateChangeListener(calendarDate);
+        calendar.setMinDate(now);
     }
 }
