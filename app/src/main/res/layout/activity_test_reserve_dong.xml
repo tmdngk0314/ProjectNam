@@ -82,7 +82,8 @@
             android:layout_alignRight="@+id/usedate"
             android:text="~2022.04.12"
             android:textColor="#000000"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:visibility="invisible"/>
 
         <ImageButton
             android:id="@+id/nextBtn"
@@ -91,7 +92,8 @@
             android:layout_below="@id/usedate2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:background="@drawable/ok" />
+            android:background="@drawable/ok"
+           />
 
     </RelativeLayout>
 </RelativeLayout>

@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class TestReserveDong extends AppCompatActivity {
 
     int year,month,day;
-    TextView usetimetext, usedate ;
+    TextView  usedate ;
     ImageButton ok;
 
     @Override
@@ -20,7 +20,6 @@ public class TestReserveDong extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_reserve_dong);
 
-        usetimetext = (TextView)findViewById(R.id.usetimetext);
         usedate = (TextView)findViewById(R.id.usedate);
         ok = (ImageButton)findViewById(R.id.nextBtn);
 
