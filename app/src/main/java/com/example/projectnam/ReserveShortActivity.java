@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -17,21 +18,21 @@ import java.time.LocalDate;
 
 import java.time.Month;
 
-public class ReserveDayActivity extends AppCompatActivity {
+public class ReserveShortActivity extends AppCompatActivity {
     ImageButton imgBtnLogout,nextBtn;
     CalendarView calender;
-    int Year = LocalDate.now().getYear(), Month = LocalDate.now().getMonthValue()-1, Day = LocalDate.now().getDayOfMonth();
+    int Year = LocalDate.now().getYear(), Month = LocalDate.MAX.getMonthValue(), Day = LocalDate.now().getDayOfMonth();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reserve_day);
+        setContentView(R.layout.activity_reserve_short);
         imgBtnLogout = (ImageButton)findViewById(R.id.imgBtnLogout);
         nextBtn = (ImageButton)findViewById(R.id.nextBtn);
         calender = (CalendarView)findViewById(R.id.calender);
 
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(ReserveDayActivity.this, SelectActivity.class);
+                Intent intent = new Intent(ReserveShortActivity.this, SelectActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -54,18 +55,18 @@ public class ReserveDayActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 Year = year;
-                Month = month;
+                Month = month + 1;
                 Day = dayOfMonth;
             }
         });
         nextBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(ReserveDayActivity.this, ReserveActivity.class);
+                Intent intent = new Intent(ReserveShortActivity.this, ReserveTimeActivity.class);
+                Log.e("Year",Integer.toString(Year));
                 intent.putExtra("년",Year);
-                intent.putExtra("월",Month+1);
+                intent.putExtra("달",Month);
                 intent.putExtra("일",Day);
                 startActivity(intent);
-                finish();
             }
         });
 
