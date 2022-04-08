@@ -26,11 +26,10 @@ public class NoticeActivity extends AppCompatActivity {
 
     private int noticeMax;
     private int pageValue = 1;
-    private int pageOffset=0;
+    private int pageOffset=10;
 
     private ListView noticeListView;
     private NoticeListAdapter adapter;
-    private List<Notice> noticeList;
 
     private Integer[] index = new Integer[10];
     private String[] title = new String[10];
@@ -45,19 +44,19 @@ public class NoticeActivity extends AppCompatActivity {
 
     private NoticeInfo noticeInfo = new NoticeInfo();
 
+    CallRestApi apiCaller = new CallRestApi();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
 
         noticeListView = (ListView) findViewById(R.id.noticeListView);
-        noticeList = new ArrayList<Notice>();
 
         PageChangeActivity pageChange = new PageChangeActivity(pageBtn);
 
         for (int i = 0; i < 7; i++) pageBtn[i] = (Button) findViewById(pageBtnName[i]);
 
-        CallRestApi apiCaller = new CallRestApi();
+
 
         try {
             apiCaller.getRestAPI("notice/loadcount");
@@ -68,9 +67,6 @@ public class NoticeActivity extends AppCompatActivity {
 
         noticeInfo = apiCaller.loadNotice(pageValue);
 
-        for (int i = 9; i >= 0; i--)
-            noticeList.add(new Notice(noticeInfo.title[i], noticeInfo.date[i]));
-
         if(noticeInfo.result.equals("diffIP")){
             Log.e("Login Session", "다른 기기에서 로그인되었음" );
             Intent intent = new Intent(NoticeActivity.this, MainActivity.class);
@@ -79,7 +75,7 @@ public class NoticeActivity extends AppCompatActivity {
             System.exit(0);
         }
 
-        adapter = new NoticeListAdapter(getApplicationContext(), noticeList);
+        adapter = new NoticeListAdapter(getApplicationContext(), noticeInfo, pageValue, pageOffset, noticeMax);
         noticeListView.setAdapter(adapter);  //리스트 뷰에 해당 어뎁터 매칭
 
         pageChange.setPage(pageValue, noticeMax);
@@ -93,19 +89,30 @@ public class NoticeActivity extends AppCompatActivity {
                     pageComp = Integer.parseInt(btn.getText().toString());
                     if (pageComp != pageValue) {
                         pageValue = pageComp;
-                        noticeList.clear();
                         try {
                             apiCaller.getRestAPI("notice/loadcount");
                             noticeMax = apiCaller.receivedJSONObject.getInt("max");
-                            noticeInfo = apiCaller.loadNotice(pageValue);
-                            if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
-                            else pageOffset = 10;
+
+                            Log.e(Integer.toString(pageValue),"HEEEEEEEEEEEEEEEEEe");
                         } catch (Exception e) {
+                            Log.e("Notice Activity","페이지 버튼 클릭 오류");
                             e.printStackTrace();
                         }
+                        noticeInfo = apiCaller.loadNotice(pageValue);
+
+                        if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
+                        else pageOffset = 10;
+                        NoticeInfo swap = new NoticeInfo();
+                        for(int j=0;j<pageOffset;j++){
+                            swap.title[j] = noticeInfo.title[9-j-(10-pageOffset)];
+                            swap.date[j] = noticeInfo.date[9-j-(10-pageOffset)];
+                        }
+                        noticeInfo = swap;
+
                         pageChange.setPage(pageValue, noticeMax);
-                        for (int i = 9; (i >= 10-pageOffset)&&((pageValue*10 - 10 + (9-i)) != noticeMax); i--) noticeList.add(new Notice(noticeInfo.title[i], noticeInfo.date[i]));
                         noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
+                        adapter.putInfo(noticeInfo, pageValue, pageOffset, noticeMax);
+                        noticeListView.setAdapter(adapter);  //리스트 뷰에 해당 어뎁터 매칭
                     }
                 }
             });
@@ -115,19 +122,24 @@ public class NoticeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (pageValue % 5 == 0) pageValue += 1;
                 else pageValue = pageValue + 6 - (pageValue % 5);
-                noticeList.clear();
                 try {
                     apiCaller.getRestAPI("notice/loadcount");
                     noticeMax = apiCaller.receivedJSONObject.getInt("max");
-                    noticeInfo = apiCaller.loadNotice(pageValue);
-                    if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
-                    else pageOffset = 10;
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                noticeInfo = apiCaller.loadNotice(pageValue);
+                if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
+                else pageOffset = 10;
+                NoticeInfo swap = new NoticeInfo();
+                for(int j=0;j<pageOffset;j++){
+                    swap.title[j] = noticeInfo.title[9-j-(10-pageOffset)];
+                    swap.date[j] = noticeInfo.date[9-j-(10-pageOffset)];
+                }
+                noticeInfo = swap;
                 pageChange.setPage(pageValue, noticeMax);
-                for (int i = 9; (i >= 10-pageOffset)&&((pageValue*10 - 10 + (9-i)) != noticeMax); i--) noticeList.add(new Notice(noticeInfo.title[i], noticeInfo.date[i]));
-                noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
+                adapter.putInfo(noticeInfo, pageValue, pageOffset, noticeMax);
+                noticeListView.setAdapter(adapter);  //리스트 뷰에 해당 어뎁터 매칭
             }
         });
         pageBtn[0].setOnClickListener(new View.OnClickListener() {
@@ -135,18 +147,24 @@ public class NoticeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (pageValue % 5 == 0) pageValue -= 5;
                 else pageValue = pageValue - (pageValue % 5);
-                noticeList.clear();
                 try {
                     apiCaller.getRestAPI("notice/loadcount");
                     noticeMax = apiCaller.receivedJSONObject.getInt("max");
-                    if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
-                    else pageOffset = 10;
-                    noticeInfo = apiCaller.loadNotice(pageValue);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                noticeInfo = apiCaller.loadNotice(pageValue);
+                if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
+                else pageOffset = 10;
+                NoticeInfo swap = new NoticeInfo();
+                for(int j=0;j<pageOffset;j++){
+                    swap.title[j] = noticeInfo.title[9-j-(10-pageOffset)];
+                    swap.date[j] = noticeInfo.date[9-j-(10-pageOffset)];
+                }
+                noticeInfo = swap;
                 pageChange.setPage(pageValue, noticeMax);
-                for (int i = 9; (i >= 10-pageOffset)&&((pageValue*10 - 10 + (9-i)) != noticeMax); i--) noticeList.add(new Notice(noticeInfo.title[i], noticeInfo.date[i]));
+                adapter.putInfo(noticeInfo, pageValue, pageOffset, noticeMax);
+                noticeListView.setAdapter(adapter);  //리스트 뷰에 해당 어뎁터 매칭
                 noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
             }
         });
