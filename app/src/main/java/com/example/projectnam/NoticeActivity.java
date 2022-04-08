@@ -91,7 +91,7 @@ public class NoticeActivity extends AppCompatActivity {
                         pageValue = pageComp;
                         try {
                             apiCaller.getRestAPI("notice/loadcount");
-                            noticeMax = apiCaller.receivedJSONObject.getInt("max");
+                            noticeMax = apiCaller.receivedJSONObject.getInt("maxindex");
 
                             Log.e(Integer.toString(pageValue),"HEEEEEEEEEEEEEEEEEe");
                         } catch (Exception e) {
@@ -125,7 +125,7 @@ public class NoticeActivity extends AppCompatActivity {
                 else pageValue = pageValue + 6 - (pageValue % 5);
                 try {
                     apiCaller.getRestAPI("notice/loadcount");
-                    noticeMax = apiCaller.receivedJSONObject.getInt("max");
+                    noticeMax = apiCaller.receivedJSONObject.getInt("maxindex");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -151,7 +151,7 @@ public class NoticeActivity extends AppCompatActivity {
                 else pageValue = pageValue - (pageValue % 5);
                 try {
                     apiCaller.getRestAPI("notice/loadcount");
-                    noticeMax = apiCaller.receivedJSONObject.getInt("max");
+                    noticeMax = apiCaller.receivedJSONObject.getInt("maxindex");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
