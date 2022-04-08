@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class ReserveLongActivity extends AppCompatActivity {
     Button restartBtn1, restartBtn2, chooseDayBtn;
     CalendarView calendar;
     RelativeLayout relativeCalendar;
+    TextView text1;
     long now = System.currentTimeMillis();  // 현재시간을 불러오는 변수
 
     int setTextLoca=0;
@@ -34,6 +36,7 @@ public class ReserveLongActivity extends AppCompatActivity {
         chooseDayBtn = (Button)findViewById(R.id.chooseDayBtn);
         calendar = (CalendarView) findViewById(R.id.calendar);
         relativeCalendar = (RelativeLayout)findViewById(R.id.relativeCalendar);
+        text1 = (TextView)findViewById(R.id.text1);
 
         CalendarDate calendarDate = new CalendarDate();
 
@@ -42,6 +45,7 @@ public class ReserveLongActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setTextLoca=1;
                 relativeCalendar.setVisibility(VISIBLE);
+                text1.setVisibility(INVISIBLE);
             }
         });
         restartBtn2.setOnClickListener(new View.OnClickListener(){
@@ -49,6 +53,7 @@ public class ReserveLongActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setTextLoca=2;
                 relativeCalendar.setVisibility(VISIBLE);
+                text1.setVisibility(INVISIBLE);
             }
         });
 
@@ -56,6 +61,7 @@ public class ReserveLongActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 relativeCalendar.setVisibility(INVISIBLE);
+                text1.setVisibility(VISIBLE);
                 if(setTextLoca==1) restartBtn1.setText(calendarDate.Year+"년" + calendarDate.Month+ "월" + calendarDate.Day + "일");
                 else restartBtn2.setText(calendarDate.Year+"년" + calendarDate.Month+ "월" + calendarDate.Day + "일");
             }
