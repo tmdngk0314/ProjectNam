@@ -22,6 +22,8 @@ public class ReserveShortActivity extends AppCompatActivity {
     ImageButton imgBtnLogout,nextBtn;
     CalendarView calender;
     int Year, Month, Day ;
+    long now = System.currentTimeMillis();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +55,10 @@ public class ReserveShortActivity extends AppCompatActivity {
             }
         });
         calender.setOnDateChangeListener(calendarDate);
+        calender.setMinDate(now);
         nextBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(ReserveShortActivity.this, ReserveTimeActivity.class);
+                Intent intent = new Intent(ReserveShortActivity.this, TestReserveDong.class);
                 Log.e("Year",Integer.toString(Year));
                 intent.putExtra("년",calendarDate.Year);
                 intent.putExtra("달",calendarDate.Month);
@@ -78,6 +81,7 @@ public class ReserveShortActivity extends AppCompatActivity {
 
             }
         });
+
 
 
     }

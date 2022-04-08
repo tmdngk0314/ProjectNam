@@ -5,9 +5,7 @@ import static android.view.View.VISIBLE;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -22,7 +20,7 @@ public class ReserveLongActivity extends AppCompatActivity {
     Button restartBtn1, restartBtn2, chooseDayBtn;
     CalendarView calendar;
     RelativeLayout relativeCalendar;
-    long now = System.currentTimeMillis();
+    long now = System.currentTimeMillis();  // 현재시간을 불러오는 변수
 
     int setTextLoca=0;
     @Override
