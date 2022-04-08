@@ -26,6 +26,7 @@ public class NoticeActivity extends AppCompatActivity {
 
     private int noticeMax;
     private int pageValue = 1;
+    private int pageOffset=0;
 
     private ListView noticeListView;
     private NoticeListAdapter adapter;
@@ -92,17 +93,18 @@ public class NoticeActivity extends AppCompatActivity {
                     pageComp = Integer.parseInt(btn.getText().toString());
                     if (pageComp != pageValue) {
                         pageValue = pageComp;
-                        Log.e("CLICK PAGE ", Integer.toString(pageValue));
+                        noticeList.clear();
                         try {
-
                             apiCaller.getRestAPI("notice/loadcount");
                             noticeMax = apiCaller.receivedJSONObject.getInt("max");
                             noticeInfo = apiCaller.loadNotice(pageValue);
-
-                        } catch (JSONException e) {
+                            if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
+                            else pageOffset = 10;
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         pageChange.setPage(pageValue, noticeMax);
+                        for (int i = 9; (i >= 10-pageOffset)&&((pageValue*10 - 10 + (9-i)) != noticeMax); i--) noticeList.add(new Notice(noticeInfo.title[i], noticeInfo.date[i]));
                         noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
                     }
                 }
@@ -113,17 +115,18 @@ public class NoticeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (pageValue % 5 == 0) pageValue += 1;
                 else pageValue = pageValue + 6 - (pageValue % 5);
-
+                noticeList.clear();
                 try {
-
                     apiCaller.getRestAPI("notice/loadcount");
                     noticeMax = apiCaller.receivedJSONObject.getInt("max");
                     noticeInfo = apiCaller.loadNotice(pageValue);
-
+                    if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
+                    else pageOffset = 10;
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 pageChange.setPage(pageValue, noticeMax);
+                for (int i = 9; (i >= 10-pageOffset)&&((pageValue*10 - 10 + (9-i)) != noticeMax); i--) noticeList.add(new Notice(noticeInfo.title[i], noticeInfo.date[i]));
                 noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
             }
         });
@@ -132,22 +135,20 @@ public class NoticeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (pageValue % 5 == 0) pageValue -= 5;
                 else pageValue = pageValue - (pageValue % 5);
-
+                noticeList.clear();
                 try {
-
                     apiCaller.getRestAPI("notice/loadcount");
                     noticeMax = apiCaller.receivedJSONObject.getInt("max");
+                    if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
+                    else pageOffset = 10;
                     noticeInfo = apiCaller.loadNotice(pageValue);
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 pageChange.setPage(pageValue, noticeMax);
+                for (int i = 9; (i >= 10-pageOffset)&&((pageValue*10 - 10 + (9-i)) != noticeMax); i--) noticeList.add(new Notice(noticeInfo.title[i], noticeInfo.date[i]));
                 noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
-
             }
         });
-
-
     }
 }
