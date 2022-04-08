@@ -126,7 +126,7 @@
             android:layout_below="@+id/calendar"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ok"
+            android:background="@drawable/choose_reserve_day"
             android:clickable="false" />
     </RelativeLayout>
 

@@ -5,7 +5,9 @@ import static android.view.View.VISIBLE;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -61,5 +63,19 @@ public class ReserveLongActivity extends AppCompatActivity {
         });
         calendar.setOnDateChangeListener(calendarDate);
         calendar.setMinDate(now);
+        chooseDayBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        chooseDayBtn.setTextColor(R.drawable.choose_reserve_day_push);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        chooseDayBtn.setTextColor(R.drawable.choose_reserve_day);
+                        return false;
+                    default: return false;
+                }
+            }
+        });
     }
 }
