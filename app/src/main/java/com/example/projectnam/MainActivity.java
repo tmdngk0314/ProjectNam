@@ -58,14 +58,17 @@ public class MainActivity extends AppCompatActivity {
                     switch(result){
                         case "success":
                             Log.i("로그인", "로그인 성공");
+                            Toast.makeText(MainActivity.this, "반갑습니다!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this, SelectActivity.class);
                             startActivity(intent);
                             finish();
                             break;
                         case "no match":
+                            Toast.makeText(MainActivity.this, "아이디/패스워드 불일치", Toast.LENGTH_SHORT).show();
                             Log.e("로그인", "아이디/비밀번호 불일치");
                             break;
                         default:
+                            Toast.makeText(MainActivity.this, "서버 연결 오류", Toast.LENGTH_SHORT).show();
                             Log.e("로그인", "unknown:알 수 없는 오류");
                     }
                 }
