@@ -20,8 +20,9 @@ public class ForcedTerminationService extends Service {
 
     @Override
     public void onTaskRemoved(Intent rootIntent) { //핸들링 하는 부분
-        Log.e("Error","onTaskRemoved - 강제 종료 " + rootIntent);
+        Log.e("ForcedTermination","onTaskRemoved - 강제 종료 " + rootIntent);
         if(CurrentLoggedInID.isLoggedIn=true) {
+            CurrentLoggedInID.ID="";
             Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
             CallRestApi apiCaller = new CallRestApi();
             apiCaller.logout();

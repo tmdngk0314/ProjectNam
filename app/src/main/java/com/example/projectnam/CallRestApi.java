@@ -215,6 +215,7 @@ public class CallRestApi {
                 result = receivedJSONObject.getString("result");
                 if(result.compareTo("success")==0){
                     CurrentLoggedInID.ID="";
+                    CurrentLoggedInID.isLoggedIn=false;
                 }
             }
             return result;
