@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -69,6 +70,7 @@ public class NoticeActivity extends AppCompatActivity {
 
         if(noticeInfo.result.equals("diffIP")){
             Log.e("Login Session", "다른 기기에서 로그인되었음" );
+            Toast.makeText(this, "다른 기기에서 로그인되어 종료합니다.", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(NoticeActivity.this, MainActivity.class);
             moveTaskToBack(true);
             finishAndRemoveTask();

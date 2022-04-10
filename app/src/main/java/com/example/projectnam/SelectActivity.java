@@ -2,14 +2,17 @@ package com.example.projectnam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class SelectActivity extends AppCompatActivity {
+    public static Activity menu_activity;
     ImageButton imgBtnLogout, imgBtnreserve;
     RelativeLayout thirdRela, firstRela;
     @Override
@@ -20,6 +23,9 @@ public class SelectActivity extends AppCompatActivity {
         imgBtnreserve =(ImageButton)findViewById(R.id.storeimg) ;
         thirdRela = (RelativeLayout)findViewById(R.id.thirdRela);
         firstRela = (RelativeLayout)findViewById(R.id.firstRela);
+
+
+        startService(new Intent(this, ForcedTerminationService.class)); // 앱 강제종료 시 로그아웃하는 서비스
 
         firstRela.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +55,7 @@ public class SelectActivity extends AppCompatActivity {
                 CallRestApi apiCaller = new CallRestApi();
                 String result = apiCaller.logout();
                 if(result.compareTo("success")==0) {
+                    CurrentLoggedInID.isLoggedIn=false;
                     Intent intent = new Intent(SelectActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -94,5 +101,13 @@ public class SelectActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+        CallRestApi apiCaller = new CallRestApi();
+        apiCaller.logout();
+        super.onDestroy();
     }
 }

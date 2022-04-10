@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/ProjectNam"
         android:usesCleartextTraffic="true" >
+        <service android:name=".ForcedTerminationService"
+            android:stopWithTask="false" />
         <activity
             android:name=".ReserveLongActivity"
             android:exported="false" />

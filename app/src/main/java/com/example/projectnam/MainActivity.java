@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     switch(result){
                         case "success":
                             Log.i("로그인", "로그인 성공");
+                            CurrentLoggedInID.isLoggedIn=true;
                             Toast.makeText(MainActivity.this, "반갑습니다!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this, SelectActivity.class);
                             startActivity(intent);
@@ -114,8 +115,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 
 }
