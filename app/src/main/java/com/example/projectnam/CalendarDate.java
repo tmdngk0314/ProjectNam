@@ -39,12 +39,14 @@ public class CalendarDate implements CalendarView.OnDateChangeListener {
             e.printStackTrace();
         }
         if (offset == 1){
+            Year = startYear;
+            Month = startMonth;
+            Day = startDay;
             calendar.setMinDate(now);
             calendar.setDate(tim);
         }
-        else {
-            calendar.setMinDate(tim);
-        }
+        else calendar.setMinDate(tim);
+
     }
     public void setOffset(int offset) {
         this.offset = offset;
@@ -63,9 +65,13 @@ public class CalendarDate implements CalendarView.OnDateChangeListener {
 
         else {
             if(tim==2019571954000L) calendar.setDate(now);
-            else calendar.setDate(tim);
+            else {
+                calendar.setDate(tim);
+                Year = finishYear;
+                Month = finishMonth;
+                Day = finishDay;
+            }
         }
-
     }
 
     public void saveFinish() {

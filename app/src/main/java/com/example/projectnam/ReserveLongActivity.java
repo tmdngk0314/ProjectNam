@@ -54,11 +54,7 @@ public class ReserveLongActivity extends AppCompatActivity {
                 calendarDate.setOffset(setTextLoca);
                 calendarDate.setMax();
                 calendarDate.setMin();
-                try {
-                    calendar.setDate(new SimpleDateFormat().parse(Integer.toString(calendarDate.finishYear) + "-" + Integer.toString(calendarDate.finishMonth) + "-" + Integer.toString(calendarDate.finishDay) + " 01:12:34").getTime());
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+
             }
         });
         restartBtn1.setOnClickListener(new View.OnClickListener(){

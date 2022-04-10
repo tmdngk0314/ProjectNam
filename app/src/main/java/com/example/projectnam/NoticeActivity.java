@@ -95,7 +95,6 @@ public class NoticeActivity extends AppCompatActivity {
                             apiCaller.getRestAPI("notice/loadcount");
                             noticeMax = apiCaller.receivedJSONObject.getInt("maxindex");
 
-                            Log.e(Integer.toString(pageValue),"HEEEEEEEEEEEEEEEEEe");
                         } catch (Exception e) {
                             Log.e("Notice Activity","페이지 버튼 클릭 오류");
                             e.printStackTrace();
