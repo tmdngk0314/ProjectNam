@@ -38,6 +38,6 @@ public class ReserveShortResultActivity extends AppCompatActivity {
             }
         });
 
-
+        ok.setOnTouchListener(new OkTouch());
     }
 }
