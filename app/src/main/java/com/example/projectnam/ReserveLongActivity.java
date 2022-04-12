@@ -6,6 +6,7 @@ import static android.view.View.VISIBLE;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,10 +25,11 @@ import java.util.Date;
 
 public class ReserveLongActivity extends AppCompatActivity {
     Button restartBtn1, restartBtn2, chooseDayBtn;
+    ImageButton nextBtn;
     CalendarView calendar;
     RelativeLayout relativeCalendar;
     TextView text1;
-    long tim, now = System.currentTimeMillis();  // 현재시간을 불러오는 변수
+    long tim, now = System.currentTimeMillis();  // 현재시간을 불러오는 변수 필요없누?
 
     CalendarDate calendarDate = new CalendarDate();
     int setTextLoca=0;
@@ -38,6 +41,7 @@ public class ReserveLongActivity extends AppCompatActivity {
         restartBtn1 = (Button) findViewById(R.id.restartbtn1);
         restartBtn2 = (Button) findViewById(R.id.restartbtn2);
         chooseDayBtn = (Button)findViewById(R.id.chooseDayBtn);
+        nextBtn = (ImageButton)findViewById(R.id.nextBtn);
         calendar = (CalendarView) findViewById(R.id.calendar);
         relativeCalendar = (RelativeLayout)findViewById(R.id.relativeCalendar);
         text1 = (TextView)findViewById(R.id.text1);
@@ -100,6 +104,15 @@ public class ReserveLongActivity extends AppCompatActivity {
                         return false;
                     default: return false;
                 }
+            }
+        });
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReserveLongActivity.this, ReserveLongResultActivity.class);
+
+                startActivity(intent);
             }
         });
     }
