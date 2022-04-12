@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class TestReserveDong extends AppCompatActivity {
+public class ReserveShortResultActivity extends AppCompatActivity {
 
     int year,month,day;
     TextView  usedate ;
@@ -18,7 +18,7 @@ public class TestReserveDong extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_reserve_dong);
+        setContentView(R.layout.activity_reserve_short_result);
 
         usedate = (TextView)findViewById(R.id.usedate);
         ok = (ImageButton)findViewById(R.id.nextBtn);
@@ -33,7 +33,7 @@ public class TestReserveDong extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TestReserveDong.this, SelectActivity.class);
+                Intent intent = new Intent(ReserveShortResultActivity.this, SelectActivity.class);
                 startActivity(intent);
             }
         });

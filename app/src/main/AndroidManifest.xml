@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.projectnam" >
+    package="com.example.projectnam">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,9 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/ProjectNam"
-        android:usesCleartextTraffic="true" >
-        <service android:name=".ForcedTerminationService"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ReserveShortResultActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".ForcedTerminationService"
             android:stopWithTask="false" />
+
         <activity
             android:name=".ReserveLongActivity"
             android:exported="false" />
@@ -21,15 +27,12 @@
             android:name=".ReserveShortActivity"
             android:exported="false" />
         <activity
-            android:name=".TestReserveDong"
-            android:exported="false" />
-        <activity
             android:name=".ActivitySignUp"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/SplashTheme" >
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
