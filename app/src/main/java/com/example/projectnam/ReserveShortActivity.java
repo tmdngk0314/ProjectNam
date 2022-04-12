@@ -35,7 +35,7 @@ public class ReserveShortActivity extends AppCompatActivity {
 
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(ReserveShortActivity.this, SelectActivity.class);
+                Intent intent = new Intent(ReserveShortActivity.this, ReserveActivity.class);
                 startActivity(intent);
                 finish();
             }
