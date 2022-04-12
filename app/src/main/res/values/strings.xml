@@ -2,8 +2,10 @@
     <string name="app_name">프작남</string>
     <string name="resevation">예약하기</string>
     <string name="resevationInfo">원하는 사물함을 예약합니다.</string>
-    <string name="otpcheck">예약 정보 확인</string>
-    <string name="otpcheckInfo">OTP 및 인증 내역을 확인합니다.</string>
+    <string name="otpcheck">내 OTP확인</string>
+    <string name="otpcheckInfo">인증에 필요한 OTP를 확인합니다.</string>
     <string name="notice">공지사항</string>
     <string name="noticeInfo">최근 공지사항을 확인합니다.</string>
+    <string name="info">내 정보</string>
+    <string name="infoInfo">예약정보를 확인합니다.</string>
 </resources>
