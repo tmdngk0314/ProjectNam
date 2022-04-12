@@ -22,9 +22,9 @@ public class ReserveLongResultActivity extends AppCompatActivity {
         usedate2 = (TextView)findViewById(R.id.usedate2);
         ok = (ImageButton)findViewById(R.id.nextBtn);
 
-        year = getIntent().getExtras().getInt("년");
-        month = getIntent().getExtras().getInt("달");
-        day = getIntent().getExtras().getInt("일");
+        year = getIntent().getExtras().getInt("년"); //키 값 수정하기
+        month = getIntent().getExtras().getInt("달"); // 키 값 수정하기
+        day = getIntent().getExtras().getInt("일"); //  키 값 수정하기
 
         usedate1.setText(year+"."+month+"."+day);
 
