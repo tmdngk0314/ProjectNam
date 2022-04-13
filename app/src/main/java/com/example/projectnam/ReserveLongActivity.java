@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,7 +26,7 @@ import java.util.Date;
 
 public class ReserveLongActivity extends AppCompatActivity {
     Button restartBtn1, restartBtn2, chooseDayBtn;
-    ImageButton nextBtn;
+    ImageButton nextBtn,imgBtnLogout;
     CalendarView calendar;
     RelativeLayout relativeCalendar;
     TextView text1;
@@ -43,6 +44,7 @@ public class ReserveLongActivity extends AppCompatActivity {
         restartBtn2 = (Button) findViewById(R.id.restartbtn2);
         chooseDayBtn = (Button)findViewById(R.id.chooseDayBtn);
         nextBtn = (ImageButton)findViewById(R.id.nextBtn);
+        imgBtnLogout = (ImageButton)findViewById(R.id.imgBtnLogout);
         calendar = (CalendarView) findViewById(R.id.calendar);
         relativeCalendar = (RelativeLayout)findViewById(R.id.relativeCalendar);
         text1 = (TextView)findViewById(R.id.text1);
@@ -124,6 +126,13 @@ public class ReserveLongActivity extends AppCompatActivity {
                 intent.putExtra("연2",year2);
                 intent.putExtra("월2",month2);
                 intent.putExtra("일2",day2);
+                startActivity(intent);
+            }
+        });
+        imgBtnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReserveLongActivity.this, ReserveActivity.class);
                 startActivity(intent);
             }
         });
