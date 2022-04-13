@@ -29,6 +29,7 @@ public class ReserveLongActivity extends AppCompatActivity {
     CalendarView calendar;
     RelativeLayout relativeCalendar;
     TextView text1;
+    int year,month,day,year2,month2,day2;
     long tim, now = System.currentTimeMillis();  // 현재시간을 불러오는 변수 필요없누?
 
     CalendarDate calendarDate = new CalendarDate();
@@ -82,10 +83,16 @@ public class ReserveLongActivity extends AppCompatActivity {
                 text1.setVisibility(VISIBLE);
                 if(setTextLoca==1){
                     restartBtn1.setText(calendarDate.Year+"년" + calendarDate.Month+ "월" + calendarDate.Day + "일");
+                   year = calendarDate.Year;
+                   month = calendarDate.Month;
+                   day = calendarDate.Day;
                     calendarDate.saveStart();
                 }
                 else {
                     restartBtn2.setText(calendarDate.Year+"년" + calendarDate.Month+ "월" + calendarDate.Day + "일");
+                    year2 = calendarDate.Year;
+                    month2 = calendarDate.Month;
+                    day2 = calendarDate.Day;
                     calendarDate.saveFinish();
                 }
             }
@@ -111,7 +118,12 @@ public class ReserveLongActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ReserveLongActivity.this, ReserveLongResultActivity.class);
-
+                intent.putExtra("연",year);
+                intent.putExtra("월",month);
+                intent.putExtra("일",day);
+                intent.putExtra("연2",year2);
+                intent.putExtra("월2",month2);
+                intent.putExtra("일2",day2);
                 startActivity(intent);
             }
         });
