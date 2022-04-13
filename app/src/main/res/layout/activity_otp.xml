@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    >
+    <RelativeLayout
+        android:id="@+id/firstRela"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="#ffffff">
+
+        <ImageButton
+            android:id="@+id/imgBtnLogout"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/left_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="@string/otpcheck"
+            android:textColor="#050505"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_below="@+id/firstRela"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:indeterminateTint="#5bbfb5"
+            android:indeterminateTintMode="src_atop"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="256 459"
+            android:textSize="50dp"
+            android:textColor="#000000"
+            android:id="@+id/otptext"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="30"
+            android:layout_below="@+id/otptext"
+            android:layout_centerHorizontal="true"
+            android:textColor="#5bbfb5"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>
