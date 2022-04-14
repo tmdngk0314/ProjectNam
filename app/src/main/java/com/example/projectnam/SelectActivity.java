@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class SelectActivity extends AppCompatActivity {
     public static Activity menu_activity;
     ImageButton imgBtnLogout, imgBtnreserve;
-    RelativeLayout thirdRela, firstRela;
+    RelativeLayout thirdRela, firstRela, secondRela;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +23,7 @@ public class SelectActivity extends AppCompatActivity {
         imgBtnreserve =(ImageButton)findViewById(R.id.storeimg) ;
         thirdRela = (RelativeLayout)findViewById(R.id.thirdRela);
         firstRela = (RelativeLayout)findViewById(R.id.firstRela);
+        secondRela = (RelativeLayout)findViewById(R.id.secondRela);
 
 
         startService(new Intent(this, ForcedTerminationService.class)); // 앱 강제종료 시 로그아웃하는 서비스
@@ -47,6 +48,14 @@ public class SelectActivity extends AppCompatActivity {
                         return false;
                     default: return false;
                 }
+
+            }
+        });
+        secondRela.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectActivity.this, OtpActivity.class);
+                startActivity(intent);
 
             }
         });
