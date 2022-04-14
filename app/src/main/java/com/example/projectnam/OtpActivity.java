@@ -4,12 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -17,9 +14,10 @@ import java.util.concurrent.TimeUnit;
 public class OtpActivity extends AppCompatActivity {
     long otp = System.currentTimeMillis();
     int curSecond;
-    String cursec,cursec2;
+    String remainsec,cursec2;
     SharedPreferences deviceInfo;
     TextView cursecondtext,otptext;
+    boolean initiate=true;
     public ScheduledExecutorService exeService;
 
 
@@ -30,14 +28,13 @@ public class OtpActivity extends AppCompatActivity {
         deviceInfo=getSharedPreferences("accountOTP", 0);
         cursecondtext = (TextView)findViewById(R.id.cursecond);
         otptext = (TextView)findViewById(R.id.otptext);
-
-
         Runnable runn = new Runnable() {
             @Override
             public void run() {
                 Calendar calendar = Calendar.getInstance();
                 curSecond = calendar.get(Calendar.SECOND);
                 String otp = ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo);
+
                 //1초마다 동작시킬 코드
                 new Thread(new Runnable() {
                     @Override
@@ -45,14 +42,12 @@ public class OtpActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                otptext.setText(otp);
-                                if(curSecond>0 && curSecond<=30) {
-                                    cursec = Integer.toString(30-curSecond);
-                                    cursecondtext.setText(cursec);}
-                                else if(curSecond>30 && curSecond<=60){
-                                    cursec2 = Integer.toString(60-curSecond);
-                                    cursecondtext.setText(cursec2);
-                                }  //1초마다 동작시킬 ui코드
+                                remainsec =Integer.toString(30-(curSecond%30));
+                                if(initiate==false || remainsec.equals("30")) {
+                                    otptext.setText(otp);
+                                    initiate=true;
+                                }
+                                cursecondtext.setText(remainsec);
                             }
                         });
                     }
