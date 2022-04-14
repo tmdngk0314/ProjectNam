@@ -103,9 +103,9 @@ public class ManageOTP {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             df.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
             try {
-                String key=deviceInfo.getString("otpkey", ID);
-                if(key.isEmpty()){
-                    return "no key found for "+ID;
+                String key=deviceInfo.getString(ID, "no key found");
+                if(key.equals("no key found")){
+                    return key;
                 }
                 String mySeed=stringToHex(key); // 저장된 OTP Key를 시드로 변환!!!!
                 System.out.println("test"+mySeed);
