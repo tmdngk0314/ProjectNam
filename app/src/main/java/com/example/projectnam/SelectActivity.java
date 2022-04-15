@@ -105,6 +105,13 @@ public class SelectActivity extends AppCompatActivity {
 
             }
         });
+        myInfoRela.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectActivity.this,FixInfoActivity.class);
+                startActivity(intent);
+            }
+        });
         myInfoRela.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {

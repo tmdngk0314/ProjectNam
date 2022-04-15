@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#efefef"
-    android:orientation="vertical">
+    android:background="#efefef">
 
     <RelativeLayout
         android:id="@+id/titlelayout"
@@ -30,6 +29,40 @@
             android:textColor="#050505"
             android:textSize="15dp" />
     </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/firstimg"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/titlelayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/select_box" />
+
+        <ImageButton
+            android:id="@+id/seimg"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/firstimg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/select_box"/>
+    <ImageButton
+        android:id="@+id/thiimg"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/seimg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/select_box"/>
+    <ImageButton
+        android:id="@+id/forimg"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/thiimg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/select_box"/>
 
 
 </RelativeLayout>
