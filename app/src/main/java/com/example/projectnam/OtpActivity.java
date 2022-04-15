@@ -2,9 +2,12 @@ package com.example.projectnam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,9 +18,10 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends AppCompatActivity {
-    int curSecond,progressCount;
+    int curSecond;
     String otp;
     String remainsec;
+    ImageButton backbtn;
     SharedPreferences deviceInfo;
     TextView cursecondtext,otptext;
     ProgressBar otpprogress;
@@ -43,6 +47,15 @@ public class OtpActivity extends AppCompatActivity {
         cursecondtext = (TextView)findViewById(R.id.cursecond);
         otptext = (TextView)findViewById(R.id.otptext);
         otpprogress = (ProgressBar)findViewById(R.id.progressbar);
+        backbtn = (ImageButton)findViewById(R.id.imgBtnLogout);
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OtpActivity.this,SelectActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         Runnable runn = new Runnable() {
