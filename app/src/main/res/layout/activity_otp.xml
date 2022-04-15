@@ -43,7 +43,8 @@
             android:indeterminateOnly="false"
             android:max="30"
             android:progress="0"
-            android:progressDrawable="@drawable/progress" />
+            android:progressDrawable="@drawable/progress"
+            android:id="@+id/otpprogress"/>
 
         <TextView
             android:id="@+id/otptext"

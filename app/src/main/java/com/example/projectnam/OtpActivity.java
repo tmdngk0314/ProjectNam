@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,9 +16,10 @@ import java.util.concurrent.TimeUnit;
 public class OtpActivity extends AppCompatActivity {
     long otp = System.currentTimeMillis();
     int curSecond;
-    String remainsec,cursec2;
+    String remainsec;
     SharedPreferences deviceInfo;
     TextView cursecondtext,otptext;
+    ProgressBar otpprogress;
     boolean initiate=true;
     public ScheduledExecutorService exeService;
 
@@ -37,7 +39,7 @@ public class OtpActivity extends AppCompatActivity {
         deviceInfo=getSharedPreferences("accountOTP", 0);
         cursecondtext = (TextView)findViewById(R.id.cursecond);
         otptext = (TextView)findViewById(R.id.otptext);
-
+        otpprogress = (ProgressBar)findViewById(R.id.otpprogress);
 
         Runnable runn = new Runnable() {
             @Override
