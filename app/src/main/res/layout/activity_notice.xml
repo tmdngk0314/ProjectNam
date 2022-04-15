@@ -150,15 +150,16 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/notice_box"
         android:padding="20dp"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/noticeTitle"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/select_box"
+            android:background="@drawable/border_gray"
             android:fontFamily="@font/nanumsquareb"
-            android:gravity="center" />
+            android:gravity="center"
+            android:layout_marginRight="10dp"/>
 
         <TextView
             android:id="@+id/noticeDate"
