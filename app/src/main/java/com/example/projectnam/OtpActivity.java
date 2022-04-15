@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.concurrent.Executors;
@@ -13,6 +14,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends AppCompatActivity {
+    long otp = System.currentTimeMillis();
     int curSecond;
     String remainsec;
     SharedPreferences deviceInfo;
@@ -21,6 +23,14 @@ public class OtpActivity extends AppCompatActivity {
     boolean initiate=true;
     public ScheduledExecutorService exeService;
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo).equals("no key found")){
+            Toast.makeText(this, "OTP Key가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
