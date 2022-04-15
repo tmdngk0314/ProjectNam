@@ -173,7 +173,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="20dp"
-                android:background="@drawable/select_notice" />
+                android:background="@drawable/userinfo" />
 
             <LinearLayout
                 android:id="@+id/infoLinear"
