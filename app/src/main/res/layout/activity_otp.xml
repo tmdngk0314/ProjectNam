@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="256 459"
+            android:text="Empty"
             android:textColor="#000000"
             android:textSize="55dp" />
         <TextView

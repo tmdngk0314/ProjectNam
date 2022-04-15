@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.concurrent.Executors;
@@ -20,6 +21,14 @@ public class OtpActivity extends AppCompatActivity {
     boolean initiate=true;
     public ScheduledExecutorService exeService;
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo).equals("no key found")){
+            Toast.makeText(this, "OTP Key가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +37,8 @@ public class OtpActivity extends AppCompatActivity {
         deviceInfo=getSharedPreferences("accountOTP", 0);
         cursecondtext = (TextView)findViewById(R.id.cursecond);
         otptext = (TextView)findViewById(R.id.otptext);
+
+
         Runnable runn = new Runnable() {
             @Override
             public void run() {
