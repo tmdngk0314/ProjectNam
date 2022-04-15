@@ -39,9 +39,8 @@ public class OtpActivity extends AppCompatActivity {
         cursecondtext = (TextView)findViewById(R.id.cursecond);
         otptext = (TextView)findViewById(R.id.otptext);
         otpprogress = (ProgressBar)findViewById(R.id.otpprogress);
-
-        otpprogress.setProgress(15);
-
+        String otp = ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo);
+        otptext.setText(otp);
         Runnable runn = new Runnable() {
             @Override
             public void run() {
