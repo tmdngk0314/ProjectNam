@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends AppCompatActivity {
+    String otp;
     int curSecond;
     String remainsec;
     SharedPreferences deviceInfo;
@@ -26,7 +28,9 @@ public class OtpActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         deviceInfo=getSharedPreferences("accountOTP", 0);
-        if(ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo).equals("no key found")){
+        otp = ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo);
+        Log.i("OTP:", otp);
+        if(otp.equals("no key found")){
             Toast.makeText(this, "OTP Key가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -39,14 +43,14 @@ public class OtpActivity extends AppCompatActivity {
         cursecondtext = (TextView)findViewById(R.id.cursecond);
         otptext = (TextView)findViewById(R.id.otptext);
         otpprogress = (ProgressBar)findViewById(R.id.otpprogress);
-        String otp = ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo);
-        otptext.setText(otp);
+
+
         Runnable runn = new Runnable() {
             @Override
             public void run() {
                 Calendar calendar = Calendar.getInstance();
                 curSecond = calendar.get(Calendar.SECOND);
-                String otp = ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo);
+                otp = ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo);
 
                 //1초마다 동작시킬 코드
                 new Thread(new Runnable() {
@@ -56,9 +60,9 @@ public class OtpActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 remainsec =Integer.toString(30-(curSecond%30));
-                                if(initiate==false || remainsec.equals("30")) {
+                                if(initiate==true || remainsec.equals("30")) {
                                     otptext.setText(otp);
-                                    initiate=true;
+                                    initiate=false;
                                 }
                                 cursecondtext.setText(remainsec);
                             }
