@@ -6,12 +6,17 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +34,7 @@ public class NoticeActivity extends AppCompatActivity {
     private int pageValue = 1;
     private int pageOffset=10;
 
-    private ListView noticeListView;
+    public ListView noticeListView;
     private NoticeListAdapter adapter;
 
     private Integer[] index = new Integer[10];
@@ -37,13 +42,17 @@ public class NoticeActivity extends AppCompatActivity {
     private String[] date = new String[10];
     private String[] body = new String[10];
 
-    private Button[] pageBtn = new Button[7];
+    public Button[] pageBtn = new Button[7];
 
     private int[] pageBtnName = {
             R.id.pageBtnLeft, R.id.pageBtn1, R.id.pageBtn2, R.id.pageBtn3,
             R.id.pageBtn4, R.id.pageBtn5, R.id.pageBtn6};
 
-    private NoticeInfo noticeInfo = new NoticeInfo();
+    public NoticeInfo noticeInfo = new NoticeInfo();
+
+    public TextView noticeTitle, noticeDate, noticeBody;
+    public RelativeLayout noticeRelative;
+    public ImageButton noticeExitBtn, goSelectAct;
 
     CallRestApi apiCaller = new CallRestApi();
     @Override
@@ -52,8 +61,15 @@ public class NoticeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notice);
 
         noticeListView = (ListView) findViewById(R.id.noticeListView);
-
+        noticeTitle= (TextView)findViewById(R.id.noticeTitle);
+        noticeDate = (TextView)findViewById(R.id.noticeDate);
+        noticeBody = (TextView)findViewById(R.id.noticeBody);
+        noticeRelative = (RelativeLayout)findViewById(R.id.noticeRelative);
+        noticeExitBtn = (ImageButton)findViewById(R.id.noticeExit);
+        ItemClickListener itemClickListener = new ItemClickListener(this);
         PageChangeActivity pageChange = new PageChangeActivity(pageBtn);
+
+        goSelectAct = (ImageButton)findViewById(R.id.goSelectAct) ;
 
         for (int i = 0; i < 7; i++) pageBtn[i] = (Button) findViewById(pageBtnName[i]);
 
@@ -76,6 +92,16 @@ public class NoticeActivity extends AppCompatActivity {
             finishAndRemoveTask();
             System.exit(0);
         }
+
+        if( noticeMax/10 == pageValue-1) pageOffset = noticeMax - (pageValue-1)*10;
+        else pageOffset = 10;
+        NoticeInfo swap = new NoticeInfo();
+        for(int j=0;j<pageOffset;j++){
+            swap.title[j] = noticeInfo.title[9-j-(10-pageOffset)];
+            swap.date[j] = noticeInfo.date[9-j-(10-pageOffset)];
+            swap.body[j] = noticeInfo.body[9-j-(10-pageOffset)];
+        }
+        noticeInfo = swap;
 
         adapter = new NoticeListAdapter(getApplicationContext(), noticeInfo, pageValue, pageOffset, noticeMax);
         noticeListView.setAdapter(adapter);  //리스트 뷰에 해당 어뎁터 매칭
@@ -107,6 +133,7 @@ public class NoticeActivity extends AppCompatActivity {
                         for(int j=0;j<pageOffset;j++){
                             swap.title[j] = noticeInfo.title[9-j-(10-pageOffset)];
                             swap.date[j] = noticeInfo.date[9-j-(10-pageOffset)];
+                            swap.body[j] = noticeInfo.body[9-j-(10-pageOffset)];
                         }
                         noticeInfo = swap;
 
@@ -137,6 +164,7 @@ public class NoticeActivity extends AppCompatActivity {
                 for(int j=0;j<pageOffset;j++){
                     swap.title[j] = noticeInfo.title[9-j-(10-pageOffset)];
                     swap.date[j] = noticeInfo.date[9-j-(10-pageOffset)];
+                    swap.body[j] = noticeInfo.body[9-j-(10-pageOffset)];
                 }
                 noticeInfo = swap;
                 pageChange.setPage(pageValue, noticeMax);
@@ -163,12 +191,31 @@ public class NoticeActivity extends AppCompatActivity {
                 for(int j=0;j<pageOffset;j++){
                     swap.title[j] = noticeInfo.title[9-j-(10-pageOffset)];
                     swap.date[j] = noticeInfo.date[9-j-(10-pageOffset)];
+                    swap.body[j] = noticeInfo.body[9-j-(10-pageOffset)];
                 }
                 noticeInfo = swap;
                 pageChange.setPage(pageValue, noticeMax);
                 adapter.putInfo(noticeInfo, pageValue, pageOffset, noticeMax);
                 noticeListView.setAdapter(adapter);  //리스트 뷰에 해당 어뎁터 매칭
                 noticeListView.smoothScrollToPositionFromTop(0, 10, 300);
+            }
+        });
+        noticeListView.setOnItemClickListener(itemClickListener);
+        noticeExitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                noticeRelative.setVisibility(View.INVISIBLE);
+                for(int i=0;i<7;i++){
+                    pageBtn[i].setClickable(true);
+                }
+                noticeListView.setOnItemClickListener(itemClickListener);
+                noticeListView.setEnabled(true);
+            }
+        });
+        goSelectAct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

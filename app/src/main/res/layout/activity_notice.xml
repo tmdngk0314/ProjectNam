@@ -14,6 +14,7 @@
         android:background="#ffffff">
 
         <ImageButton
+            android:id="@+id/goSelectAct"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
@@ -29,8 +30,6 @@
             android:textColor="#050505"
             android:textSize="15dp" />
     </RelativeLayout>
-
-
     <RelativeLayout
         android:id="@+id/pageRelative"
         android:layout_width="30dp"
@@ -140,4 +139,61 @@
         android:divider="#efefef"
         android:dividerHeight="10dp"
         android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/noticeRelative"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@+id/firstRela"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/notice_box"
+        android:padding="20dp"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/noticeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/select_box"
+            android:fontFamily="@font/nanumsquareb"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/noticeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/noticeTitle"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="13dp"
+            android:fontFamily="@font/gmarkme"
+            android:textSize="10dp"/>
+
+        <ScrollView
+            android:id="@+id/noticeScroll"
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:layout_below="@+id/noticeDate"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp">
+
+            <TextView
+                android:id="@+id/noticeBody"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/gmarkme" />
+        </ScrollView>
+
+        <ImageButton
+            android:id="@+id/noticeExit"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/noticeScroll"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ok" />
+
+    </RelativeLayout>
 </RelativeLayout>
