@@ -119,6 +119,20 @@ public class SelectActivity extends AppCompatActivity {
                 }
             }
         });
+        OTPRela.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch(motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        OTPRela.setBackgroundResource(R.drawable.select_box_touch);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        OTPRela.setBackgroundResource(R.drawable.select_box);
+                        return false;
+                    default: return false;
+                }
+            }
+        });
 
 
     }
