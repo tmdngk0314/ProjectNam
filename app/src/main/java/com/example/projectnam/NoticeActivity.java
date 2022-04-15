@@ -212,6 +212,7 @@ public class NoticeActivity extends AppCompatActivity {
                 noticeListView.setEnabled(true);
             }
         });
+        noticeExitBtn.setOnTouchListener(new OkTouch());
         goSelectAct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
