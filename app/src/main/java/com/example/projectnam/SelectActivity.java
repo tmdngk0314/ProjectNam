@@ -110,10 +110,10 @@ public class SelectActivity extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch(motionEvent.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        noticeRela.setBackgroundResource(R.drawable.select_box_touch);
+                        myInfoRela.setBackgroundResource(R.drawable.select_box_touch);
                         return false;
                     case MotionEvent.ACTION_UP:
-                        noticeRela.setBackgroundResource(R.drawable.select_box);
+                        myInfoRela.setBackgroundResource(R.drawable.select_box);
                         return false;
                     default: return false;
                 }

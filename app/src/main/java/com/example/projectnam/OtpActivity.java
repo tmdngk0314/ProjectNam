@@ -15,8 +15,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends AppCompatActivity {
+    int curSecond,progressCount;
     String otp;
-    int curSecond;
     String remainsec;
     SharedPreferences deviceInfo;
     TextView cursecondtext,otptext;
@@ -42,7 +42,7 @@ public class OtpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_otp);
         cursecondtext = (TextView)findViewById(R.id.cursecond);
         otptext = (TextView)findViewById(R.id.otptext);
-        otpprogress = (ProgressBar)findViewById(R.id.otpprogress);
+        otpprogress = (ProgressBar)findViewById(R.id.progressbar);
 
 
         Runnable runn = new Runnable() {
@@ -64,6 +64,7 @@ public class OtpActivity extends AppCompatActivity {
                                     otptext.setText(otp);
                                     initiate=false;
                                 }
+                                otpprogress.setProgress(30-(curSecond%30));
                                 cursecondtext.setText(remainsec);
                             }
                         });

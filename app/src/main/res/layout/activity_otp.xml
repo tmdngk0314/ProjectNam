@@ -37,14 +37,16 @@
         android:layout_marginTop="30dp">
 
         <ProgressBar
-            android:id="@+id/otpprogress"
+            android:id="@+id/progressbar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/progress_shape"
-            android:indeterminateOnly="false"
+            android:indeterminate="false"
             android:max="30"
             android:progress="0"
-            android:progressDrawable="@drawable/progress" />
+            android:progressBackgroundTint="#BBEDE8"
+            android:progressDrawable="@drawable/progress_shape"
+            android:progressTint="#5bbfb5" />
 
         <TextView
             android:id="@+id/otptext"
