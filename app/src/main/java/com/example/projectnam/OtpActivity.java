@@ -14,7 +14,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends AppCompatActivity {
-    long otp = System.currentTimeMillis();
     int curSecond;
     String remainsec;
     SharedPreferences deviceInfo;
@@ -26,6 +25,7 @@ public class OtpActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        deviceInfo=getSharedPreferences("accountOTP", 0);
         if(ManageOTP.getCurrentOTP(CurrentLoggedInID.ID, deviceInfo).equals("no key found")){
             Toast.makeText(this, "OTP Key가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
             finish();
@@ -36,7 +36,6 @@ public class OtpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
-        deviceInfo=getSharedPreferences("accountOTP", 0);
         cursecondtext = (TextView)findViewById(R.id.cursecond);
         otptext = (TextView)findViewById(R.id.otptext);
         otpprogress = (ProgressBar)findViewById(R.id.otpprogress);
