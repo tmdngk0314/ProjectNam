@@ -25,7 +25,7 @@ public class CallRestApi {
             public void run() {
                 lastResponseCode = 0;
                 try {
-                    URL url = new URL("http://192.168.0.101:5000/"+link);
+                    URL url = new URL("http://15.165.63.75:5000/"+link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("GET");
                     conn.setRequestProperty("Content-Type", "application/json");
@@ -71,7 +71,7 @@ public class CallRestApi {
             public void run() {
                 try {
                     lastResponseCode=0;
-                    URL url = new URL("http://192.168.0.101:5000/"+link);
+                    URL url = new URL("http://15.165.63.75:5000/"+link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json");
