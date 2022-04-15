@@ -14,6 +14,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.SecureRandom;
+import java.util.Random;
 
 public class CallRestApi {
     static int lastResponseCode=0;
@@ -62,7 +64,9 @@ public class CallRestApi {
     }
     public void postRestAPI(JSONObject sendJSON, String link){
         try {
+
             sendJSON.put("id", CurrentLoggedInID.ID);
+            sendJSON.put("token", CurrentLoggedInID.getAuthToken());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -190,14 +194,19 @@ public class CallRestApi {
             info.put("id", id);
             info.put("pw", pw);
             CurrentLoggedInID.ID=id;
+            CurrentLoggedInID.setAuthToken();
+
             postRestAPI(info, "client/login");
             String result="None";
             if(lastResponseCode==200) {
                 result = receivedJSONObject.getString("result");
                 if(result.compareTo("success")==0){
                     CurrentLoggedInID.ID=id;
-                }
+                }else
+                    CurrentLoggedInID.resetAuthToken();
             }
+            else
+                CurrentLoggedInID.resetAuthToken();
             return result;
         }
         catch(JSONException e){
@@ -216,6 +225,7 @@ public class CallRestApi {
                 if(result.compareTo("success")==0){
                     CurrentLoggedInID.ID="";
                     CurrentLoggedInID.isLoggedIn=false;
+                    CurrentLoggedInID.resetAuthToken();
                 }
             }
             return result;

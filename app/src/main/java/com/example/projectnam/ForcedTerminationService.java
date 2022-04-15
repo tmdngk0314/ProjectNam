@@ -23,6 +23,7 @@ public class ForcedTerminationService extends Service {
         Log.e("ForcedTermination","onTaskRemoved - 강제 종료 " + rootIntent);
         if(CurrentLoggedInID.isLoggedIn=true) {
             CurrentLoggedInID.ID="";
+            CurrentLoggedInID.resetAuthToken();
             Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
             CallRestApi apiCaller = new CallRestApi();
             apiCaller.logout();
