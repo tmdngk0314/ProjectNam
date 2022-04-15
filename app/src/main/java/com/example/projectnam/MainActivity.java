@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton imgok,UsingTestOkBtn;
+    ImageButton imgok;
     TextView new_account;
     EditText edt_inputid;
     EditText edt_inputpw;
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imgok = (ImageButton)findViewById(R.id.btnOk);
-        UsingTestOkBtn = (ImageButton)findViewById(R.id.UsingTestOkBtn);
         new_account= (TextView)findViewById(R.id.new_account);
         edt_inputid =(EditText) findViewById(R.id.edt_inputid);
         edt_inputpw=(EditText)findViewById(R.id.edt_inputpw);
@@ -41,13 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         deviceInfo = getSharedPreferences("accountOTP", 0);
 
-        UsingTestOkBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SelectActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
         imgok.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String input_id=edt_inputid.getText().toString();
