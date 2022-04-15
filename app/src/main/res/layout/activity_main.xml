@@ -95,10 +95,9 @@
             android:layout_toRightOf="@+id/passwordImage"
             android:background="@android:color/transparent"
             android:hint="비밀번호"
-            android:textSize="16dp"
-            android:textColor="@color/black"
             android:inputType="textPassword"
-            />  <!--edittext 밑줄제거 background-->
+            android:textColor="@color/black"
+            android:textSize="16dp" />  <!--edittext 밑줄제거 background-->
     </RelativeLayout>
 
     <LinearLayout
