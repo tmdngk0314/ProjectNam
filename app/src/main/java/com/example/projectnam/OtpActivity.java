@@ -41,6 +41,8 @@ public class OtpActivity extends AppCompatActivity {
         otptext = (TextView)findViewById(R.id.otptext);
         otpprogress = (ProgressBar)findViewById(R.id.otpprogress);
 
+        otpprogress.setProgress(15);
+
         Runnable runn = new Runnable() {
             @Override
             public void run() {
