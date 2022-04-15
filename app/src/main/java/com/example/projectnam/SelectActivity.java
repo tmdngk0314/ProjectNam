@@ -14,7 +14,8 @@ import android.widget.Toast;
 public class SelectActivity extends AppCompatActivity {
     public static Activity menu_activity;
     ImageButton imgBtnLogout, imgBtnreserve;
-    RelativeLayout thirdRela, firstRela, secondRela;
+    RelativeLayout thirdRela, firstRela, secondRela, forthRela;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class SelectActivity extends AppCompatActivity {
         thirdRela = (RelativeLayout)findViewById(R.id.thirdRela);
         firstRela = (RelativeLayout)findViewById(R.id.firstRela);
         secondRela = (RelativeLayout)findViewById(R.id.secondRela);
+        forthRela = (RelativeLayout)findViewById(R.id.forthRela);
 
 
         startService(new Intent(this, ForcedTerminationService.class)); // 앱 강제종료 시 로그아웃하는 서비스
@@ -87,22 +89,22 @@ public class SelectActivity extends AppCompatActivity {
 
             }
         });
-        thirdRela.setOnClickListener(new View.OnClickListener(){
+        forthRela.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(SelectActivity.this, NoticeActivity.class);
                 startActivity(intent);
             }
         });
-        thirdRela.setOnTouchListener(new View.OnTouchListener(){
+        forthRela.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
                 float curX = event.getX();
                 float curY = event.getY();
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        thirdRela.setBackgroundResource(R.drawable.select_box_touch);
+                        forthRela.setBackgroundResource(R.drawable.select_box_touch);
                         return false;
                     case MotionEvent.ACTION_UP:
-                        thirdRela.setBackgroundResource(R.drawable.select_box);
+                        forthRela.setBackgroundResource(R.drawable.select_box);
                         return false;
                     default: return false;
                 }
