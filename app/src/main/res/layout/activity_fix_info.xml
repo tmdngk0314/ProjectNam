@@ -43,7 +43,7 @@
         android:id="@+id/seimg"
         android:layout_width="300dp"
         android:layout_height="80dp"
-        android:layout_below="@+id/firstimg"
+        android:layout_below="@+id/reservecheckbtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:background="@drawable/select_box" />
