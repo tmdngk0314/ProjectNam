@@ -67,6 +67,13 @@ public class EmailVerificationActivity extends AppCompatActivity {
                 else if(result.equals("not match")){
                     Toast.makeText(EmailVerificationActivity.this, "인증번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                 }
+                else if(result.equals("diffIP")){
+                    Log.e("Login Session", "다른 기기에서 로그인되었음" );
+                    Toast.makeText(EmailVerificationActivity.this, "다른 기기에서 로그인되어 종료합니다.", Toast.LENGTH_SHORT).show();
+                    moveTaskToBack(true);
+                    finishAndRemoveTask();
+                    System.exit(0);
+                }
                 else if(result.equals("success")){
                     Toast.makeText(EmailVerificationActivity.this, "인증되었습니다.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(EmailVerificationActivity.this, FixInfoActivity.class);
