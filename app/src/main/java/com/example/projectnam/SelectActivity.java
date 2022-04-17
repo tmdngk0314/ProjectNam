@@ -129,7 +129,7 @@ public class SelectActivity extends AppCompatActivity {
         myInfoRela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SelectActivity.this,FixInfoActivity.class);
+                Intent intent = new Intent(SelectActivity.this,EmailVerificationActivity.class);
                 startActivity(intent);
             }
         });
