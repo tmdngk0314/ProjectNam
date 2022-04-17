@@ -13,6 +13,7 @@ public class ReserveLongResultActivity extends AppCompatActivity {
     TextView usedate1, usedate2 ;
     ImageButton ok;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +36,7 @@ public class ReserveLongResultActivity extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ReserveLongResultActivity.this, SelectActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

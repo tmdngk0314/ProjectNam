@@ -35,6 +35,14 @@ public class ReserveLongActivity extends AppCompatActivity {
 
     CalendarDate calendarDate = new CalendarDate();
     int setTextLoca=0;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ReserveLongActivity.this, ReserveActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,6 +135,7 @@ public class ReserveLongActivity extends AppCompatActivity {
                 intent.putExtra("월2",month2);
                 intent.putExtra("일2",day2);
                 startActivity(intent);
+                finish();
             }
         });
         imgBtnLogout.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +143,7 @@ public class ReserveLongActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ReserveLongActivity.this, ReserveActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

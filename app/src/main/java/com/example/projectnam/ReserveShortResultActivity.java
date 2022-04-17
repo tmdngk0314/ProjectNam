@@ -33,8 +33,7 @@ public class ReserveShortResultActivity extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ReserveShortResultActivity.this, SelectActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 

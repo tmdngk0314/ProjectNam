@@ -34,6 +34,7 @@ public class ReserveActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ReserveActivity.this, ReserveShortActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -42,6 +43,7 @@ public class ReserveActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1 = new Intent(ReserveActivity.this, ReserveLongActivity.class);
                 startActivity(intent1);
+                finish();
             }
         });
 

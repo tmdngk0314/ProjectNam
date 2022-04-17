@@ -25,6 +25,13 @@ public class ReserveShortActivity extends AppCompatActivity {
     long now = System.currentTimeMillis();
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ReserveShortActivity.this, ReserveActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserve_short);
@@ -64,6 +71,7 @@ public class ReserveShortActivity extends AppCompatActivity {
                 intent.putExtra("달",calendarDate.Month);
                 intent.putExtra("일",calendarDate.Day);
                 startActivity(intent);
+                finish();
             }
         });
 
