@@ -3,8 +3,11 @@
     package="com.example.projectnam">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.NFC"/>
-    <uses-feature android:name="android.hardware.nfc" android:required="true"/>  //안드로이드 nfc 설정
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/ProjectNam"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".otp_popup_Activity"
+            android:theme="@style/DialogTheme"
+            android:exported="false" />
         <activity
             android:name=".EmailVerificationActivity"
             android:exported="false" />

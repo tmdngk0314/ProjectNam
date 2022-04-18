@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="160dp"
+    tools:context=".otp_popup_Activity"
+    android:layout_gravity="center"
+    android:background="#5bbfb5">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="NFC 기능을 키지 않으셨습니다.
+            켜시겠습니까?"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:id="@+id/text"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="60dp"
+        android:id="@+id/nfconBtn"
+        android:layout_below="@+id/text"
+        android:text="켠다"
+        android:textSize="20dp"/>
+    <Button
+        android:id="@+id/otpBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/nfconBtn"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/text"
+        android:text="otp만 확인"
+        android:textSize="18dp"/>
+
+
+</RelativeLayout>

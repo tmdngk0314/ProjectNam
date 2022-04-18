@@ -75,7 +75,7 @@ public class SelectActivity extends AppCompatActivity {
         OTPRela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelectActivity.this, OtpActivity.class);
+                Intent intent = new Intent(SelectActivity.this, otp_popup_Activity.class);
                 startActivity(intent);
 
             }
