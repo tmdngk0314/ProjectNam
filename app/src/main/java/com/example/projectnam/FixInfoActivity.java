@@ -11,6 +11,13 @@ public class FixInfoActivity extends AppCompatActivity {
     ImageButton reservecheckbtn;
 
     @Override
+    protected void onDestroy() {
+        CallRestApi apiCaller = new CallRestApi();
+        apiCaller.unverifyingCode();
+        super.onDestroy();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fix_info);

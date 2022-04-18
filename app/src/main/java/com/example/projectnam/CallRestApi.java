@@ -237,4 +237,53 @@ public class CallRestApi {
         }
     }
 
+    public String sendVerifyingEmail(){
+        JSONObject info = new JSONObject();
+        try{
+            postRestAPI(info, "client/send_verifying_email");
+            String result="None";
+            if(lastResponseCode==200) {
+                result = receivedJSONObject.getString("result");
+            }
+            return result;
+        }
+        catch(JSONException e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return "unknown";
+        }
+    }
+    public String verifyingCode(String code){
+        JSONObject info = new JSONObject();
+        try{
+            info.put("code", code);
+            postRestAPI(info, "client/verifying_code");
+            String result="None";
+            if(lastResponseCode==200) {
+                result = receivedJSONObject.getString("result");
+            }
+            return result;
+        }
+        catch(JSONException e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return "unknown";
+        }
+    }
+    public String unverifyingCode(){
+        JSONObject info = new JSONObject();
+        try{
+            postRestAPI(info, "client/unverifying_code");
+            String result="None";
+            if(lastResponseCode==200) {
+                result = receivedJSONObject.getString("result");
+            }
+            return result;
+        }
+        catch(JSONException e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return "unknown";
+        }
+    }
 }

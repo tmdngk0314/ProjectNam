@@ -15,6 +15,9 @@
         android:theme="@style/ProjectNam"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EmailVerificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReInfoCheckActivity"
             android:exported="false" />
         <activity
