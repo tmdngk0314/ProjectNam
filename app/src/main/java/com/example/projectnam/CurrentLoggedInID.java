@@ -26,7 +26,7 @@ public class CurrentLoggedInID {
             newToken =
                     new String(
                             digest.digest(
-                                    (secureRandom.nextLong() + "")
+                                    (secureRandom.nextInt() + "")
                                             .getBytes()));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
