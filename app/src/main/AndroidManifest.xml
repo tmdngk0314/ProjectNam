@@ -3,6 +3,8 @@
     package="com.example.projectnam">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="true"/>  //안드로이드 nfc 설정
 
     <application
         android:allowBackup="true"
