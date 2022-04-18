@@ -59,6 +59,7 @@ public class EmailVerificationActivity extends AppCompatActivity {
                 String code=edt_code.getText().toString();
                 if(code.isEmpty()){
                     Toast.makeText(EmailVerificationActivity.this, "인증번호를 입력하세요.", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 String result=apiCaller.verifyingCode(code);
                 if(result.equals("expired")){
