@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,6 +16,7 @@ public class SelectActivity extends AppCompatActivity {
     public static Activity menu_activity;
     ImageButton imgBtnLogout, imgBtnreserve;
     RelativeLayout myInfoRela, reserveRela, OTPRela, noticeRela;
+    NfcAdapter mNfcAdapter;
 
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
@@ -46,6 +48,8 @@ public class SelectActivity extends AppCompatActivity {
         OTPRela = (RelativeLayout)findViewById(R.id.secondRela);
         noticeRela = (RelativeLayout)findViewById(R.id.forthRela);
 
+        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
+
 
         startService(new Intent(this, ForcedTerminationService.class)); // 앱 강제종료 시 로그아웃하는 서비스
 
@@ -76,7 +80,13 @@ public class SelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectActivity.this, otp_popup_Activity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(SelectActivity.this, OtpActivity.class);
+
+                if(!mNfcAdapter.isEnabled()) {
+                    startActivity(intent);
+                }
+
+                else startActivity(intent1);
 
             }
         });
