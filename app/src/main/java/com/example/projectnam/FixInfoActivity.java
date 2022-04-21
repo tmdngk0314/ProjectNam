@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class FixInfoActivity extends AppCompatActivity {
-    ImageButton reservecheckbtn;
+    ImageButton reservecheckbtn, changePW;
 
     @Override
     protected void onDestroy() {
@@ -23,12 +23,21 @@ public class FixInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fix_info);
 
         reservecheckbtn = (ImageButton)findViewById(R.id.reservecheckbtn);
+        changePW = (ImageButton)findViewById(R.id.changePw);
 
 
         reservecheckbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FixInfoActivity.this, ReInfoCheckActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        changePW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FixInfoActivity.this, ChangePasswordActivity.class);
                 startActivity(intent);
             }
         });

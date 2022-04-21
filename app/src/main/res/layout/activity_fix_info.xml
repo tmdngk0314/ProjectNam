@@ -40,7 +40,7 @@
         android:background="@drawable/select_box" />
 
     <ImageButton
-        android:id="@+id/seimg"
+        android:id="@+id/changePw"
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:layout_below="@+id/reservecheckbtn"
@@ -48,18 +48,18 @@
         android:layout_marginTop="60dp"
         android:background="@drawable/select_box" />
     <ImageButton
-        android:id="@+id/thiimg"
+        android:id="@+id/otpReissue"
         android:layout_width="300dp"
         android:layout_height="80dp"
-        android:layout_below="@+id/seimg"
+        android:layout_below="@+id/changePw"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:background="@drawable/select_box"/>
     <ImageButton
-        android:id="@+id/forimg"
+        android:id="@+id/delete_account"
         android:layout_width="300dp"
         android:layout_height="80dp"
-        android:layout_below="@+id/thiimg"
+        android:layout_below="@+id/otpReissue"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:background="@drawable/select_box"/>
