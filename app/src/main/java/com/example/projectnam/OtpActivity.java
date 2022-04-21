@@ -91,8 +91,6 @@ public class OtpActivity extends AppCompatActivity {
 
 
         //onDestroy 오버라이드해서 이거 꼭 첫줄에 넣어야함
-
-
     }
 
     @Override
