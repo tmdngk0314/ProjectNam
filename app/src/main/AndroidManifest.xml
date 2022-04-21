@@ -18,9 +18,12 @@
         android:theme="@style/ProjectNam"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".otp_popup_Activity"
-            android:theme="@style/DialogTheme"
+            android:name=".ChangePasswordActivity"
             android:exported="false" />
+        <activity
+            android:name=".otp_popup_Activity"
+            android:exported="false"
+            android:theme="@style/DialogTheme" />
         <activity
             android:name=".EmailVerificationActivity"
             android:exported="false" />
