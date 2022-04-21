@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
-    EditText currentID_Edt,currentPass_Edt,newPass_Edt,newPassCheck_Edt;
+    EditText currentPass_Edt,newPass_Edt,newPassCheck_Edt;
     TextView newPasstext;
     SharedPreferences deviceInfo;
     boolean isAvailable_pw(String str){
@@ -34,7 +34,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
 
-        currentID_Edt = (EditText) findViewById(R.id.currentID_edt);
         currentPass_Edt = (EditText) findViewById(R.id.currentPass_edt);
         newPass_Edt = (EditText) findViewById(R.id.newPass_edt);
         newPassCheck_Edt = (EditText) findViewById(R.id.newpasscheck_edt);
@@ -61,6 +60,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 if(isAvailable_pw(txt)==false){
                     newPasstext.setVisibility(View.VISIBLE);
                 }
+                else newPasstext.setVisibility(View.INVISIBLE);
 
             }
         });
