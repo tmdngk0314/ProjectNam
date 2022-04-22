@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         new_account.setPaintFlags(new_account.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         deviceSettings = getSharedPreferences("deviceSettings", 0);
+        SharedPreferences.Editor editor = deviceSettings.edit();
         isSaved=deviceSettings.getBoolean("isSaved", false);
         if(isSaved==true){
             chk_saveAccount.setChecked(true);
@@ -51,7 +52,29 @@ public class MainActivity extends AppCompatActivity {
             String pw=deviceSettings.getString("savedPW", "");
             edt_inputid.setText(id);
             edt_inputpw.setText(pw);
+            if(SelectActivity.isLoggedOutByButton==false) {
+                CallRestApi apiCaller = new CallRestApi();
+                String result = apiCaller.login(id, pw);
+                switch (result) {
+                    case "success":
+                        Log.i("로그인", "로그인 성공");
+                        CurrentLoggedInID.isLoggedIn = true;
+                        Toast.makeText(MainActivity.this, "반갑습니다!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, SelectActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case "no match":
+                        Toast.makeText(MainActivity.this, "아이디/패스워드 불일치", Toast.LENGTH_SHORT).show();
+                        Log.e("로그인", "아이디/비밀번호 불일치");
+                        break;
+                    default:
+                        Toast.makeText(MainActivity.this, "서버 연결 오류", Toast.LENGTH_SHORT).show();
+                        Log.e("로그인", "unknown:알 수 없는 오류");
+                }
+            }
         }
+        SelectActivity.isLoggedOutByButton=false;
 
         chk_saveAccount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -71,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         case "success":
                             Log.i("로그인", "로그인 성공");
 
-                            SharedPreferences.Editor editor = deviceSettings.edit();
+
                             if(isSaved==true) {
                                 editor.putString("savedID", input_id);
                                 editor.putString("savedPW", input_pw);
@@ -130,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         if(isSaved==false){
             SharedPreferences.Editor editor=deviceSettings.edit();
+            editor.putBoolean("isSaved", false);
             editor.putString("savedID", "");
             editor.putString("savedPW", "");
             editor.commit();

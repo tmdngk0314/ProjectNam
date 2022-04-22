@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 public class SelectActivity extends AppCompatActivity {
     public static Activity menu_activity;
+    public static Boolean isLoggedOutByButton=false;
     ImageButton imgBtnLogout, imgBtnreserve;
     RelativeLayout myInfoRela, reserveRela, OTPRela, noticeRela;
     NfcAdapter mNfcAdapter;
@@ -92,6 +94,7 @@ public class SelectActivity extends AppCompatActivity {
         });
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                isLoggedOutByButton=true;
                 CallRestApi apiCaller = new CallRestApi();
                 String result = apiCaller.logout();
                 if(result.compareTo("success")==0) {
