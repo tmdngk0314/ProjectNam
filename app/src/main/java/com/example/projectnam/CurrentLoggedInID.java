@@ -6,6 +6,8 @@ import java.security.SecureRandom;
 
 public class CurrentLoggedInID {
     public static String ID="";
+    public static String name="";
+    public static String email="";
     public static Boolean isLoggedIn=false;
     private static String token="";
     public static String getAuthToken(){

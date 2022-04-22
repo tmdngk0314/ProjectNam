@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class FixInfoActivity extends AppCompatActivity {
-    ImageButton reservecheckbtn, changePW;
-
+    RelativeLayout ChangePWrela;
+    TextView textname;
+    TextView textemail;
     @Override
     protected void onDestroy() {
         CallRestApi apiCaller = new CallRestApi();
@@ -22,19 +26,14 @@ public class FixInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fix_info);
 
-        reservecheckbtn = (ImageButton)findViewById(R.id.reservecheckbtn);
-        changePW = (ImageButton)findViewById(R.id.changePw);
+        textname=(TextView)findViewById(R.id.textname);
+        textemail=(TextView)findViewById(R.id.textEmail);
+        textname.setText(CurrentLoggedInID.name);
+        textemail.setText(CurrentLoggedInID.email);
+        ChangePWrela = (RelativeLayout)findViewById(R.id.ChangePWrela);
 
 
-        reservecheckbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FixInfoActivity.this, ReInfoCheckActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        changePW.setOnClickListener(new View.OnClickListener() {
+        ChangePWrela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FixInfoActivity.this, ChangePasswordActivity.class);

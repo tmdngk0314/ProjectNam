@@ -202,6 +202,15 @@ public class CallRestApi {
                 result = receivedJSONObject.getString("result");
                 if(result.compareTo("success")==0){
                     CurrentLoggedInID.ID=id;
+                    CurrentLoggedInID.name=receivedJSONObject.getString("name");
+                    String email=receivedJSONObject.getString("email");
+                    int frontnum=email.indexOf('@')-1;
+                    String resultEmail=email.substring(0, 4);
+                    for(int i=3; i<frontnum; i++){
+                        resultEmail+='*';
+                    }
+                    resultEmail+=email.substring(frontnum+1, email.length());
+                    CurrentLoggedInID.email=resultEmail;
                 }else
                     CurrentLoggedInID.resetAuthToken();
             }
