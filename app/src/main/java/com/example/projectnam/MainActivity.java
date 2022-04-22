@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -26,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
     TextView new_account;
     EditText edt_inputid;
     EditText edt_inputpw;
-    SharedPreferences deviceInfo;
+    SharedPreferences deviceSettings;
+    Boolean isSaved=false;
+    CheckBox chk_saveAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.ProjectNam);
@@ -36,9 +40,25 @@ public class MainActivity extends AppCompatActivity {
         new_account= (TextView)findViewById(R.id.new_account);
         edt_inputid =(EditText) findViewById(R.id.edt_inputid);
         edt_inputpw=(EditText)findViewById(R.id.edt_inputpw);
+        chk_saveAccount=(CheckBox)findViewById(R.id.chk_saveaccount);
         new_account.setPaintFlags(new_account.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-        deviceInfo = getSharedPreferences("accountOTP", 0);
+        deviceSettings = getSharedPreferences("deviceSettings", 0);
+        isSaved=deviceSettings.getBoolean("isSaved", false);
+        if(isSaved==true){
+            chk_saveAccount.setChecked(true);
+            String id=deviceSettings.getString("savedID", "");
+            String pw=deviceSettings.getString("savedPW", "");
+            edt_inputid.setText(id);
+            edt_inputpw.setText(pw);
+        }
+
+        chk_saveAccount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                isSaved=b;
+            }
+        });
 
         imgok.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -50,6 +70,19 @@ public class MainActivity extends AppCompatActivity {
                     switch(result){
                         case "success":
                             Log.i("로그인", "로그인 성공");
+
+                            SharedPreferences.Editor editor = deviceSettings.edit();
+                            if(isSaved==true) {
+                                editor.putString("savedID", input_id);
+                                editor.putString("savedPW", input_pw);
+                                editor.putBoolean("isSaved", true);
+                                editor.commit();
+                            }else{
+                                editor.putString("savedID", "");
+                                editor.putString("savedPW", "");
+                                editor.putBoolean("isSaved", false);
+                                editor.commit();
+                            }
                             CurrentLoggedInID.isLoggedIn=true;
                             Toast.makeText(MainActivity.this, "반갑습니다!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this, SelectActivity.class);
@@ -93,4 +126,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        if(isSaved==false){
+            SharedPreferences.Editor editor=deviceSettings.edit();
+            editor.putString("savedID", "");
+            editor.putString("savedPW", "");
+            editor.commit();
+        }
+        super.onDestroy();
+    }
 }
