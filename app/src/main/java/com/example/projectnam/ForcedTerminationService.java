@@ -25,7 +25,6 @@ public class ForcedTerminationService extends Service {
             Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
             CallRestApi apiCaller = new CallRestApi();
             apiCaller.logout();
-            apiCaller.unverifyingCode();
             CurrentLoggedInID.ID="";
             CurrentLoggedInID.resetAuthToken();
         }
