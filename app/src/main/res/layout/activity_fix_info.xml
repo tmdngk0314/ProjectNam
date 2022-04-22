@@ -81,149 +81,150 @@
 
 </LinearLayout>
 
-<RelativeLayout
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:layout_weight="3"
-android:background="#efefef">
-
     <RelativeLayout
-        android:id="@+id/ChangePWrela"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/select_box">
-
-        <ImageButton
-            android:id="@+id/ChangePWimg"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/select_reser" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="#efefef">
 
         <RelativeLayout
-            android:id="@+id/ChangePWLinear"
-            android:layout_width="160dp"
-            android:layout_height="60dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/ChangePWimg">
+            android:id="@+id/ChangePWrela"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/select_box">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/ChangePWimg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/nanumsquareb"
-                android:text="비밀번호 변경"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                android:layout_marginStart="20dp"
+                android:background="@drawable/pwchange" />
 
+            <RelativeLayout
+                android:id="@+id/ChangePWLinear"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/ChangePWimg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:text="비밀번호 변경"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+
+            </RelativeLayout>
+
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/ChangePWLinear"
+                android:background="@drawable/right_arrow" />
 
         </RelativeLayout>
 
-        <ImageButton
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@+id/ChangePWLinear"
-            android:background="@drawable/right_arrow" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/OTPReissurela"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_below="@id/ChangePWrela"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/select_box">
-
-        <ImageButton
-            android:id="@+id/OTPReissuimg"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/select_reser" />
-
         <RelativeLayout
-            android:id="@+id/rela1"
-            android:layout_width="160dp"
-            android:layout_height="60dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/OTPReissuimg">
+            android:id="@+id/OTPReissurela"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_below="@id/ChangePWrela"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/select_box">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/OTPReissuimg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/nanumsquareb"
-                android:text="OTP 재발급"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                android:layout_marginStart="20dp"
+                android:background="@drawable/select_otp" />
+
+            <RelativeLayout
+                android:id="@+id/rela1"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/OTPReissuimg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:text="OTP 재발급"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/rela1"
+                android:background="@drawable/right_arrow" />
+
         </RelativeLayout>
 
-        <ImageButton
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@+id/rela1"
-            android:background="@drawable/right_arrow" />
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/AccountDelrela"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_below="@id/OTPReissurela"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/select_box">
-
-        <ImageButton
-            android:id="@+id/AccountDelimg"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/user_del" />
-
         <RelativeLayout
-            android:id="@+id/rela2"
-            android:layout_width="160dp"
-            android:layout_height="60dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/AccountDelimg">
+            android:id="@+id/AccountDelrela"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_below="@id/OTPReissurela"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/select_box">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/AccountDelimg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/nanumsquareb"
-                android:text="회원탈퇴"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                android:layout_marginStart="20dp"
+                android:background="@drawable/userinfo" />
+
+            <RelativeLayout
+                android:id="@+id/rela2"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/AccountDelimg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nanumsquareb"
+                    android:text="회원탈퇴"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/rela2"
+                android:background="@drawable/right_arrow" />
+
         </RelativeLayout>
 
-        <ImageButton
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@+id/rela2"
-            android:background="@drawable/right_arrow" />
-
     </RelativeLayout>
-
-</RelativeLayout>
 </LinearLayout>
