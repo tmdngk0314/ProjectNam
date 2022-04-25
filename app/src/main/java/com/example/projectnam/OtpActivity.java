@@ -52,8 +52,7 @@ public class OtpActivity extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OtpActivity.this,SelectActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
