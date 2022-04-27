@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    >
+    <RelativeLayout
+        android:id="@+id/firstRela"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="#ffffff">
+
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/left_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="예약 현황"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/backgroundRela"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_centerInParent="true"
+        android:background="#efefef">
+
+        <LinearLayout
+            android:id="@+id/firstLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/LockernumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="회원"
+                android:textColor="#000000"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/LockernumText"
+                android:text="님의 예약현황"
+                android:textColor="#000000"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Gubunsun"
+            android:layout_width="280dp"
+            android:layout_height="1dp"
+            android:layout_below="@+id/firstLinear"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="#d8d8d8"
+            android:orientation="vertical"></LinearLayout>
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Gubunsun"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="사물함 위치  - "
+            android:textColor="#000000"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lockername"
+            android:layout_below="@id/Gubunsun"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:text="성결대학교 설계실"
+            android:layout_toRightOf="@id/text5"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text5"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="이용날짜  - "
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/startdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text5"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/text3"
+            android:text="2022.04.06"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/enddate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text5"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="0dp"
+            android:layout_toRightOf="@+id/startdate"
+            android:text="~2022.04.12"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enddate"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="사물함 번호  - "
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enddate"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/text4"
+            android:text="이용 중이 아닙니다."
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:id="@+id/lockernum"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="연체 여부  - "
+            android:layout_below="@+id/lockernum"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/text6"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/overdue1"
+            android:textSize="20dp"
+            android:layout_toRightOf="@+id/text6"
+            android:layout_below="@+id/lockernum"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000000"
+            android:text="X"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/overdue2"
+            android:layout_below="@+id/overdue1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="14dp"
+            android:textColor="#ff0000"
+            android:text="연체 되셨습니다. 보관한 물품은 관리자에게 받아가세요."/>
+
+
+        <ImageButton
+            android:id="@+id/nextBtn"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/overdue2"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ok" />
+
+    </RelativeLayout>
+</RelativeLayout>
