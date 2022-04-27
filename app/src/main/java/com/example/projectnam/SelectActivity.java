@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -19,6 +20,7 @@ public class SelectActivity extends AppCompatActivity {
     ImageButton imgBtnLogout, imgBtnreserve;
     RelativeLayout myInfoRela, reserveRela, OTPRela, noticeRela;
     NfcAdapter mNfcAdapter;
+
 
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
@@ -60,8 +62,28 @@ public class SelectActivity extends AppCompatActivity {
         reserveRela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CallRestApi apiCaller = new CallRestApi();
+                ReservationStatus status=new ReservationStatus();
+                status=apiCaller.checkReservationStatus();
                 Intent intent = new Intent(SelectActivity.this, ReserveActivity.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(SelectActivity.this,ReserveStateActivity.class);
+                Log.e("test", status.result);
+                if(status.result.equals("idle")) {
+                    startActivity(intent);
+                }
+                else if(status.result.equals("reserved") || status.result.equals("using") || status.result.equals("overdue")){
+                    intent2.putExtra("result", status.result);
+                    intent2.putExtra("startdate", status.startdate);
+                    intent2.putExtra("enddate", status.enddate);
+                    intent2.putExtra("usinglockername", status.usinglockername);
+                    intent2.putExtra("location", status.location);
+                    if(status.result.equals("using"))
+                        intent2.putExtra("lockernum", status.lockernum);
+                    startActivity(intent2);
+                }
+                else
+                    Toast.makeText(SelectActivity.this, "unkown statement", Toast.LENGTH_SHORT).show();
+
             }
         });
         reserveRela.setOnTouchListener(new View.OnTouchListener(){

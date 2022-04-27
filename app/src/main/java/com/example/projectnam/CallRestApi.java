@@ -295,4 +295,33 @@ public class CallRestApi {
             return "unknown";
         }
     }
+    public ReservationStatus checkReservationStatus(){
+        JSONObject info = new JSONObject();
+        ReservationStatus status = new ReservationStatus();
+        try{
+            postRestAPI(info, "client/reservation/check_reservation_status");
+            String result="None";
+            if(lastResponseCode==200) {
+                result = receivedJSONObject.getString("result");
+                status.result=result;
+                if(result.equals("diffIP") || result.equals("idle"))
+                    return status;
+                else if(result.equals("reserved") || result.equals("using") || result.equals("overdue")){
+                    status.startdate=receivedJSONObject.getString("startdate");
+                    status.enddate=receivedJSONObject.getString("enddate");
+                    status.usinglockername=receivedJSONObject.getString("usinglockername");
+                    status.location=receivedJSONObject.getString("location");
+                    if(result.equals("using"))
+                        status.lockernum=receivedJSONObject.getInt("lockernum");
+                }
+            }
+            return status;
+        }
+        catch(JSONException e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            status.result="exception";
+            return status;
+        }
+    }
 }

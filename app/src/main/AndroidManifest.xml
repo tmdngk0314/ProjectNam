@@ -18,6 +18,9 @@
         android:theme="@style/ProjectNam"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".LockerListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReserveStateActivity"
             android:exported="false" />
         <activity
