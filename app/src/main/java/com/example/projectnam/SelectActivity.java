@@ -1,6 +1,7 @@
 package com.example.projectnam;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -68,6 +69,13 @@ public class SelectActivity extends AppCompatActivity {
                 Intent intent = new Intent(SelectActivity.this, ReserveActivity.class);
                 Intent intent2 = new Intent(SelectActivity.this,ReserveStateActivity.class);
                 Log.e("test", status.result);
+                if(status.result.equals("diffIP")){
+                    Log.e("Login Session", "다른 기기에서 로그인되었음" );
+                    Toast.makeText(SelectActivity.this, "다른 기기에서 로그인되어 종료합니다.", Toast.LENGTH_SHORT).show();
+                    apiCaller.logout();
+                    ActivityCompat.finishAffinity(SelectActivity.this);
+                    System.exit(0);
+                }
                 if(status.result.equals("idle")) {
                     startActivity(intent);
                 }

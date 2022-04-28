@@ -3,6 +3,8 @@ package com.example.projectnam;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import androidx.core.app.ActivityCompat;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -107,7 +109,6 @@ public class CallRestApi {
                         receivedJSONObject = new JSONObject(result);
                     else if(json instanceof JSONArray)
                         receivedJSONArray = new JSONArray(result);
-                        //receivedJSON.get("otpkey");
                     conn.disconnect();
 
                 }
@@ -283,6 +284,24 @@ public class CallRestApi {
         JSONObject info = new JSONObject();
         try{
             postRestAPI(info, "client/unverifying_code");
+            String result="None";
+            if(lastResponseCode==200) {
+                result = receivedJSONObject.getString("result");
+            }
+            return result;
+        }
+        catch(JSONException e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return "unknown";
+        }
+    }
+    public String changePassword(String oldpw, String newpw){
+        JSONObject info = new JSONObject();
+        try{
+            info.put("oldpw", oldpw);
+            info.put("newpw", newpw);
+            postRestAPI(info, "client/change_password");
             String result="None";
             if(lastResponseCode==200) {
                 result = receivedJSONObject.getString("result");

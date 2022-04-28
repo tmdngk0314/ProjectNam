@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -87,8 +88,8 @@ public class NoticeActivity extends AppCompatActivity {
         if(noticeInfo.result.equals("diffIP")){
             Log.e("Login Session", "다른 기기에서 로그인되었음" );
             Toast.makeText(this, "다른 기기에서 로그인되어 종료합니다.", Toast.LENGTH_SHORT).show();
-            moveTaskToBack(true);
-            finishAndRemoveTask();
+            apiCaller.logout();
+            ActivityCompat.finishAffinity(NoticeActivity.this);
             System.exit(0);
         }
 
