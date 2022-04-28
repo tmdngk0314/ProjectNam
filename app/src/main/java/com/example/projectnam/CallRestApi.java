@@ -88,7 +88,7 @@ public class CallRestApi {
                     outputStream = conn.getOutputStream();
                     outputStream.write(sendJSON.toString().getBytes());
                     int response = conn.getResponseCode();
-                    Log.i("responseCode???", Integer.toString(response));
+                    Log.e("responseCode -> ", Integer.toString(response)); // 200 아니고 다른 숫자면 서버 문제
                     lastResponseCode=response;
                     String responseMessage = conn.getResponseMessage();
                     System.out.println("----responseMessage----- : "+responseMessage);

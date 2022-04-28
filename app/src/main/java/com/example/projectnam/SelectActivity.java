@@ -65,7 +65,7 @@ public class SelectActivity extends AppCompatActivity {
                 CallRestApi apiCaller = new CallRestApi();
                 ReservationStatus status=new ReservationStatus();
                 status=apiCaller.checkReservationStatus();
-                Intent intent = new Intent(SelectActivity.this, ReserveActivity.class);
+                Intent intent = new Intent(SelectActivity.this, LockerListActivity.class);
                 Intent intent2 = new Intent(SelectActivity.this,ReserveStateActivity.class);
                 Log.e("test", status.result);
                 if(status.result.equals("idle")) {
