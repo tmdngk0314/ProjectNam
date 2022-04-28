@@ -6,10 +6,9 @@ public class LockerInfo {
     public String[] location;
 
 
-    public LockerInfo(){
-
-        lockername=new String[20];
-        location=new String[20];
+    public void init(int lockercount){
+        lockername=new String[lockercount];
+        location=new String[lockercount];
 
     }
 

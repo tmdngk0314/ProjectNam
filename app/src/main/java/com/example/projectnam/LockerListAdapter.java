@@ -10,22 +10,24 @@ import java.util.List;
 
 public class LockerListAdapter extends BaseAdapter {
     private Context context;
-    private List<LockerInfo> lockerlist;
+    private LockerInfo lockerInfo;
+    int Overallsize;
 
-    public LockerListAdapter(Context context, List<LockerInfo> lockerlist) {
+    public LockerListAdapter(Context context, LockerInfo lockerinfo, int Overallsize ) {
         this.context = context;
-        this.lockerlist = lockerlist;
+        this.lockerInfo = lockerinfo;
+        this.Overallsize = Overallsize;
 
     }
 
     @Override
     public int getCount() {
-        return lockerlist.size();
+        return Overallsize;
     }
 
     @Override
     public Object getItem(int position) {
-        return lockerlist.get(position);
+        return lockerInfo.lockername[position]+"\n"+lockerInfo.location[position];
     }
 
     @Override
@@ -34,9 +36,16 @@ public class LockerListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int i, View convertView, ViewGroup parent) {
         View v = View.inflate(context, R.layout.notice_shape, null);
-           //태그를 붙여줌
+        TextView noticeText = (TextView) v.findViewById(R.id.noticetext);
+        TextView dateText = (TextView) v.findViewById(R.id.dateText);
+
+        noticeText.setText(lockerInfo.lockername[i]);
+        dateText.setText(lockerInfo.location[i]);
+
+        v.setTag(lockerInfo.lockername[i]);
+        //태그를 붙여줌
         return v;
 
     }

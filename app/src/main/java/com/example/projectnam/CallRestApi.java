@@ -163,6 +163,39 @@ public class CallRestApi {
         }
     }
 
+    public LockerInfo loadLockerlist(){
+        JSONObject info= new JSONObject();
+        String[] location=new String[10];
+        String[] lockername=new String[10];
+        LockerInfo lockerinfo=new LockerInfo();
+        try {
+            getRestAPI("/client/reservation/load_locker_count");
+            Integer lockercount = receivedJSONObject.getInt("result");
+            postRestAPI(info, "/client/reservation/load_locker_names");
+            lockerinfo.init(lockercount);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        try{
+            for(int i=0; i<receivedJSONArray.length(); i++) {
+                lockername[i] = (String) receivedJSONArray.getJSONArray(i).get(0);
+                location[i] = (String) receivedJSONArray.getJSONArray(i).get(1);
+                Log.e("JSONArray로그",location[i] + lockername[i]);
+            }
+            lockerinfo.result="success";
+            lockerinfo.setLockername(lockername);
+            lockerinfo.setLocation(location);
+
+            return lockerinfo;
+        }
+        catch(Exception e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return new LockerInfo();
+        }
+    }
+
 
     public String newAccount(SharedPreferences deviceInfo, String name, String email, String id, String pw){
         JSONObject info = new JSONObject();

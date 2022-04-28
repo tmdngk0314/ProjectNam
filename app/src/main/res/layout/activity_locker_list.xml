@@ -30,7 +30,7 @@
             android:textSize="15dp" />
     </RelativeLayout>
     <ListView
-        android:id="@+id/noticeListView"
+        android:id="@+id/lockerlistView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/firstRela"
