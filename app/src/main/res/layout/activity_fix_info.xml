@@ -101,7 +101,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="20dp"
-                android:background="@drawable/pwchange" />
+                android:background="@drawable/changepassword" />
 
             <RelativeLayout
                 android:id="@+id/ChangePWLinear"
@@ -149,7 +149,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="20dp"
-                android:background="@drawable/select_otp" />
+                android:background="@drawable/otpreissuimg" />
 
             <RelativeLayout
                 android:id="@+id/rela1"
@@ -195,7 +195,7 @@
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="20dp"
-                android:background="@drawable/userinfo" />
+                android:background="@drawable/accountdelimg" />
 
             <RelativeLayout
                 android:id="@+id/rela2"
