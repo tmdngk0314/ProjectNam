@@ -170,9 +170,9 @@ public class CallRestApi {
         String[] lockername=new String[10];
         LockerInfo lockerinfo=new LockerInfo();
         try {
-            getRestAPI("/client/reservation/load_locker_count");
+            getRestAPI("client/reservation/load_locker_count");
             Integer lockercount = receivedJSONObject.getInt("result");
-            postRestAPI(info, "/client/reservation/load_locker_names");
+            postRestAPI(info, "client/reservation/load_locker_names");
             lockerinfo.init(lockercount);
         }
         catch(Exception e){
