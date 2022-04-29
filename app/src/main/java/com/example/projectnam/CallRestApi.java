@@ -195,13 +195,14 @@ public class CallRestApi {
             info.put("id", id);
             info.put("pw", pw);
             CurrentLoggedInID.ID=id;
-            CurrentLoggedInID.setAuthToken();
 
             postRestAPI(info, "client/login");
             String result="None";
             if(lastResponseCode==200) {
                 result = receivedJSONObject.getString("result");
                 if(result.compareTo("success")==0){
+                    String token=receivedJSONObject.getString("token");
+                    CurrentLoggedInID.setAuthToken(token);
                     CurrentLoggedInID.ID=id;
                     CurrentLoggedInID.name=receivedJSONObject.getString("name");
                     String email=receivedJSONObject.getString("email");

@@ -16,23 +16,8 @@ public class CurrentLoggedInID {
     public static void resetAuthToken(){
         token="";
     }
-    public static void setAuthToken() {
-        String newToken = null;
-        try {
-            SecureRandom secureRandom
-                    = SecureRandom.getInstance("SHA1PRNG");
-            MessageDigest digest
-                    = MessageDigest.getInstance("SHA-256");
-            secureRandom
-                    .setSeed(secureRandom.generateSeed(128));
-            newToken =
-                    new String(
-                            digest.digest(
-                                    (secureRandom.nextInt() + "")
-                                            .getBytes()));
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+    public static void setAuthToken(String newToken) {
+
         token= newToken;
     }
 
