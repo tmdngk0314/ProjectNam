@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -44,6 +45,22 @@ public class ReserveLongResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+
+        ok.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch(motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        ok.setBackgroundResource(R.drawable.touchreserve);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        ok.setBackgroundResource(R.drawable.reservebtn);
+                        return false;
+                    default: return false;
+                }
             }
         });
     }

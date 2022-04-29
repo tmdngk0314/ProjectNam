@@ -26,6 +26,7 @@ public class LockerClickListener implements AdapterView.OnItemClickListener {
         intent.putExtra("lockername",lockername);
         intent.putExtra("location",location);
         context.startActivity(intent);
+        ((LockerListActivity) context).finish();
 
 
     }
