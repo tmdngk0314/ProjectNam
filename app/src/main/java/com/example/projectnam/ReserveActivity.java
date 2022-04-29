@@ -20,6 +20,7 @@ import android.widget.TimePicker;
 
 public class ReserveActivity extends AppCompatActivity {
     ImageButton shortbtn, longbtn;
+    String location,lockername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +29,17 @@ public class ReserveActivity extends AppCompatActivity {
 
         shortbtn = findViewById(R.id.shortrent);
         longbtn = findViewById(R.id.longrent);
+        Intent is = getIntent();
+        location=is.getStringExtra("location");
+        lockername=is.getStringExtra("lockername");
+
 
         shortbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ReserveActivity.this, ReserveShortActivity.class);
+                intent.putExtra("lockername",lockername);
+                intent.putExtra("location",location);
                 startActivity(intent);
                 finish();
             }
@@ -42,6 +49,8 @@ public class ReserveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(ReserveActivity.this, ReserveLongActivity.class);
+                intent1.putExtra("lockername",lockername);
+                intent1.putExtra("location",location);
                 startActivity(intent1);
                 finish();
             }

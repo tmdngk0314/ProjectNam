@@ -23,9 +23,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="5"
+                android:text="3"
                 android:textColor="#000000"
-                android:textSize="60dp" />
+                android:textSize="40dp" />
 
             <TextView
                 android:id="@+id/text1"
@@ -33,9 +33,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@+id/LockernumText"
-                android:text="번 사물함을"
+                android:text="번 사물함을 이용하세요"
                 android:textColor="#000000"
-                android:textSize="45dp" />
+                android:textSize="30dp" />
         </LinearLayout>
 
         <TextView
@@ -44,54 +44,79 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/firstLinear"
             android:layout_marginLeft="10dp"
-            android:text="이용하세요"
+            android:layout_marginTop="20dp"
+            android:text="지역  -  "
             android:textColor="#000000"
-            android:textSize="45dp" />
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/firstLinear"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/text2"
+            android:text="성결대학교 오전동 학의로48"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:text="사물함 이름  - "
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_lockername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/text5"
+            android:text="블루밍 사물함"
+            android:textColor="#000000"
+            android:textSize="20dp" />
 
 
         <TextView
             android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text2"
+            android:layout_below="@+id/text5"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:text="이용날짜  - "
+            android:text="이용날짜  -    "
             android:textColor="#000000"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/usedate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text2"
+            android:layout_below="@id/text5"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/text3"
             android:text="2022.04.06"
             android:textColor="#000000"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/usedate2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/usedate"
-            android:layout_alignRight="@+id/usedate"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:text="~2022.04.12"
-            android:textColor="#000000"
-            android:textSize="30dp"
-            android:visibility="invisible" />
+
 
         <ImageButton
             android:id="@+id/nextBtn"
             android:layout_width="280dp"
             android:layout_height="40dp"
-            android:layout_below="@id/usedate2"
+            android:layout_below="@id/usedate"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:background="@drawable/ok" />
 
     </RelativeLayout>

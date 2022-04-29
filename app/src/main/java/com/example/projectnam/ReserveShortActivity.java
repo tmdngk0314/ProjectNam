@@ -21,6 +21,7 @@ import java.time.Month;
 public class ReserveShortActivity extends AppCompatActivity {
     ImageButton imgBtnLogout,nextBtn;
     CalendarView calender;
+    String location,lockername;
     int Year, Month, Day ;
     long now = System.currentTimeMillis();
 
@@ -38,7 +39,12 @@ public class ReserveShortActivity extends AppCompatActivity {
         imgBtnLogout = (ImageButton)findViewById(R.id.imgBtnLogout);
         nextBtn = (ImageButton)findViewById(R.id.nextBtn);
         calender = (CalendarView)findViewById(R.id.calender);
+        Intent is = getIntent();
+        location=is.getStringExtra("location");
+        lockername=is.getStringExtra("lockername");
         CalendarDate calendarDate = new CalendarDate();
+        Log.e("locker name -",lockername);
+        Log.e("location -",location);
 
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -70,6 +76,8 @@ public class ReserveShortActivity extends AppCompatActivity {
                 intent.putExtra("년",calendarDate.Year);
                 intent.putExtra("달",calendarDate.Month);
                 intent.putExtra("일",calendarDate.Day);
+                intent.putExtra("lockername",lockername);
+                intent.putExtra("location",location);
                 startActivity(intent);
                 finish();
             }
