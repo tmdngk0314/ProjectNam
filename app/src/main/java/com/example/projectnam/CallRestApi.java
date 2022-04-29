@@ -90,7 +90,7 @@ public class CallRestApi {
                     outputStream = conn.getOutputStream();
                     outputStream.write(sendJSON.toString().getBytes());
                     int response = conn.getResponseCode();
-                    Log.i("responseCode???", Integer.toString(response));
+                    Log.e("responseCode -> ", Integer.toString(response)); // 200 아니고 다른 숫자면 서버 문제
                     lastResponseCode=response;
                     String responseMessage = conn.getResponseMessage();
                     System.out.println("----responseMessage----- : "+responseMessage);
@@ -161,6 +161,39 @@ public class CallRestApi {
             Log.i("JSONException", "failed to put json data:"+e.getMessage());
             e.printStackTrace();
             return new NoticeInfo();
+        }
+    }
+
+    public LockerInfo loadLockerlist(){
+        JSONObject info= new JSONObject();
+        String[] location=new String[10];
+        String[] lockername=new String[10];
+        LockerInfo lockerinfo=new LockerInfo();
+        try {
+            getRestAPI("/client/reservation/load_locker_count");
+            Integer lockercount = receivedJSONObject.getInt("result");
+            postRestAPI(info, "/client/reservation/load_locker_names");
+            lockerinfo.init(lockercount);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        try{
+            for(int i=0; i<receivedJSONArray.length(); i++) {
+                lockername[i] = (String) receivedJSONArray.getJSONArray(i).get(0);
+                location[i] = (String) receivedJSONArray.getJSONArray(i).get(1);
+                Log.e("JSONArray로그",location[i] + lockername[i]);
+            }
+            lockerinfo.result="success";
+            lockerinfo.setLockername(lockername);
+            lockerinfo.setLocation(location);
+
+            return lockerinfo;
+        }
+        catch(Exception e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return new LockerInfo();
         }
     }
 
