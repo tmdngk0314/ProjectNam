@@ -2,8 +2,10 @@ package com.example.projectnam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -18,6 +20,7 @@ public class LockerListActivity extends AppCompatActivity {
     public ListView lockerlistView;
     private LockerListAdapter adapter;
 
+
     private String[] location = new String[20];
     private String[] lockername = new String[20];
 
@@ -31,11 +34,12 @@ public class LockerListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locker_list);
+        LockerClickListener lockerClickListener = new LockerClickListener(this);
 
         lockerlistView = (ListView) findViewById(R.id.lockerlistView);
 
         try {
-             apiCaller.getRestAPI("/client/reservation/load_locker_count");
+             apiCaller.getRestAPI("client/reservation/load_locker_count");
              OverrallList = apiCaller.receivedJSONObject.getInt("result");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -53,6 +57,9 @@ public class LockerListActivity extends AppCompatActivity {
 
         adapter = new LockerListAdapter(getApplicationContext(), lockerInfo,OverrallList);
         lockerlistView.setAdapter(adapter);
+
+        lockerlistView.setOnItemClickListener(lockerClickListener);
+
 
     }
 }

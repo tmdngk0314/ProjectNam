@@ -31,7 +31,8 @@ public class ReserveLongActivity extends AppCompatActivity {
     RelativeLayout relativeCalendar;
     TextView text1;
     int year,month,day,year2,month2,day2;
-    long tim, now = System.currentTimeMillis();  // 현재시간을 불러오는 변수 필요없누?
+    String location,lockername;
+    long tim, now = System.currentTimeMillis();  //
 
     CalendarDate calendarDate = new CalendarDate();
     int setTextLoca=0;
@@ -56,6 +57,9 @@ public class ReserveLongActivity extends AppCompatActivity {
         calendar = (CalendarView) findViewById(R.id.calendar);
         relativeCalendar = (RelativeLayout)findViewById(R.id.relativeCalendar);
         text1 = (TextView)findViewById(R.id.text1);
+        Intent is = getIntent();
+        location=is.getStringExtra("location");
+        lockername=is.getStringExtra("lockername");
 
         calendarDate.setCalendar(calendar);
 
@@ -134,6 +138,8 @@ public class ReserveLongActivity extends AppCompatActivity {
                 intent.putExtra("연2",year2);
                 intent.putExtra("월2",month2);
                 intent.putExtra("일2",day2);
+                intent.putExtra("lockername",lockername);
+                intent.putExtra("location",location);
                 startActivity(intent);
                 finish();
             }

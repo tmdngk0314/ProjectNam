@@ -71,12 +71,15 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     newPasstext.setVisibility(View.VISIBLE);
                     Renewpass.setBackgroundResource(R.drawable.border_red);
                     btn_ok.setEnabled(false);
+                    btn_ok.setBackgroundResource(R.drawable.ok_fail);
+
                 }
                 else {
                     newPasstext.setVisibility(View.INVISIBLE);
                     Renewpass.setBackgroundResource(R.drawable.border_gray);
                     if(newPassCheck_Edt.getText().toString().equals(txt)){
                         btn_ok.setEnabled(true);
+                        btn_ok.setBackgroundResource(R.drawable.ok);
                     }
                 }
 
@@ -103,16 +106,19 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     newPasschecktxt.setVisibility(View.VISIBLE);
                     Renewpasscheck.setBackgroundResource(R.drawable.border_red);
                     btn_ok.setEnabled(false);
+                    btn_ok.setBackgroundResource(R.drawable.ok_fail);
                 }
                 else{
                     newPasschecktxt.setVisibility(View.INVISIBLE);
                     Renewpasscheck.setBackgroundResource(R.drawable.border_gray);
                     if(isAvailable_pw(newPass_Edt.getText().toString()))
                         btn_ok.setEnabled(true);
+                        btn_ok.setBackgroundResource(R.drawable.ok);
                 }
 
             }
         });
+
         btn_ok.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
