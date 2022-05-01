@@ -206,13 +206,15 @@ public class CallRestApi {
             info.put("newId", id);
             info.put("pw", pw);
             postRestAPI(info, "newaccount");
-            String result;
-            result= receivedJSONObject.getString("result");
-            switch(result) {
-                case "success":
-                    SharedPreferences.Editor editor = deviceInfo.edit();
-                    editor.putString(id, receivedJSONObject.getString("otpkey"));
-                    editor.commit();
+            String result="None";
+            if(lastResponseCode==200) {
+                result = receivedJSONObject.getString("result");
+                switch (result) {
+                    case "success":
+                        SharedPreferences.Editor editor = deviceInfo.edit();
+                        editor.putString(id, receivedJSONObject.getString("otpkey"));
+                        editor.commit();
+                }
             }
             return result;
         } catch (JSONException e) {
@@ -348,12 +350,36 @@ public class CallRestApi {
             return "unknown";
         }
     }
+
+    public String reissuanceotp(SharedPreferences deviceInfo, String id){
+        JSONObject info = new JSONObject();
+        try{
+            postRestAPI(info, "client/reissuance_otpkey");
+            String result="None";
+            if(lastResponseCode==200) {
+                result = receivedJSONObject.getString("result");
+                if(result.equals("success")){
+                    SharedPreferences.Editor editor=deviceInfo.edit();
+                    String newKey=receivedJSONObject.getString("otpkey");
+                    editor.putString(id, newKey);
+                    editor.commit();
+                }
+            }
+            return result;
+        }
+        catch(JSONException e){
+            Log.i("JSONException", "failed to put json data:"+e.getMessage());
+            e.printStackTrace();
+            return "unknown";
+        }
+    }
     public ReservationStatus checkReservationStatus(){
         JSONObject info = new JSONObject();
         ReservationStatus status = new ReservationStatus();
         try{
             postRestAPI(info, "client/reservation/check_reservation_status");
             String result="None";
+            status.result=result;
             if(lastResponseCode==200) {
                 result = receivedJSONObject.getString("result");
                 status.result=result;
