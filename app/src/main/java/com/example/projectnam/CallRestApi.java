@@ -386,6 +386,7 @@ public class CallRestApi {
                     editor.putString("savedID", "");
                     editor.putString("savedPW", "");
                     editor.putBoolean("isSaved", false);
+                    editor.commit();
                 }
             }
             return result;
