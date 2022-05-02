@@ -2,6 +2,7 @@ package com.example.projectnam;
 
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
@@ -371,6 +372,26 @@ public class CallRestApi {
             Log.i("JSONException", "failed to put json data:"+e.getMessage());
             e.printStackTrace();
             return "unknown";
+        }
+    }
+    public String deleteAccount(SharedPreferences deviceSettings){
+        JSONObject info = new JSONObject();
+        try{
+            postRestAPI(info, "client/delete_account");
+            String result= "None";
+            if(lastResponseCode==200){
+                result=receivedJSONObject.getString("result");
+                if(result.equals("success")){
+                    SharedPreferences.Editor editor=deviceSettings.edit();
+                    editor.putString("savedID", "");
+                    editor.putString("savedPW", "");
+                    editor.putBoolean("isSaved", false);
+                }
+            }
+            return result;
+        }catch(Exception e){
+            e.printStackTrace();
+            return "None";
         }
     }
     public ReservationStatus checkReservationStatus(){
