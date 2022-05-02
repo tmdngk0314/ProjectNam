@@ -61,7 +61,7 @@
             android:background="@drawable/select_box">
 
             <ImageButton
-                android:id="@+id/storeimg"
+                android:id="@+id/img_reserve"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
@@ -73,7 +73,7 @@
                 android:layout_width="160dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/storeimg"
+                android:layout_toEndOf="@+id/img_reserve"
                 android:orientation="vertical">
 
                 <TextView
@@ -114,7 +114,7 @@
             android:background="@drawable/select_box">
 
             <ImageButton
-                android:id="@+id/searchimg"
+                android:id="@+id/img_otpcheck"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
@@ -126,7 +126,7 @@
                 android:layout_width="160dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/searchimg"
+                android:layout_toEndOf="@+id/img_otpcheck"
                 android:orientation="vertical">
 
                 <TextView
@@ -167,7 +167,7 @@
             android:background="@drawable/select_box">
 
             <ImageButton
-                android:id="@+id/infoimg"
+                android:id="@+id/img_myinfo"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
@@ -179,7 +179,7 @@
                 android:layout_width="160dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/infoimg"
+                android:layout_toEndOf="@+id/img_myinfo"
                 android:orientation="vertical">
 
                 <TextView
@@ -220,7 +220,7 @@
             android:background="@drawable/select_box">
 
             <ImageButton
-                android:id="@+id/noticeimg"
+                android:id="@+id/img_notice"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
@@ -232,7 +232,7 @@
                 android:layout_width="160dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/noticeimg"
+                android:layout_toEndOf="@+id/img_notice"
                 android:orientation="vertical">
 
                 <TextView
