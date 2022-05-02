@@ -152,5 +152,21 @@ public class ReserveLongActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        nextBtn.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View view, MotionEvent event){
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        nextBtn.setBackgroundResource(R.drawable.ok_touch);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        nextBtn.setBackgroundResource(R.drawable.ok);
+                        return false;
+                    default: return false;
+                }
+
+            }
+        });
+
     }
 }
