@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ import org.w3c.dom.Text;
 
 public class FixInfoActivity extends AppCompatActivity {
     RelativeLayout ChangePWrela;
-    RelativeLayout Rela_reissueOTP;
+    RelativeLayout Rela_reissueOTP, Rela_deleteAccount;
     TextView textname;
     TextView textemail;
     SharedPreferences deviceInfo;
@@ -38,6 +39,8 @@ public class FixInfoActivity extends AppCompatActivity {
         textemail.setText(CurrentLoggedInID.email);
         ChangePWrela = (RelativeLayout)findViewById(R.id.ChangePWrela);
         Rela_reissueOTP=(RelativeLayout)findViewById(R.id.OTPReissurela);
+        Rela_deleteAccount = (RelativeLayout)findViewById(R.id.AccountDelrela);
+
 
         deviceInfo=getSharedPreferences("accountOTP", 0);
 
@@ -46,6 +49,58 @@ public class FixInfoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FixInfoActivity.this, ChangePasswordActivity.class);
                 startActivity(intent);
+            }
+        });
+        ChangePWrela.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View view, MotionEvent event){
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        ChangePWrela.setBackgroundResource(R.drawable.select_box_touch);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        ChangePWrela.setBackgroundResource(R.drawable.select_box);
+                        return false;
+                    default: return false;
+                }
+
+            }
+        });
+
+        Rela_reissueOTP.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View view, MotionEvent event){
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        Rela_reissueOTP.setBackgroundResource(R.drawable.select_box_touch);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        Rela_reissueOTP.setBackgroundResource(R.drawable.select_box);
+                        return false;
+                    default: return false;
+                }
+
+            }
+        });
+
+        Rela_deleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FixInfoActivity.this, delaccount_pop_up_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Rela_deleteAccount.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View view, MotionEvent event){
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        Rela_deleteAccount.setBackgroundResource(R.drawable.select_box_touch);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        Rela_deleteAccount.setBackgroundResource(R.drawable.select_box);
+                        return false;
+                    default: return false;
+                }
+
             }
         });
         Rela_reissueOTP.setOnClickListener(new View.OnClickListener() {

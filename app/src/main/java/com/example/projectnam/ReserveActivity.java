@@ -45,6 +45,21 @@ public class ReserveActivity extends AppCompatActivity {
             }
         });
 
+        shortbtn.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View view, MotionEvent event){
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        shortbtn.setBackgroundResource(R.drawable.touchshortreserve);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        shortbtn.setBackgroundResource(R.drawable.shortrental);
+                        return false;
+                    default: return false;
+                }
+
+            }
+        });
+
         longbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +68,21 @@ public class ReserveActivity extends AppCompatActivity {
                 intent1.putExtra("location",location);
                 startActivity(intent1);
                 finish();
+            }
+        });
+
+        longbtn.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View view, MotionEvent event){
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        longbtn.setBackgroundResource(R.drawable.touchlongreserve);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        longbtn.setBackgroundResource(R.drawable.longrental);
+                        return false;
+                    default: return false;
+                }
+
             }
         });
 

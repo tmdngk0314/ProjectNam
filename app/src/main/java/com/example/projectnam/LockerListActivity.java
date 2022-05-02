@@ -37,15 +37,13 @@ public class LockerListActivity extends AppCompatActivity {
         LockerClickListener lockerClickListener = new LockerClickListener(this);
 
         lockerlistView = (ListView) findViewById(R.id.lockerlistView);
+        lockerInfo = apiCaller.loadLockerlist();
 
         try {
-             apiCaller.getRestAPI("client/reservation/load_locker_count");
              OverrallList = apiCaller.receivedJSONObject.getInt("result");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        lockerInfo = apiCaller.loadLockerlist();
 
         if(lockerInfo.result.equals("diffIP")){
             Log.e("Login Session", "다른 기기에서 로그인되었음" );
