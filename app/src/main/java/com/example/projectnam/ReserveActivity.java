@@ -17,6 +17,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.util.Log;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import org.json.JSONException;
 
 public class ReserveActivity extends AppCompatActivity {
     ImageButton shortbtn, longbtn;
@@ -32,7 +35,21 @@ public class ReserveActivity extends AppCompatActivity {
         Intent is = getIntent();
         location=is.getStringExtra("location");
         lockername=is.getStringExtra("lockername");
-
+        CallRestApi apiCaller=new CallRestApi();
+        FullReservationInfo fullReservationInfo;
+        fullReservationInfo = apiCaller.loadFullReservedDates(lockername);
+        if(fullReservationInfo.result.equals("success")){
+            for(int i=0; i<fullReservationInfo.list.length(); i++){
+                try {
+                    Log.e("received..:", fullReservationInfo.list.getString(i));
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }else if(fullReservationInfo.result.equals("no locker")){
+            Toast.makeText(this, "존재하지 않는 사물함입니다.", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         shortbtn.setOnClickListener(new View.OnClickListener() {
             @Override

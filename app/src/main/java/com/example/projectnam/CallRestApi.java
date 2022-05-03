@@ -425,4 +425,32 @@ public class CallRestApi {
             return status;
         }
     }
+    public FullReservationInfo loadFullReservedDates(String lockername){
+        JSONObject info = new JSONObject();
+        FullReservationInfo response=new FullReservationInfo();
+        try{
+            info.put("lockername", lockername);
+            postRestAPI(info, "client/reservation/load_full_reserved_dates");
+            response.result = "None";
+            if(lastResponseCode==200){
+                try{
+                    if(receivedJSONObject.getString("result").equals("no locker")){
+                        response.result="no locker";
+                        return response;
+                    }
+                }catch(Exception e){
+                    response.list = receivedJSONArray;
+                    response.result = "success";
+                    e.printStackTrace();
+                }
+
+                return response;
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            response.result="None";
+        }
+        return response;
+    }
 }
