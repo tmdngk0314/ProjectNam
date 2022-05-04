@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 public class ReserveStateActivity extends AppCompatActivity {
     TextView tv_lockername, tv_startdate, tv_enddate, tv_lockernum, tv_overdue1, tv_overdue2, tv_username, tv_locationtxt;
-    CallRestApi apiCaller = new CallRestApi();
     String usinglockername, startdate, enddate, location, status;
     Integer lockernum;
     ImageButton nextBtn;
