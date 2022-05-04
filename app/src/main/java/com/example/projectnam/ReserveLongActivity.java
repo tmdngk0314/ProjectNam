@@ -5,6 +5,7 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -131,17 +133,38 @@ public class ReserveLongActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReserveLongActivity.this, ReserveLongResultActivity.class);
-                intent.putExtra("연",year);
-                intent.putExtra("월",month);
-                intent.putExtra("일",day);
-                intent.putExtra("연2",year2);
-                intent.putExtra("월2",month2);
-                intent.putExtra("일2",day2);
-                intent.putExtra("lockername",lockername);
-                intent.putExtra("location",location);
-                startActivity(intent);
-                finish();
+                String startdate=year+"-"+month+"-"+day;
+                String enddate=year2+"-"+month2+"-"+day2;
+                CallRestApi apiCaller=new CallRestApi();
+                String result=apiCaller.reserve(lockername, startdate, enddate);
+                if(result.equals("success")) {
+                    Intent intent = new Intent(ReserveLongActivity.this, ReserveLongResultActivity.class);
+                    intent.putExtra("연", year);
+                    intent.putExtra("월", month);
+                    intent.putExtra("일", day);
+                    intent.putExtra("연2", year2);
+                    intent.putExtra("월2", month2);
+                    intent.putExtra("일2", day2);
+                    intent.putExtra("lockername", lockername);
+                    intent.putExtra("location", location);
+                    startActivity(intent);
+                    finish();
+                }else if(result.equals("diffIP")){
+                    Log.e("Login Session", "다른 기기에서 로그인되었음" );
+                    Toast.makeText(ReserveLongActivity.this, "다른 기기에서 로그인되어 종료합니다.", Toast.LENGTH_SHORT).show();
+                    apiCaller.logout();
+                    ActivityCompat.finishAffinity(ReserveLongActivity.this);
+                    System.exit(0);
+                }else if(result.equals("not idle")){
+                    Log.e("not idle:", "not idle");
+                    Toast.makeText(ReserveLongActivity.this, "사물함 이용 중엔 예약할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                }else if(result.equals("overdue")){
+                    Toast.makeText(ReserveLongActivity.this, "연체 중엔 예약할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                }else if(result.equals("full")){
+                    Toast.makeText(ReserveLongActivity.this, "해당 날짜에 예약이 가득 찼습니다.", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(ReserveLongActivity.this, "unknown statement", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         imgBtnLogout.setOnClickListener(new View.OnClickListener() {

@@ -453,4 +453,22 @@ public class CallRestApi {
         }
         return response;
     }
+    public String reserve(String lockername, String startdate, String enddate){
+        JSONObject info = new JSONObject();
+        try{
+            info.put("lockername", lockername);
+            info.put("startdate", startdate);
+            info.put("enddate", enddate);
+            String result="None";
+            postRestAPI(info, "client/reservation/reserve");
+            if(lastResponseCode==200){
+                result=receivedJSONObject.getString("result");
+                return result;
+            }
+            return result;
+        }catch(Exception e){
+            e.printStackTrace();
+            return "unknown statement";
+        }
+    }
 }
