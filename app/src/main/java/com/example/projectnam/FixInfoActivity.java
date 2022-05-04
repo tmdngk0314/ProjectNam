@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,21 @@ public class FixInfoActivity extends AppCompatActivity {
     TextView textname;
     TextView textemail;
     SharedPreferences deviceInfo;
+    ImageButton im_delaccount, im_otpre, im_chagepw;
+
+    public boolean onTouchReserve(MotionEvent event, RelativeLayout a){
+        switch(event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                a.setBackgroundResource(R.drawable.select_box_touch);
+                return false;
+            case MotionEvent.ACTION_UP:
+                a.setBackgroundResource(R.drawable.select_box);
+                return false;
+            default: return false;
+        }
+    }
+
+
     @Override
     protected void onDestroy() {
         CallRestApi apiCaller = new CallRestApi();
@@ -40,6 +56,9 @@ public class FixInfoActivity extends AppCompatActivity {
         ChangePWrela = (RelativeLayout)findViewById(R.id.ChangePWrela);
         Rela_reissueOTP=(RelativeLayout)findViewById(R.id.OTPReissurela);
         Rela_deleteAccount = (RelativeLayout)findViewById(R.id.AccountDelrela);
+        im_chagepw = (ImageButton)findViewById(R.id.ChangePWimg);
+        im_otpre = (ImageButton) findViewById(R.id.OTPReissuimg);
+        im_delaccount = (ImageButton)findViewById(R.id.AccountDelimg);
 
 
         deviceInfo=getSharedPreferences("accountOTP", 0);
@@ -53,31 +72,33 @@ public class FixInfoActivity extends AppCompatActivity {
         });
         ChangePWrela.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        ChangePWrela.setBackgroundResource(R.drawable.select_box_touch);
-                        return false;
-                    case MotionEvent.ACTION_UP:
-                        ChangePWrela.setBackgroundResource(R.drawable.select_box);
-                        return false;
-                    default: return false;
-                }
+                return onTouchReserve(event, ChangePWrela);
 
+            }
+        });
+        im_chagepw.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return onTouchReserve(event, ChangePWrela);
             }
         });
 
         Rela_reissueOTP.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        Rela_reissueOTP.setBackgroundResource(R.drawable.select_box_touch);
-                        return false;
-                    case MotionEvent.ACTION_UP:
-                        Rela_reissueOTP.setBackgroundResource(R.drawable.select_box);
-                        return false;
-                    default: return false;
-                }
+                return onTouchReserve(event, Rela_reissueOTP);
 
+            }
+        });
+        im_otpre.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return onTouchReserve(event,Rela_reissueOTP);
+            }
+        });
+        im_delaccount.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return onTouchReserve(event, Rela_deleteAccount);
             }
         });
 
@@ -91,15 +112,7 @@ public class FixInfoActivity extends AppCompatActivity {
 
         Rela_deleteAccount.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        Rela_deleteAccount.setBackgroundResource(R.drawable.select_box_touch);
-                        return false;
-                    case MotionEvent.ACTION_UP:
-                        Rela_deleteAccount.setBackgroundResource(R.drawable.select_box);
-                        return false;
-                    default: return false;
-                }
+                return onTouchReserve(event, Rela_deleteAccount);
 
             }
         });
