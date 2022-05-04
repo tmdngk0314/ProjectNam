@@ -80,7 +80,7 @@
             android:layout_marginTop="20dp"
             android:text="사물함 위치  - "
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/locationtxt"
@@ -90,57 +90,67 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/text5"
-            android:text="성결대학교"
+            android:text="안양시 만안구 성결대학로53 성결대학교 성결관 209호"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/text7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/locationtxt"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="사물함 이름 - "
+            android:textColor="#000000"
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/lockername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Gubunsun"
+            android:layout_below="@id/locationtxt"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_toRightOf="@id/locationtxt"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/text7"
             android:text=" 블루"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text5"
+            android:layout_below="@+id/lockername"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:text="이용날짜  - "
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/startdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text5"
+            android:layout_below="@id/lockername"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/text3"
             android:text="2022.04.06"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/enddate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text5"
-            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/lockername"
             android:layout_marginTop="10dp"
             android:layout_marginRight="0dp"
             android:layout_toRightOf="@+id/startdate"
             android:text="~2022.04.12"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/text4"
@@ -151,7 +161,7 @@
             android:layout_marginTop="10dp"
             android:text="사물함 번호  - "
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/lockernum"
@@ -163,17 +173,18 @@
             android:layout_toRightOf="@+id/text4"
             android:text="이용 중이 아닙니다."
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
+
         <TextView
+            android:id="@+id/text6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="연체 여부  - "
             android:layout_below="@+id/lockernum"
-            android:textColor="#000000"
-            android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/text6"/>
+            android:text="연체 여부  - "
+            android:textColor="#000000"
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/overdue1"
@@ -185,7 +196,7 @@
             android:layout_toRightOf="@+id/text6"
             android:text="X"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/overdue2"
@@ -196,8 +207,8 @@
             android:layout_marginTop="5dp"
             android:text="연체 되셨습니다. 보관한 물품은 관리자에게 받아가세요."
             android:textColor="#ff0000"
-            android:visibility="invisible"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            android:visibility="invisible" />
 
 
         <ImageButton

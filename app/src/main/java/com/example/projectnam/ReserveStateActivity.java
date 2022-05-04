@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ReserveStateActivity extends AppCompatActivity {
@@ -11,6 +14,7 @@ public class ReserveStateActivity extends AppCompatActivity {
     CallRestApi apiCaller = new CallRestApi();
     String usinglockername, startdate, enddate, location, status;
     Integer lockernum;
+    ImageButton nextBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,7 @@ public class ReserveStateActivity extends AppCompatActivity {
         tv_overdue1 = (TextView) findViewById(R.id.overdue1);
         tv_overdue2 = (TextView) findViewById(R.id.overdue2);
         tv_username = (TextView) findViewById(R.id.username);
+        nextBtn = (ImageButton)findViewById(R.id.nextBtn);
         Intent intent = getIntent();
         status=intent.getStringExtra("result");
         usinglockername = intent.getStringExtra("usinglockername");
@@ -38,8 +43,37 @@ public class ReserveStateActivity extends AppCompatActivity {
         tv_username.setText(CurrentLoggedInID.name);
         tv_lockername.setText(usinglockername);
         tv_startdate.setText(startdate);
-        tv_enddate.setText(enddate);
+        tv_enddate.setText(" ~ "+enddate);
         tv_locationtxt.setText(location);
+
+        if(status.equals("overdue")){
+            tv_overdue1.setText("O");
+            tv_overdue2.setVisibility(View.VISIBLE);
+        }
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReserveStateActivity.this, SelectActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        nextBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        nextBtn.setBackgroundResource(R.drawable.ok_touch);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        nextBtn.setBackgroundResource(R.drawable.ok);
+                        return false;
+                    default: return false;
+                }
+            }
+        });
 
 
 
