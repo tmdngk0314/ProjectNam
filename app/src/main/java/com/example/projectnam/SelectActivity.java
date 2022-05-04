@@ -56,7 +56,7 @@ public class SelectActivity extends AppCompatActivity {
 
     public void onClickReserve(View v){
         CallRestApi apiCaller = new CallRestApi();
-        ReservationStatus status=new ReservationStatus();
+        ReservationStatus status;
         status=apiCaller.checkReservationStatus();
         Intent intent = new Intent(SelectActivity.this, LockerListActivity.class);
         Intent intent2 = new Intent(SelectActivity.this,ReserveStateActivity.class);

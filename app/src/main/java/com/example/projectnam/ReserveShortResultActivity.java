@@ -27,8 +27,8 @@ public class ReserveShortResultActivity extends AppCompatActivity {
         tv_location=(TextView)findViewById(R.id.tv_location);
         tv_lockername=(TextView)findViewById(R.id.tv_lockername);
 
-        year = getIntent().getExtras().getInt("년");
-        month = getIntent().getExtras().getInt("달");
+        year = getIntent().getExtras().getInt("연");
+        month = getIntent().getExtras().getInt("월");
         day = getIntent().getExtras().getInt("일");
         location=getIntent().getExtras().getString("location");
         lockername=getIntent().getExtras().getString("lockername");
