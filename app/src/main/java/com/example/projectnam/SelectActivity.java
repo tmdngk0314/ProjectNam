@@ -42,17 +42,18 @@ public class SelectActivity extends AppCompatActivity {
         }
     }
 
-    public boolean onTouchReserve(MotionEvent event){
+    public boolean onTouchReserve(MotionEvent event, RelativeLayout a){
         switch(event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                reserveRela.setBackgroundResource(R.drawable.select_box_touch);
+                a.setBackgroundResource(R.drawable.select_box_touch);
                 return false;
             case MotionEvent.ACTION_UP:
-                reserveRela.setBackgroundResource(R.drawable.select_box);
+                a.setBackgroundResource(R.drawable.select_box);
                 return false;
             default: return false;
         }
     }
+
     public void onClickReserve(View v){
         CallRestApi apiCaller = new CallRestApi();
         ReservationStatus status=new ReservationStatus();
@@ -120,12 +121,12 @@ public class SelectActivity extends AppCompatActivity {
         imgBtnreserve.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                return onTouchReserve(event);
+                return onTouchReserve(event, reserveRela);
             }
         });
         reserveRela.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                return onTouchReserve(event);
+                return onTouchReserve(event, reserveRela);
             }
         });
         OTPRela.setOnClickListener(new View.OnClickListener() {
@@ -169,7 +170,15 @@ public class SelectActivity extends AppCompatActivity {
         });
         imgBtnLogout.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-               return onTouchReserve(event);
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        imgBtnLogout.setBackgroundResource(R.drawable.select_logout_touch);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        imgBtnLogout.setBackgroundResource(R.drawable.select_logout);
+                        return false;
+                    default: return false;
+                }
 
             }
         });
@@ -187,13 +196,13 @@ public class SelectActivity extends AppCompatActivity {
         });
         noticeRela.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                return onTouchReserve(event);
+                return onTouchReserve(event, noticeRela);
 
             }
         });
         imgBtnnotice.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                return onTouchReserve(event);
+                return onTouchReserve(event, noticeRela);
 
             }
         });
@@ -214,25 +223,25 @@ public class SelectActivity extends AppCompatActivity {
         myInfoRela.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-               return onTouchReserve(motionEvent);
+               return onTouchReserve(motionEvent, myInfoRela);
             }
         });
         imgBtnmyinfo.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                return onTouchReserve(event);
+                return onTouchReserve(event, myInfoRela);
             }
         });
         OTPRela.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return onTouchReserve(motionEvent);
+                return onTouchReserve(motionEvent, OTPRela);
             }
         });
         imgBtnotpcheck.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return onTouchReserve(motionEvent);
+                return onTouchReserve(motionEvent, OTPRela);
             }
         });
 
