@@ -220,5 +220,14 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/ok" />
 
+        <ImageButton
+            android:id="@+id/btn_cancelreserve"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/nextBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="#ff0000"/>
+
     </RelativeLayout>
 </RelativeLayout>

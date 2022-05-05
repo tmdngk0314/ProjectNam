@@ -471,4 +471,21 @@ public class CallRestApi {
             return "unknown statement";
         }
     }
+
+    public String CancelReservation(SharedPreferences deviceSettings){
+        JSONObject info = new JSONObject();
+        try{
+            String result="None";
+            postRestAPI(info, "client/reservation/cancel");
+            if(lastResponseCode==200){
+                result=receivedJSONObject.getString("result");
+            }
+            return result;
+        }catch(Exception e){
+            e.printStackTrace();
+            return "unknown statement";
+        }
+
+    }
+
 }
