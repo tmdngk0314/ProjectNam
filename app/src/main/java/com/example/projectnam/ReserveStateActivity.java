@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,8 @@ public class ReserveStateActivity extends AppCompatActivity {
     Integer lockernum;
     ImageButton nextBtn;
     ImageButton btn_cancelreserved;
+    RelativeLayout pop_up_cancel;
+    Button okbtn, cancelbtn;
 
 
     @Override
@@ -37,6 +40,10 @@ public class ReserveStateActivity extends AppCompatActivity {
         tv_username = (TextView) findViewById(R.id.username);
         nextBtn = (ImageButton)findViewById(R.id.nextBtn);
         btn_cancelreserved = (ImageButton)findViewById(R.id.btn_cancelreserve);
+        pop_up_cancel = (RelativeLayout)findViewById(R.id.pop_up_cancel);
+        okbtn = (Button)findViewById(R.id.okBtn);
+        cancelbtn = (Button)findViewById(R.id.cancelBtn);
+
         Intent intent = getIntent();
         status=intent.getStringExtra("result");
         usinglockername = intent.getStringExtra("usinglockername");
@@ -85,6 +92,14 @@ public class ReserveStateActivity extends AppCompatActivity {
         btn_cancelreserved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pop_up_cancel.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        okbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 SharedPreferences deviceSettings = getSharedPreferences("deviceSettings", 0);
                 CallRestApi apiCaller=new CallRestApi();
                 String result = apiCaller.CancelReservation(deviceSettings);
@@ -105,9 +120,12 @@ public class ReserveStateActivity extends AppCompatActivity {
 
             }
         });
-
-
-
+        cancelbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pop_up_cancel.setVisibility(View.INVISIBLE);
+            }
+        });
 
     }
 }

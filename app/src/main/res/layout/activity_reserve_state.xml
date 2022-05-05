@@ -230,4 +230,50 @@
             android:background="#ff0000"/>
 
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:background="#5bbfb5"
+        android:id="@+id/pop_up_cancel"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="정말 예약을 취소하시겠습니까?"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/okBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/text"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:text="예"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/text"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/okBtn"
+            android:layout_marginTop="10dp"
+            android:text="아니오"
+            android:textSize="18dp" />
+
+
+    </RelativeLayout>
 </RelativeLayout>
