@@ -107,10 +107,10 @@ public class ReserveStateActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        nextBtn.setBackgroundResource(R.drawable.delaccount_img_touch);
+                        btn_cancelreserved.setBackgroundResource(R.drawable.delaccount_img_touch);
                         return false;
                     case MotionEvent.ACTION_UP:
-                        nextBtn.setBackgroundResource(R.drawable.delaccount_img);
+                        btn_cancelreserved.setBackgroundResource(R.drawable.delaccount_img);
                         return false;
                     default:
                         return false;
