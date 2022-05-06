@@ -109,7 +109,7 @@
             android:layout_below="@id/usedate2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:background="@drawable/reservebtn" />
+            android:background="@drawable/ok" />
 
     </RelativeLayout>
 </RelativeLayout>

@@ -54,10 +54,10 @@ public class ReserveLongResultActivity extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch(motionEvent.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        ok.setBackgroundResource(R.drawable.touchreserve);
+                        ok.setBackgroundResource(R.drawable.ok_touch);
                         return false;
                     case MotionEvent.ACTION_UP:
-                        ok.setBackgroundResource(R.drawable.reservebtn);
+                        ok.setBackgroundResource(R.drawable.ok);
                         return false;
                     default: return false;
                 }
