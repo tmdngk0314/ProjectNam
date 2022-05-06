@@ -227,7 +227,7 @@
             android:layout_below="@id/nextBtn"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:background="#ff0000"
+            android:background="@drawable/delaccount_img"
             android:visibility="visible" />
 
     </RelativeLayout>

@@ -102,6 +102,22 @@ public class ReserveStateActivity extends AppCompatActivity {
 
             }
         });
+        btn_cancelreserved.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        nextBtn.setBackgroundResource(R.drawable.delaccount_img_touch);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        nextBtn.setBackgroundResource(R.drawable.delaccount_img);
+                        return false;
+                    default:
+                        return false;
+                }
+            }
+        });
+
 
         okbtn.setOnClickListener(new View.OnClickListener() {
             @Override

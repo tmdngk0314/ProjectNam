@@ -23,9 +23,16 @@
         <entry key="..\:/Users/JW K/AndroidStudioProjects/Projectnam/ProjectNam/app/src/main/res/layout/activity_delaccount_pop_up.xml" value="0.264" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/drawable/border_gray.xml" value="0.163" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/font/font.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_change_password.xml" value="0.1" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_delaccount_pop_up.xml" value="0.13405797101449277" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_email_verification.xml" value="0.1" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_fix_info.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_locker_list.xml" value="0.1" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_main.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_notice_information.xml" value="0.1" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_otp.xml" value="0.1" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_otp_popup.xml" value="0.1" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_re_info_check.xml" value="0.1" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_reserve.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_reserve_long.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_reserve_long_result.xml" value="0.14719202898550723" />
@@ -33,6 +40,8 @@
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_reserve_short_result.xml" value="0.14719202898550723" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_reserve_state.xml" value="0.11730072463768115" />
         <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_select.xml" value="0.1598731884057971" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
+        <entry key="..\:/Users/tmdng/AndroidStudioProjects/ProjectNam/app/src/main/res/layout/notice_shape.xml" value="0.1" />
       </map>
     </option>
   </component>
