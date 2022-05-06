@@ -91,7 +91,20 @@ public class ReserveShortActivity extends AppCompatActivity {
             }
         });
 
-        nextBtn.setOnTouchListener(new OkTouch());
+        nextBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        nextBtn.setBackgroundResource(R.drawable.touchreserve);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        nextBtn.setBackgroundResource(R.drawable.reservebtn);
+                        return false;
+                    default: return false;
+                }
+            }
+        });
 
     }
 }
