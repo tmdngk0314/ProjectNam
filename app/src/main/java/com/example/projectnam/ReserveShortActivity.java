@@ -54,20 +54,7 @@ public class ReserveShortActivity extends AppCompatActivity {
                 finish();
             }
         });
-        imgBtnLogout.setOnTouchListener(new View.OnTouchListener(){
-            public boolean onTouch(View view, MotionEvent event){
-                switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        imgBtnLogout.setBackgroundResource(R.drawable.select_logout_touch);
-                        return false;
-                    case MotionEvent.ACTION_UP:
-                        imgBtnLogout.setBackgroundResource(R.drawable.select_logout);
-                        return false;
-                    default: return false;
-                }
 
-            }
-        });
         calender.setOnDateChangeListener(calendarDate);
         calender.setMinDate(now);
         nextBtn.setOnClickListener(new View.OnClickListener(){
