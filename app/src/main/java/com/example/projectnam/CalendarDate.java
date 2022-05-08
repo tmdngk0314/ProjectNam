@@ -42,10 +42,10 @@ public class CalendarDate implements CalendarView.OnDateChangeListener {
             Year = startYear;
             Month = startMonth;
             Day = startDay;
-            calendar.setMinDate(now);
-            calendar.setDate(tim);
+            calendar.setMinDate(now+86400000);
+            calendar.setDate(tim+86400000);
         }
-        else calendar.setMinDate(tim);
+        else calendar.setMinDate(tim+86400000);
 
     }
     public void setOffset(int offset) {

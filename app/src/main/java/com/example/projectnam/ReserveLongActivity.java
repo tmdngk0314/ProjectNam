@@ -43,6 +43,8 @@ public class ReserveLongActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(ReserveLongActivity.this, ReserveActivity.class);
+        intent.putExtra("location", location);
+        intent.putExtra("lockername", lockername);
         startActivity(intent);
     }
 
@@ -171,6 +173,8 @@ public class ReserveLongActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ReserveLongActivity.this, ReserveActivity.class);
+                intent.putExtra("location", location);
+                intent.putExtra("lockername", lockername);
                 startActivity(intent);
                 finish();
             }

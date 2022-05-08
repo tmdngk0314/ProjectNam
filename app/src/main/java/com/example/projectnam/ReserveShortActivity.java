@@ -30,6 +30,8 @@ public class ReserveShortActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(ReserveShortActivity.this, ReserveActivity.class);
+        intent.putExtra("location", location);
+        intent.putExtra("lockername", lockername);
         startActivity(intent);
     }
 
@@ -44,12 +46,14 @@ public class ReserveShortActivity extends AppCompatActivity {
         location=is.getStringExtra("location");
         lockername=is.getStringExtra("lockername");
         CalendarDate calendarDate = new CalendarDate();
-        Log.e("locker name -",lockername);
-        Log.e("location -",location);
+        Log.e("locker name -",":"+lockername);
+        Log.e("location -",":"+location);
 
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(ReserveShortActivity.this, ReserveActivity.class);
+                intent.putExtra("location", location);
+                intent.putExtra("lockername", lockername);
                 startActivity(intent);
                 finish();
             }
@@ -69,7 +73,7 @@ public class ReserveShortActivity extends AppCompatActivity {
             }
         });
         calender.setOnDateChangeListener(calendarDate);
-        calender.setMinDate(now);
+        calender.setMinDate(now+86400000);
         nextBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String startdate=calendarDate.Year+"-"+calendarDate.Month+"-"+calendarDate.Day;
