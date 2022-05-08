@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -22,7 +23,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 
 public class ReserveActivity extends AppCompatActivity {
-    ImageButton shortbtn, longbtn;
+    ImageButton shortbtn, longbtn,imageBtnback;
     String location,lockername;
 
     @Override
@@ -32,6 +33,7 @@ public class ReserveActivity extends AppCompatActivity {
 
         shortbtn = findViewById(R.id.shortrent);
         longbtn = findViewById(R.id.longrent);
+        imageBtnback = (ImageButton)findViewById(R.id.imgBtnback);
         Intent is = getIntent();
         location=is.getStringExtra("location");
         lockername=is.getStringExtra("lockername");
@@ -57,6 +59,14 @@ public class ReserveActivity extends AppCompatActivity {
                 Intent intent = new Intent(ReserveActivity.this, ReserveShortActivity.class);
                 intent.putExtra("lockername",lockername);
                 intent.putExtra("location",location);
+                startActivity(intent);
+                finish();
+            }
+        });
+        imageBtnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReserveActivity.this, LockerListActivity.class);
                 startActivity(intent);
                 finish();
             }

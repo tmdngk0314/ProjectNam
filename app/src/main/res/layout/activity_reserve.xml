@@ -12,7 +12,7 @@
         android:background="#ffffff">
 
         <ImageButton
-            android:id="@+id/imgBtnLogout"
+            android:id="@+id/imgBtnback"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"

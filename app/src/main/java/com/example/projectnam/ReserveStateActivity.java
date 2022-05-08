@@ -53,6 +53,7 @@ public class ReserveStateActivity extends AppCompatActivity {
         if(status.equals("using")) {
             lockernum = intent.getIntExtra("lockernum", 0);
             tv_lockernum.setText(Integer.toString(lockernum));
+            btn_cancelreserved.setVisibility(View.INVISIBLE);
         }
         tv_username.setText(CurrentLoggedInID.name);
         tv_lockername.setText(usinglockername);
@@ -63,6 +64,11 @@ public class ReserveStateActivity extends AppCompatActivity {
         if(status.equals("overdue")){
             tv_overdue1.setText("O");
             tv_overdue2.setVisibility(View.VISIBLE);
+            btn_cancelreserved.setVisibility(View.INVISIBLE);
+        }
+
+        if(status.equals("reserved")){
+            btn_cancelreserved.setVisibility(View.VISIBLE);
         }
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +102,22 @@ public class ReserveStateActivity extends AppCompatActivity {
 
             }
         });
+        btn_cancelreserved.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        btn_cancelreserved.setBackgroundResource(R.drawable.delaccount_img_touch);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        btn_cancelreserved.setBackgroundResource(R.drawable.delaccount_img);
+                        return false;
+                    default:
+                        return false;
+                }
+            }
+        });
+
 
         okbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,7 +132,7 @@ public class ReserveStateActivity extends AppCompatActivity {
                     System.exit(0);
                 }
                 else if(result.equals("not reserved")){
-                    Toast.makeText(ReserveStateActivity.this,  "예약된 사물함이 없습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ReserveStateActivity.this,  "사물함을 이용 중입니다.", Toast.LENGTH_SHORT).show();
                     finish();
                 }
                 else if(result.equals("success")){

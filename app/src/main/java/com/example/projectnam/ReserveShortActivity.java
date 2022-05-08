@@ -58,20 +58,7 @@ public class ReserveShortActivity extends AppCompatActivity {
                 finish();
             }
         });
-        imgBtnLogout.setOnTouchListener(new View.OnTouchListener(){
-            public boolean onTouch(View view, MotionEvent event){
-                switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        imgBtnLogout.setBackgroundResource(R.drawable.select_logout_touch);
-                        return false;
-                    case MotionEvent.ACTION_UP:
-                        imgBtnLogout.setBackgroundResource(R.drawable.select_logout);
-                        return false;
-                    default: return false;
-                }
 
-            }
-        });
         calender.setOnDateChangeListener(calendarDate);
         calender.setMinDate(now+86400000);
         nextBtn.setOnClickListener(new View.OnClickListener(){
@@ -108,7 +95,20 @@ public class ReserveShortActivity extends AppCompatActivity {
             }
         });
 
-        nextBtn.setOnTouchListener(new OkTouch());
+        nextBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        nextBtn.setBackgroundResource(R.drawable.touchreserve);
+                        return false;
+                    case MotionEvent.ACTION_UP:
+                        nextBtn.setBackgroundResource(R.drawable.reservebtn);
+                        return false;
+                    default: return false;
+                }
+            }
+        });
 
     }
 }

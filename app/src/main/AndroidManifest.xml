@@ -38,9 +38,6 @@
             android:name=".EmailVerificationActivity"
             android:exported="false" />
         <activity
-            android:name=".ReInfoCheckActivity"
-            android:exported="false" />
-        <activity
             android:name=".FixInfoActivity"
             android:exported="false" />
         <activity
