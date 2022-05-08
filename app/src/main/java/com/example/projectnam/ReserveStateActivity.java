@@ -74,8 +74,6 @@ public class ReserveStateActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReserveStateActivity.this, SelectActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
