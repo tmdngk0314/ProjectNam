@@ -38,7 +38,8 @@ public class ReserveLongActivity extends AppCompatActivity {
 
     CalendarDate calendarDate = new CalendarDate();
     int setTextLoca=0;
-
+    Boolean isStartSelected=false;
+    Boolean isEndSelected=false;
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -77,7 +78,7 @@ public class ReserveLongActivity extends AppCompatActivity {
                 calendarDate.setOffset(setTextLoca);
                 calendarDate.setMax();
                 calendarDate.setMin();
-
+                isStartSelected=true;
             }
         });
         restartBtn1.setOnClickListener(new View.OnClickListener(){
@@ -90,6 +91,7 @@ public class ReserveLongActivity extends AppCompatActivity {
                 calendarDate.setOffset(setTextLoca);
                 calendarDate.setMax();
                 calendarDate.setMin();
+                isEndSelected=true;
             }
         });
 
@@ -136,6 +138,10 @@ public class ReserveLongActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!(isStartSelected && isEndSelected)){
+                    Toast.makeText(ReserveLongActivity.this, "날짜를 모두 선택하세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String startdate=year+"-"+month+"-"+day;
                 String enddate=year2+"-"+month2+"-"+day2;
                 CallRestApi apiCaller=new CallRestApi();
