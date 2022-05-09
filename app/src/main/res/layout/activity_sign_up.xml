@@ -222,7 +222,7 @@
                 android:layout_alignStart="@id/ReName"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="0dp"
-                android:text="비밀번호는 8~16자의 영문/숫자/특수문자(!@#$%^*,./?) 조합으로 입력하세요."
+                android:text="비밀번호는 8~16자의 영문/숫자/특수문자( !@#$%^*() ) 조합으로 입력하세요."
                 android:textColor="#FF0000"
                 android:textSize="10dp"
                 android:visibility="invisible" />

@@ -27,9 +27,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
         if(str.length()>16 || str.length()<8){
             return false;
         }
-        if(str!=null  && str.matches("[a-z|A-Z|0-9|!|@|#|$|%|^|*|,|.|/|?]*")) {
+        if(str!=null  && str.matches("[a-z|A-Z|0-9|!|@|#|$|%|^|*|(|)]*")) {
             if(str.matches(".*[0-9].*")) {
-                if (str.matches(".*[!|@|#|$|%|^|*|,|.|/|?].*"))
+                if (str.matches(".*[!|@|#|$|%|^|*|(|)].*"))
                     if(str.matches(".*[a-z|A-Z].*"))
                         return true;
             }
