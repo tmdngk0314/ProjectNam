@@ -61,6 +61,7 @@ public class ReserveShortActivity extends AppCompatActivity {
 
         calender.setOnDateChangeListener(calendarDate);
         calender.setMinDate(now+86400000);
+        calender.setDate(now+86400000);
         nextBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String startdate=calendarDate.Year+"-"+calendarDate.Month+"-"+calendarDate.Day;

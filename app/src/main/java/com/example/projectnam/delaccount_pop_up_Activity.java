@@ -20,7 +20,12 @@ public class delaccount_pop_up_Activity extends AppCompatActivity {
 
         okbtn = (Button) findViewById(R.id.okBtn);
         cancelbtn = (Button) findViewById(R.id.cancelBtn);
-
+        cancelbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         okbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -32,7 +32,7 @@ public class ReserveLongActivity extends AppCompatActivity {
     CalendarView calendar;
     RelativeLayout relativeCalendar;
     TextView text1;
-    int year,month,day,year2,month2,day2;
+    int year=0,month=0,day=0,year2=0,month2=0,day2=0;
     String location,lockername;
     long tim, now = System.currentTimeMillis();  //
 
@@ -107,11 +107,12 @@ public class ReserveLongActivity extends AppCompatActivity {
                     calendarDate.saveStart();
                 }
                 else {
+                    calendarDate.saveFinish();
                     restartBtn2.setText(calendarDate.Year+"년" + calendarDate.Month+ "월" + calendarDate.Day + "일");
                     year2 = calendarDate.Year;
                     month2 = calendarDate.Month;
                     day2 = calendarDate.Day;
-                    calendarDate.saveFinish();
+
                 }
             }
         });
