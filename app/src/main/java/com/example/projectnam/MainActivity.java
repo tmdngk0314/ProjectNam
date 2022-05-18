@@ -133,8 +133,6 @@ public class MainActivity extends AppCompatActivity {
         });
         new_account.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent event){
-                float curX = event.getX();
-                float curY = event.getY();
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         new_account.setTextColor(Color.GRAY);
