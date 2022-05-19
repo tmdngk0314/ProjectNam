@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -19,6 +20,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.io.Reader;
+import java.util.regex.Pattern;
 
 public class ActivitySignUp extends AppCompatActivity {
     private ImageButton make_id;
@@ -48,6 +50,7 @@ public class ActivitySignUp extends AppCompatActivity {
     private boolean available_pwchk=false;
 
     SharedPreferences deviceInfo;
+    Pattern emailPattern= Patterns.EMAIL_ADDRESS;
 
     boolean isAllAvailable(){
         if(available_name==true && available_email==true && available_id==true
@@ -72,24 +75,10 @@ public class ActivitySignUp extends AppCompatActivity {
         }
     }
     boolean isAvailable_email(String str){
-        if(str.length()<3){
+        if(!emailPattern.matcher(str).matches()){
             return false;
         }
-        if(str!=null  && str.matches("[a-z|A-Z|0-9|@|.]*")) {
-            int atSignIndex = str.indexOf('@');
-            int dotIndex = str.indexOf('.');
-            if(atSignIndex<0 || dotIndex<0) // .과 @가 포함되지 않았을 경우
-                return false;
-            else if(atSignIndex==0 || atSignIndex==str.length()) // @가 이메일 맨 처음이나 끝에 있을 경우
-                return false;
-            else if(countChar(str, '@')!=1) // @가 1개가 아닐 경우
-                return false;
-            else if(dotIndex==str.length()-1 || dotIndex<atSignIndex+2) // .의 위치가 바르지 않을 경우
-                return false;
-            else
-                return true;
-        }
-        return false;
+        else return true;
     }
 
     boolean isAvailable_id(String str){
