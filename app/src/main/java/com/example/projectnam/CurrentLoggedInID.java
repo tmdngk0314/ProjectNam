@@ -1,15 +1,20 @@
 package com.example.projectnam;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-
 public class CurrentLoggedInID {
     public static String ID="";
     public static String name="";
     public static String email="";
     public static Boolean isLoggedIn=false;
     private static String token="";
+    private static String fcmtoken="";
+
+    public static String getFCMtoken() {
+        return fcmtoken;
+    }
+    public static void setFCMToken(String input){
+        fcmtoken=input;
+    }
+
     public static String getAuthToken(){
         return token;
     }

@@ -7,12 +7,9 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -20,7 +17,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONObject;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +41,18 @@ public class MainActivity extends AppCompatActivity {
         edt_inputpw=(EditText)findViewById(R.id.edt_inputpw);
         chk_saveAccount=(CheckBox)findViewById(R.id.chk_saveaccount);
         new_account.setPaintFlags(new_account.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        // 푸시 알림 토큰 가져오기
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( MainActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String newToken = instanceIdResult.getToken();
+                Log.e("newToken",newToken);
+                CurrentLoggedInID.setFCMToken(newToken);
+            }
+        });
+
+
 
         deviceSettings = getSharedPreferences("deviceSettings", 0);
         SharedPreferences.Editor editor = deviceSettings.edit();

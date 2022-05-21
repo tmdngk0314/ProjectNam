@@ -105,6 +105,8 @@ public class SelectActivity extends AppCompatActivity {
 
         startService(new Intent(this, ForcedTerminationService.class)); // 앱 강제종료 시 로그아웃하는 서비스
 
+        CallRestApi apiCaller = new CallRestApi();
+        apiCaller.setFCMToken();
 
         imgBtnreserve.setOnClickListener(new View.OnClickListener() {
             @Override

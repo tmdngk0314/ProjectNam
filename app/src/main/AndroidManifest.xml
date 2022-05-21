@@ -17,6 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/ProjectNam"
         android:usesCleartextTraffic="true">
+        <service
+            android:name=".ForcedTerminationService"
+            android:stopWithTask="false" />
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".delaccount_pop_up_Activity"
             android:exported="false"
@@ -49,11 +61,6 @@
         <activity
             android:name=".ReserveShortResultActivity"
             android:exported="false" />
-
-        <service
-            android:name=".ForcedTerminationService"
-            android:stopWithTask="false" />
-
         <activity
             android:name=".ReserveLongActivity"
             android:exported="false" />
