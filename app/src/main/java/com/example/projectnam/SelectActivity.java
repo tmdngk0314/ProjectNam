@@ -108,6 +108,11 @@ public class SelectActivity extends AppCompatActivity {
         CallRestApi apiCaller = new CallRestApi();
         apiCaller.setFCMToken();
 
+        if(CurrentLoggedInID.reservePush){
+            CurrentLoggedInID.reservePush=false;
+            onClickReserve(OTPRela);
+        }
+
         imgBtnreserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

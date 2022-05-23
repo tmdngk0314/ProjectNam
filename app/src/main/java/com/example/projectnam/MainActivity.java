@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         deviceSettings = getSharedPreferences("deviceSettings", 0);
         SharedPreferences.Editor editor = deviceSettings.edit();
         isSaved=deviceSettings.getBoolean("isSaved", false);

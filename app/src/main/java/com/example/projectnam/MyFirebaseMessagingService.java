@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
@@ -68,12 +70,52 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }catch(Exception e){
             e.printStackTrace();
         }
-        PendingIntent mPendingIntent = PendingIntent.getActivity( // 알림 클릭 시 액티비티 이동
-                this,
-                0, // 보통 default값 0을 삽입
-                new Intent(getApplicationContext(),MainActivity.class),
-                PendingIntent.FLAG_IMMUTABLE
-        );
+        PendingIntent mPendingIntent;
+        if(!CurrentLoggedInID.isLoggedIn) {
+            Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+            mPendingIntent = PendingIntent.getActivity( // 알림 클릭 시 액티비티 이동
+                    this,
+                    0, // 보통 default값 0을 삽입
+                    new Intent(getApplicationContext(), MainActivity.class),
+                    PendingIntent.FLAG_IMMUTABLE
+            );
+            CurrentLoggedInID.reservePush=true;
+        }else{
+            CallRestApi apiCaller = new CallRestApi();
+            ReservationStatus status;
+            status=apiCaller.checkReservationStatus();
+            Intent intent = new Intent(getApplicationContext(), LockerListActivity.class);
+            Intent intent2 = new Intent(getApplicationContext(),ReserveStateActivity.class);
+            Log.e("test", status.result);
+            if(status.result.equals("idle")) {
+                mPendingIntent = PendingIntent.getActivity( // 알림 클릭 시 액티비티 이동
+                        this,
+                        0, // 보통 default값 0을 삽입
+                        intent,
+                        PendingIntent.FLAG_IMMUTABLE
+                );
+            }
+            else if(status.result.equals("reserved") || status.result.equals("using") || status.result.equals("overdue")){
+                intent2.putExtra("result", status.result);
+                intent2.putExtra("startdate", status.startdate);
+                intent2.putExtra("enddate", status.enddate);
+                intent2.putExtra("usinglockername", status.usinglockername);
+                intent2.putExtra("location", status.location);
+                if(status.result.equals("using"))
+                    intent2.putExtra("lockernum", status.lockernum);
+                mPendingIntent = PendingIntent.getActivity( // 알림 클릭 시 액티비티 이동
+                        this,
+                        0, // 보통 default값 0을 삽입
+                        intent2,
+                        PendingIntent.FLAG_IMMUTABLE
+                );
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "unkown statement", Toast.LENGTH_SHORT).show();
+                mPendingIntent=null;
+            }
+
+        }
         notificationBuilder.setAutoCancel(true)
                 .setColor(ContextCompat.getColor(this, R.color.black))
                 .setContentTitle(getString(R.string.app_name))
