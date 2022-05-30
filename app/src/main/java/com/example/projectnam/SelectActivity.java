@@ -112,6 +112,7 @@ public class SelectActivity extends AppCompatActivity {
             CurrentLoggedInID.reservePush="";
             onClickReserve(OTPRela);
         }else if(CurrentLoggedInID.reservePush.equals("notice")){
+            CurrentLoggedInID.reservePush="";
             Intent intent = new Intent(SelectActivity.this, NoticeActivity.class);
             startActivity(intent);
         }
