@@ -108,9 +108,13 @@ public class SelectActivity extends AppCompatActivity {
         CallRestApi apiCaller = new CallRestApi();
         apiCaller.setFCMToken();
 
-        if(CurrentLoggedInID.reservePush){
-            CurrentLoggedInID.reservePush=false;
+        if(CurrentLoggedInID.reservePush.equals("client_overdue")){
+            CurrentLoggedInID.reservePush="";
             onClickReserve(OTPRela);
+        }else if(CurrentLoggedInID.reservePush.equals("notice")){
+            CurrentLoggedInID.reservePush="";
+            Intent intent = new Intent(SelectActivity.this, NoticeActivity.class);
+            startActivity(intent);
         }
 
         imgBtnreserve.setOnClickListener(new View.OnClickListener() {

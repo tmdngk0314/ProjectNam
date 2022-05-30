@@ -7,7 +7,7 @@ public class CurrentLoggedInID {
     public static Boolean isLoggedIn=false;
     private static String token="";
     private static String fcmtoken="";
-    public static Boolean reservePush=false;
+    public static String reservePush="";
     public static String getFCMtoken() {
         return fcmtoken;
     }
