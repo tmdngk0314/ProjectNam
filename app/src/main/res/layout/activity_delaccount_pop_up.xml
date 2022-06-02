@@ -5,7 +5,7 @@
     android:layout_height="160dp"
     tools:context=".otp_popup_Activity"
     android:layout_gravity="center"
-    android:background="#5bbfb5">
+    android:background="#ADBEDE">
 
     <TextView
         android:id="@+id/text"
