@@ -29,6 +29,8 @@ public class LockerListActivity extends AppCompatActivity {
     int OverrallList;
 
     CallRestApi apiCaller = new CallRestApi();
+    ImageButton goSelectAct;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,15 @@ public class LockerListActivity extends AppCompatActivity {
         LockerClickListener lockerClickListener = new LockerClickListener(this);
 
         lockerlistView = (ListView) findViewById(R.id.lockerlistView);
+        goSelectAct = (ImageButton)findViewById(R.id.goSelectAct);
         lockerInfo = apiCaller.loadLockerlist();
+
+        goSelectAct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         try {
              OverrallList = apiCaller.receivedJSONObject.getInt("result");

@@ -20,7 +20,7 @@ public class ReserveStateActivity extends AppCompatActivity {
     String usinglockername, startdate, enddate, location, status;
     Integer lockernum;
     ImageButton nextBtn;
-    ImageButton btn_cancelreserved;
+    ImageButton btn_cancelreserved,goSelectAct;
     RelativeLayout pop_up_cancel;
     Button okbtn, cancelbtn;
 
@@ -43,6 +43,7 @@ public class ReserveStateActivity extends AppCompatActivity {
         pop_up_cancel = (RelativeLayout)findViewById(R.id.pop_up_cancel);
         okbtn = (Button)findViewById(R.id.okBtn);
         cancelbtn = (Button)findViewById(R.id.cancelBtn);
+        goSelectAct = (ImageButton)findViewById(R.id.goSelectAct);
 
         Intent intent = getIntent();
         status=intent.getStringExtra("result");
@@ -72,6 +73,12 @@ public class ReserveStateActivity extends AppCompatActivity {
         }
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        goSelectAct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
