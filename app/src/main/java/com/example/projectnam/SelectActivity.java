@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,6 +19,7 @@ public class SelectActivity extends AppCompatActivity {
     public static Boolean isLoggedOutByButton=false;
     ImageButton imgBtnLogout, imgBtnreserve, imgBtnotpcheck, imgBtnmyinfo, imgBtnnotice;
     RelativeLayout myInfoRela, reserveRela, OTPRela, noticeRela;
+    ImageButton btn_reservearrow, btn_OTParrow, btn_infoarrow, btn_noticearrow;
     NfcAdapter mNfcAdapter;
 
 
@@ -99,6 +99,10 @@ public class SelectActivity extends AppCompatActivity {
         reserveRela = (RelativeLayout)findViewById(R.id.firstRela);
         OTPRela = (RelativeLayout)findViewById(R.id.secondRela);
         noticeRela = (RelativeLayout)findViewById(R.id.forthRela);
+        btn_reservearrow =(ImageButton)findViewById(R.id.btn_firstarrow);
+        btn_OTParrow =findViewById(R.id.btn_secondarrow);
+        btn_infoarrow =findViewById(R.id.btn_thirdarrow);
+        btn_noticearrow =findViewById(R.id.btn_fourtharrow);
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -129,6 +133,12 @@ public class SelectActivity extends AppCompatActivity {
                onClickReserve(v);
             }
         });
+        btn_reservearrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickReserve(view);
+            }
+        });
         imgBtnreserve.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -140,30 +150,52 @@ public class SelectActivity extends AppCompatActivity {
                 return onTouchReserve(event, reserveRela);
             }
         });
+        btn_reservearrow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return onTouchReserve(motionEvent, reserveRela);
+            }
+        });
         OTPRela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelectActivity.this, otp_popup_Activity.class);
+                //Intent intent = new Intent(SelectActivity.this, otp_popup_Activity.class);
                 Intent intent1 = new Intent(SelectActivity.this, OtpActivity.class);
-
+                /*
                 if(!mNfcAdapter.isEnabled()) {
                     startActivity(intent);
                 }
-
                 else startActivity(intent1);
-
+                */
+                startActivity(intent1);
+            }
+        });
+        btn_OTParrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(SelectActivity.this, otp_popup_Activity.class);
+                Intent intent1 = new Intent(SelectActivity.this, OtpActivity.class);
+                /*
+                if(!mNfcAdapter.isEnabled()) {
+                    startActivity(intent);
+                }
+                else startActivity(intent1);
+                */
+                startActivity(intent1);
             }
         });
         imgBtnotpcheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelectActivity.this, otp_popup_Activity.class);
+                //Intent intent = new Intent(SelectActivity.this, otp_popup_Activity.class);
                 Intent intent1 = new Intent(SelectActivity.this, OtpActivity.class);
-
+                /*
                 if(!mNfcAdapter.isEnabled()) {
                     startActivity(intent);
                 }
                 else startActivity(intent1);
+                */
+                startActivity(intent1);
             }
         });
         imgBtnLogout.setOnClickListener(new View.OnClickListener(){
@@ -199,6 +231,13 @@ public class SelectActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btn_noticearrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectActivity.this, NoticeActivity.class);
+                startActivity(intent);
+            }
+        });
         imgBtnnotice.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent = new Intent(SelectActivity.this, NoticeActivity.class);
@@ -217,7 +256,20 @@ public class SelectActivity extends AppCompatActivity {
 
             }
         });
+        btn_noticearrow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return onTouchReserve(motionEvent, noticeRela);
+            }
+        });
         myInfoRela.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectActivity.this,EmailVerificationActivity.class);
+                startActivity(intent);
+            }
+        });
+        btn_infoarrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SelectActivity.this,EmailVerificationActivity.class);
@@ -237,6 +289,11 @@ public class SelectActivity extends AppCompatActivity {
                return onTouchReserve(motionEvent, myInfoRela);
             }
         });
+        btn_infoarrow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return onTouchReserve(motionEvent, myInfoRela);            }
+        });
         imgBtnmyinfo.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -244,6 +301,12 @@ public class SelectActivity extends AppCompatActivity {
             }
         });
         OTPRela.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return onTouchReserve(motionEvent, OTPRela);
+            }
+        });
+        btn_OTParrow.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return onTouchReserve(motionEvent, OTPRela);

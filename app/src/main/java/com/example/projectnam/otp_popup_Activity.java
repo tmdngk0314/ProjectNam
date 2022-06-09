@@ -1,5 +1,11 @@
 package com.example.projectnam;
 
+/*
+ NFC 기능 미구현으로 더 이상 사용되지 않음.
+
+
+*/
+ /*
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -40,4 +46,4 @@ public class otp_popup_Activity extends AppCompatActivity {
         });
 
     }
-}
+}*/

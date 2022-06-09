@@ -96,6 +96,7 @@
             </LinearLayout>
 
             <ImageButton
+                android:id="@+id/btn_firstarrow"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
@@ -149,6 +150,7 @@
             </LinearLayout>
 
             <ImageButton
+                android:id="@+id/btn_secondarrow"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
@@ -202,6 +204,7 @@
             </LinearLayout>
 
             <ImageButton
+                android:id="@+id/btn_thirdarrow"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
@@ -255,6 +258,7 @@
             </LinearLayout>
 
             <ImageButton
+                android:id="@+id/btn_fourtharrow"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
